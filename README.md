@@ -13,6 +13,4 @@ Caso esteja tendo algum problema com a instalação ou execução do projeto, ad
 
 Feito isso só rodar:
 
-    ```sh
     $ meteor
-    ```
