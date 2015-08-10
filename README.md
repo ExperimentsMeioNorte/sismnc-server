@@ -1,7 +1,6 @@
-# sismnc
-Sistema Meio Norte de Comunicação
+## Sistema Meio Norte de Comunicação
 
-Aplicativo interativo do sistema (Meteor & AngularJS)
+# Aplicativo interativo do sistema (Meteor & AngularJS)
 
 Caso esteja tendo algum problema com a instalação ou execução do projeto, adicione as bibliotecas necessárias:
 
@@ -20,3 +19,19 @@ Não esquecer de rodar antes:
 Feito isso só rodar:
 
     $ meteor
+
+## Ajuda & Produção
+
+Instalação do Yeoman:
+
+    $ npm install -g yo
+
+[yeoman](http://yeoman.io/)
+
+Instalação do Gerador Yeoman:
+
+    $ npm install -g generator-angular-meteor
+
+[yeoman-generator](https://github.com/ndxbxrme/generator-angular-meteor)
+
+Pronto, divirta-se :D
