@@ -11,11 +11,11 @@ Não esquecer de rodar antes:
 
 ..e os demais:
 
-urigo:angular - [urigo:angular](https://github.com/Urigo/angular-meteor)
-angularui:angular-ui-router - [angularui:angular-ui-router](https://github.com/angular-ui/ui-router)
-fourseven:scss - [fourseven:scss](https://github.com/fourseven/meteor-scss)
-angular:angular-material - [angular:angular-material](https://github.com/angular/material)
-mquandalle:bower - [mquandalle:bower](https://github.com/mquandalle/meteor-bower)
+ - urigo:angular - [urigo:angular](https://github.com/Urigo/angular-meteor)
+ - angularui:angular-ui-router - [angularui:angular-ui-router](https://github.com/angular-ui/ui-router)
+ - fourseven:scss - [fourseven:scss](https://github.com/fourseven/meteor-scss)
+ - angular:angular-material - [angular:angular-material](https://github.com/angular/material)
+ - mquandalle:bower - [mquandalle:bower](https://github.com/mquandalle/meteor-bower)
 
 Feito isso só rodar:
 
