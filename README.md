@@ -1,7 +1,7 @@
 # sismnc
 Sistema Meio Norte de Comunicação
 
-Aplicativo interativo do sistema #(Meteor & AngularJS)
+Aplicativo interativo do sistema (Meteor & AngularJS)
 
 Caso esteja tendo algum problema com a instalação ou execução do projeto, adicione as bibliotecas necessárias:
 
