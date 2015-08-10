@@ -1,4 +1,4 @@
-<md-toolbar class="toolbar" layout="row" layout-align="space-between center" md-scroll-shrink>
+<md-toolbar layout="row" layout-align="space-between center" md-scroll-shrink>
 
   <navbar-left class="nav-left" flex=''>
 
@@ -9,12 +9,16 @@
   </navbar-left>
 
   <div class="title-center" flex=''>
-    <a href="/"><img src="/images/logo-white.png" height="42" /></a>
+    <a href="/">
+      <img src="/images/logo-white.png" height="42" />
+    </a>
   </div>
 
   <navbar-right class="nav-right" flex=''>
 
-    <md-button class="button" ng-href="/about">About</md-button>
+    <md-button class="button" ng-href="/about">
+        <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+    </md-button>
 
   </navbar-right>
 

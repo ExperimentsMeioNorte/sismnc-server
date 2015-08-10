@@ -17,4 +17,5 @@ angular.module('sismncApp')
   $scope.remove = function(thing) {
     $scope.things.remove(thing);
   };
-});
+})
+
