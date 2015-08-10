@@ -4,7 +4,7 @@
 
 Caso esteja tendo algum problema com a instalação ou execução do projeto, adicione as bibliotecas necessárias:
 
-Não esquecer de rodar antes:
+Não esquecer de adicionar antes:
 
     $ meteor add urigo:angular
 
