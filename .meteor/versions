@@ -1,6 +1,6 @@
-angular:angular@1.4.2
-angular:angular-animate@1.4.2
-angular:angular-aria@1.4.2
+angular:angular@1.4.3
+angular:angular-animate@1.4.3
+angular:angular-aria@1.4.3
 angular:angular-material@0.10.0
 angularui:angular-ui-router@0.2.15
 autopublish@1.0.3
