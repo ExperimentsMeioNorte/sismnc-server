@@ -1,4 +1,4 @@
-'use strict'
+/*'use strict'
 
 angular.module('sismncApp')
 .directive('toolbar', function() {
@@ -7,4 +7,4 @@ angular.module('sismncApp')
     templateUrl: 'client/components/toolbar/toolbar.view.ng.html',
     replace: true
   };
-});
+});*/

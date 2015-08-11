@@ -1,4 +1,4 @@
-'use strict'
+/*'use strict'
 
 angular.module('sismncApp')
 .config(function($stateProvider) {
@@ -8,4 +8,4 @@ angular.module('sismncApp')
     templateUrl: 'client/about/about.view.ng.html',
     controller: 'AboutCtrl'
   });
-});
+});*/
