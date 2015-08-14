@@ -1,4 +1,4 @@
-'use strict'
+/*'use strict'
 
 angular.module('sismncApp')
 .controller('MainCtrl', function($scope, $meteor) {
@@ -17,5 +17,5 @@ angular.module('sismncApp')
   $scope.remove = function(thing) {
     $scope.things.remove(thing);
   };
-})
+})*/
 
