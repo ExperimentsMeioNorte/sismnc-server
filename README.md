@@ -6,31 +6,14 @@ Caso esteja tendo algum problema com a instalação ou execução do projeto, ad
 
 Não esquecer de adicionar antes:
 
-    $ meteor add urigo:angular
+    $ meteor add fourseven:scss
 
 ..e os demais:
 
- - urigo:angular - [urigo:angular](https://github.com/Urigo/angular-meteor)
- - angularui:angular-ui-router - [angularui:angular-ui-router](https://github.com/angular-ui/ui-router)
  - fourseven:scss - [fourseven:scss](https://github.com/fourseven/meteor-scss)
- - angular:angular-material - [angular:angular-material](https://github.com/angular/material)
+ - spectrum:material-design-lite - [spectrum:material-design-lite](https://github.com/acidsound/meteor-material-design-lite)
+ - iron:router - [iron:router](https://github.com/iron-meteor/iron-router)
 
 Feito isso só rodar:
 
     $ meteor
-
-## Ajuda & Produção
-
-Instalação do Yeoman:
-
-    $ npm install -g yo
-
-[yeoman](http://yeoman.io/)
-
-Instalação do Gerador Yeoman:
-
-    $ npm install -g generator-angular-meteor
-
-[yeoman-generator](https://github.com/ndxbxrme/generator-angular-meteor)
-
-Pronto, divirta-se :D
