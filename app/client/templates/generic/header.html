@@ -1,5 +1,18 @@
 <template name="header">
-   <header>
-    <h1>{{title}}</h1>
-  </header>
+
+  <nav class="main-header">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Sistema</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!">one</a></li>
+          <li><a href="#!">two</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">three</a></li>
+        </ul>
+      </ul>
+    </div>
+  </nav>
+
 </template>
