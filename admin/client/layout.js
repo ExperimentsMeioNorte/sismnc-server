@@ -1,6 +1,6 @@
-Template.layout.helpers({
+Template.ApplicationLayout.helpers({
 })
 
-Template.layout.events({
+Template.ApplicationLayout.events({
 
 });
