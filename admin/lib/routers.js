@@ -4,38 +4,34 @@ Router.configure({
 
 Router.map(function() {
 
-    this.route('/',
-        {
-            layoutTemplate: 'ApplicationLayout',
-            yieldTemplates: {
-                'header': {to: 'header'},
-                'footer': {to: 'footer'},
-            }
+    this.route('/', {
+      layoutTemplate: 'ApplicationLayout',
+      yieldTemplates: {
+          'header': {to: 'header'},
+          'footer': {to: 'footer'},
+      }
+    });
+
+    this.route('login', {
+      layoutTemplate: 'login',
+      onBeforeAction: function(){
+        if(Meteor.userId2 === undefined){
+            Router.go('/login');
         }
-    );
 
-    this.route('login',
-        {
-            layoutTemplate: 'login',
-            onBeforeAction: function(){
-                if(Meteor.userId2 === undefined){
-                    Router.go('/login');
-                }
-
-                Accounts.ui.config({
-                    /*requestPermissions: {
-                        facebook: ['user_likes']
-                    },*/
-                    requestOfflineToken: {
-                        google: true
-                    },
-                    passwordSignupFields: 'EMAIL_ONLY'
-                });
+        Accounts.ui.config({
+            /*requestPermissions: {
+                facebook: ['user_likes']
+            },*/
+            requestOfflineToken: {
+                google: true
+            },
+            passwordSignupFields: 'EMAIL_ONLY'
+        });
 
 
-                this.next();
-            }
-        }
-    );
+        this.next();
+      }
+    });
 
 });
