@@ -2,10 +2,40 @@ Router.configure({
     layoutTemplate: 'ApplicationLayout'
 });
 
-Router.route('/', function () {
+Router.map(function() {
 
-  this.layout('ApplicationLayout');
-  this.render('header', {to: 'header'});
-  this.render('footer', {to: 'footer'});
+    this.route('/',
+        {
+            layoutTemplate: 'ApplicationLayout',
+            yieldTemplates: {
+                'header': {to: 'header'},
+                'footer': {to: 'footer'},
+            }
+        }
+    );
+
+    this.route('login',
+        {
+            layoutTemplate: 'login',
+            onBeforeAction: function(){
+                if(Meteor.userId2 === undefined){
+                    Router.go('/login');
+                }
+
+                Accounts.ui.config({
+                    /*requestPermissions: {
+                        facebook: ['user_likes']
+                    },*/
+                    requestOfflineToken: {
+                        google: true
+                    },
+                    passwordSignupFields: 'EMAIL_ONLY'
+                });
+
+
+                this.next();
+            }
+        }
+    );
 
 });
