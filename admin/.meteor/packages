@@ -5,7 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 fourseven:scss
 iron:router
+jparker:crypto-md5
+accounts-ui-unstyled
+accounts-google
+accounts-facebook
