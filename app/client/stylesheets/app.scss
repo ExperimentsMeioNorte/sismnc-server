@@ -1,5 +1,22 @@
+/** Autor: Allan Alexandre
+*** ================================ */
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+
 .main-header {
   margin-bottom:20px;
 
-  .brand-logo {margin-left:20px;}
+
+
+  .left {
+    .brand-logo {
+      left:20%;
+    }
+  }
+
+  .right {
+    a {
+      line-height:56px!important;
+    }
+  }
 }
