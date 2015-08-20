@@ -498,3 +498,5 @@ Meteor.zion.collections.userban.attachSchema(Meteor.zion.schemas.userban);
 Meteor.zion.routers();
 
 //Meteor.zion.collections.instituition.insert({name: "Meio Norte"}, function(error, result) {});
+
+// fim
