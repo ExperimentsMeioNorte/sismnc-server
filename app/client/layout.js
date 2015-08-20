@@ -1,6 +1,3 @@
-Template.ApplicationLayout.helpers({
-})
-
-Template.ApplicationLayout.events({
-
-});
+Template.layout.rendered = function () {
+  // ...
+};

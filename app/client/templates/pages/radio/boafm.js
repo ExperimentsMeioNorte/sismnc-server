@@ -1,0 +1,3 @@
+Template.boafm.rendered = function () {
+  // ...
+};

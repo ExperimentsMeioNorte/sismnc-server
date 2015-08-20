@@ -1,0 +1,3 @@
+Template.television.rendered = function () {
+  // ...
+};

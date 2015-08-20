@@ -1,0 +1,3 @@
+Template.authentication.rendered = function () {
+  // ...
+};
