@@ -2,10 +2,17 @@ Router.route('/login', {
     name: 'login',
     controller: RouteController.extend({
         layoutTemplate: 'login',
-        onBeforeAction: function(){
-            Meteor.zion.functions.validateUserLogin();
-            Meteor.zion.functions.accountUiConfig();
-            this.next();
+        waitOn: function(){
+            Accounts.ui.config({
+                /*requestPermissions: {
+                    facebook: ['user_likes']
+                },
+                requestOfflineToken: {
+                    google: true
+                },*/
+                forceApprovalPrompt:  true
+                //passwordSignupFields: 'USERNAME_AND_EMAIL'
+            });
         }
     })
 });

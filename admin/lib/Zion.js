@@ -1,23 +1,5 @@
 Meteor.zion = {
     functions: {
-        accountUiConfig: function(){
-            Accounts.ui.config({
-                /*requestPermissions: {
-                    facebook: ['user_likes']
-                },*/
-                requestOfflineToken: {
-                    google: false
-                },
-                passwordSignupFields: 'EMAIL_ONLY'
-            });
-        },
-
-        validateUserLogin: function(){
-            if(Meteor.userId === undefined){
-                Router.go('/login');
-            }
-        },
-
         dateNow: function(){
             var dateObj = (new Date());
             return dateObj.getDate() + '/' + (dateObj.getMonth()+1) + '/' + dateObj.getFullYear() + ' ' + dateObj.getHours() + ':' +  dateObj.getMinutes() + ':' + dateObj.getSeconds()
