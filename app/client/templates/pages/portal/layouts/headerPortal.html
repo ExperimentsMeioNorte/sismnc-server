@@ -1,20 +1,13 @@
 <template name="headerPortal">
 
-  <nav class="main-header">
-    <div class="nav-wrapper">
+  <nav class="main-header header">
 
-      <div class="left">
-        <a href="/" class="brand-logo">
-          Portal meionorte.com
-        </a>
-      </div>
-
-      <ul class="right">
-        <li><a href="#"><i class="material-icons">search</i></a></li>
-        <li><a href="#"><i class="material-icons">more_vert</i></a></li>
-      </ul>
-
+    <div class="side-left">
+      <a href="{{ pathFor 'home' }}" class="button btn-flat" data-transition-out="slideFadeRightOut" data-transition-in="slideFadeLeftIn">
+        <img src="images/home/icons/icon-back.svg" height="18" />
+      </a>
     </div>
+
   </nav>
 
 </template>

@@ -1,8 +1,10 @@
 // Rota Boa FM
-Router.route('/boa-fm', {
-  name: 'boafm',
-  layoutTemplate: 'boafm',
-  yieldTemplates: {
-    'headerBOAFM': {to: 'header'}
-  }
+Router.route('/boafm', function(){
+
+  this.layout('ApplicationLayout');
+  this.render('boafm');
+  this.render('headerBOAFM', {to: 'header'});
+
+}, {
+  name: 'boafm'
 });

@@ -1,8 +1,10 @@
-// Rota Portal
-Router.route('/rede-meionorte', {
-  name: 'televisao',
-  layoutTemplate: 'television',
-  yieldTemplates: {
-    'headerTelevision': {to: 'header'}
-  }
+// Rota Rede Meio Norte
+Router.route('/rede-meionorte', function(){
+
+  this.layout('ApplicationLayout');
+  this.render('television');
+  this.render('headerTelevision', {to: 'header'});
+
+}, {
+  name: 'television'
 });

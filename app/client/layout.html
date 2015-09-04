@@ -1,9 +1,11 @@
 <template name="ApplicationLayout">
 
-  {{> yield "header" }}
+  {{> navigation }}
 
-  <main class="content">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel eros turpis. Sed faucibus non velit ac placerat. Aenean maximus pretium nulla, ac eleifend sem lobortis a. Nulla sed neque ex. Donec vestibulum porta massa sit amet ultricies. Donec lacus nunc, tempor quis quam ac, blandit sagittis nunc. Vivamus bibendum volutpat mauris, nec vestibulum quam facilisis ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis euismod suscipit tincidunt. Nulla sed neque sed urna posuere rhoncus non a eros. Donec ultricies lorem turpis. Praesent a ipsum convallis, tincidunt nunc quis, placerat purus. Nunc pharetra consequat pellentesque.
-  </main>
+  <div class="transitions-container" style="height:100%;">
+
+    {{> yield }}
+
+  </div>
 
 </template>

@@ -1,18 +1,53 @@
 /** Autor: Allan Alexandre
 *** ================================ */
 
-.main-header {
-  margin-bottom:20px;
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 
-  .left {
-    .brand-logo {
-      left:20px;
+  overflow-y:scroll;
+  height:100%;
+
+}
+
+
+.header {
+  position:fixed;height:46px;line-height:46px;top:0;left:0;width:100%;
+
+  .button {
+    height:46px;line-height:46px;padding:6px 1rem;
+    img {
+      margin:2px 0;
+    }
+
+    &:active {
+      background:rgba(0,0,0,.1);
     }
   }
 
-  .right {
-    a {
-      line-height:56px!important;
+  .side-left, .side-right {
+    height:46px;line-height:46px;
+
+    .button {
+      cursor:pointer;
     }
+
+  }
+  .side-left {
+    float:left;
+  }
+  .side-right {
+    float:right;
   }
 }
+
+// Padrão de formulário
+.form-pattern  {
+  .upload-image {
+    padding:15px 0;background:#f8f8fc;width:100%;margin-bottom:15px;
+  }
+  .title-form {
+    margin:15px;font-size:18px;
+  }
+}
+

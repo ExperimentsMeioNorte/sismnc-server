@@ -1,0 +1,64 @@
+<template name="home">
+
+  <div class="home-page transitions-content">
+
+    <header class="header">
+
+      <div class="side-left">
+        <a href="#" class="button btn-flat button-collapse" data-activates="main-navigation">
+          <img src="images/home/icons/menu.svg" height="16" />
+        </a>
+      </div>
+
+      <a href="#" class="logo">
+        <img src="images/home/logo-white.png" width="204" height="120" />
+      </a>
+
+      <div class="side-right">
+        <a href="#modal-about" class="button btn-flat modal-trigger">
+          <img src="images/home/icons/info.svg" height="22" />
+        </a>
+      </div>
+
+    </header>
+
+    <main class="content">
+
+      <div class="row">
+        <div class="box-television col s6">
+          <a href="{{pathFor 'television'}}" data-transition-out="scaleOut" data-transition-in="scaleIn">
+            <img src="images/home/icons/icon-television.png" width="100" height="100" />
+            <strong>TELEVISÃO</strong>
+          </a>
+        </div>
+        <div class="box-newspaper col s6">
+          <a href="{{pathFor 'newspaper'}}" data-transition-out="scaleOut" data-transition-in="scaleIn">
+            <img src="images/home/icons/icon-newspaper.png" width="100" height="100" />
+            <strong>JORNAL</strong>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="box-portal col s6">
+          <a href="{{pathFor 'portal'}}" data-transition-out="scaleOut" data-transition-in="scaleIn">
+            <img src="images/home/icons/icon-portal.png" width="100" height="100" />
+            <strong>PORTAL</strong>
+          </a>
+        </div>
+        <div class="box-radios col s6">
+          <a href="#" data-transition-out="scaleOut" data-transition-in="scaleIn">
+            <img src="images/home/icons/icon-radios.png" height="100" />
+            <strong>RÁDIOS</strong>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    {{> about }}
+    {{> editProfile }}
+    {{> errorReport }}
+
+  </div>
+
+</template>

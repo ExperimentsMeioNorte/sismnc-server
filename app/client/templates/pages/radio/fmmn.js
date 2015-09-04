@@ -1,8 +1,10 @@
-// Rota Jornal
-Router.route('/fm-meionorte', {
-  name: 'fmmn',
-  layoutTemplate: 'fmmn',
-  yieldTemplates: {
-    'headerFMMN': {to: 'header'}
-  }
+// Rota FM Meio norte
+Router.route('/fmmeionorte', function(){
+
+  this.layout('ApplicationLayout');
+  this.render('fmmn');
+  this.render('headerFMMN', {to: 'header'});
+
+}, {
+  name: 'fmmn'
 });

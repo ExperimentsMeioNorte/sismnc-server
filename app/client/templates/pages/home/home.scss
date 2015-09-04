@@ -1,0 +1,105 @@
+// Página inicial (Sistema Meio Norte)
+.home-page {
+
+  color:#fff;
+  background: #445da2;
+  background: linear-gradient(to bottom, #445da2 0%, #5d80c6 100%);
+
+  .header {
+    .side-right {
+      .button {
+        img {
+          margin-top:8px;
+        }
+      }
+    }
+
+   .logo {
+      float:left;width:204px;height:120px;position:absolute;left:50%;margin-left:-102px;top:20px;
+    }
+
+  }
+
+  .content {
+    margin-top:168px;
+
+    .row {
+      margin-bottom:1%;
+    }
+    .col {
+      background:rgba(0,0,0,0.1);width:49%!important;margin:0 0.5%!important;height:200px;position:relative;
+
+      transition:all 0.2s ease-in-out;
+
+      &:hover {
+        background:transparent;
+      }
+
+      a {
+        display:block;color:#fff;width:100%;text-align:center;padding:36px 0;
+
+        strong {
+          font-weight:bold;clear:both;width:100%;display:block;
+        }
+
+      }
+    }
+
+  }
+
+
+  .modal {
+    top:0!important;
+    left:0!important;
+    width:100%!important;
+    border-radius:0!important;
+    height:100%!important;
+    max-height:100%!important;
+    color:#212121;
+    background:#fff;
+    .modal-content {
+      padding:0!important;
+    }
+  }
+
+}
+
+.side-nav {
+  .item-nav {
+    .link-nav {
+
+     }
+  }
+}
+
+
+#main-navigation {
+  .item-logout {
+        position: absolute;
+      bottom: 60px;
+      padding: 15px;
+      width: 300px;
+      background: #f8f8fc;
+      img {
+        float:left;margin-right:15px;
+      }
+      span {
+        color:#666;
+      }
+  }
+  .item-avatar {
+    height:90px;padding-top:15px;padding-bottom:15px;background:#f8f8fc;margin-bottom:15px;
+    img {
+      float:left;margin-right:15px;
+    }
+    strong {font-size: 18px;margin-top:5px;}
+    span {color:#666;font-size:12px;}
+  }
+  .item-nav {
+    .link-nav {
+      height:46px;line-height:46px;
+      img {margin-right:10px;float:left;margin-top:12px;}
+      span {line-height:48px;color:#666;font-weight:400;}
+    }
+  }
+}
