@@ -1,3 +1,0 @@
-Template.mnfm.rendered = function () {
-  // ...
-};
