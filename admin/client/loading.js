@@ -1,5 +1,4 @@
-Template.loading.rendered = function () {
+Template.loading.rendered = function (template) {
 
 
 };
-

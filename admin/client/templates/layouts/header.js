@@ -1,7 +1,3 @@
 Template.header.rendered = function () {
-
-  $(".dropdown-button").dropdown();
-
+    $(".dropdown-button").dropdown();
 };
-
-

@@ -8,7 +8,10 @@ meteor-platform
 fourseven:scss
 iron:router
 jparker:crypto-md5
-accounts-ui-unstyled
+accounts-ui
 accounts-google
 accounts-facebook
 aldeed:collection2
+multiply:iron-router-progress
+accounts-base
+accounts-password
