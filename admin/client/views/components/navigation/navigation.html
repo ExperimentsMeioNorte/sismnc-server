@@ -1,0 +1,86 @@
+<template name="navigation">
+
+<div class="menu">
+	<ul class="right hide-on-med-and-down">
+	  <li class="{{ isActiveRoute 'index' }}">
+	  	<a href="{{pathFor 'index' }}">
+	  		<i class="mdi-editor-insert-comment"></i>
+	  		<span>Timeline</span>
+	  	</a>
+	  </li>
+	  <!-- <li class="{{ isActiveRoute 'notify|notifyNew|notifyUpdate' }}">
+	  	<a href="{{pathFor 'notify' }}">
+	  		<i class="mdi-notify-sim-card-alert"></i>
+	  		<span>Notificações</span>
+	  	</a>
+	  </li> -->
+	  <li class="{{ isActiveRoute 'poll|pollNew|pollUpdate' }}">
+	  	<a href="{{pathFor 'poll' }}">
+	  		<i class="mdi-action-question-answer"></i>
+	  		<span>Enquetes</span>
+	  	</a>
+	  </li>
+	  {{#if admin}}
+  	  <li class="{{ isActiveRoute 'vehicle|vehicleNew|vehicleUpdate' }}">
+	  	<a href="{{pathFor 'vehicle' }}">
+	  		<i class="mdi-notify-sim-card-alert"></i>
+	  		<span>Veiculo</span>
+	  	</a>
+	  </li>
+	  <li class="{{ isActiveRoute 'category|categoryNew|categoryUpdate' }}">
+	  	<a href="{{pathFor 'category' }}">
+	  		<i class="mdi-notify-sim-card-alert"></i>
+	  		<span>Categoria</span>
+	  	</a>
+	  </li>
+  	  <li class="{{ isActiveRoute 'programs|programNew|programUpdate' }}">
+	  	<a href="{{pathFor 'programs' }}">
+	  		<i class="mdi-hardware-desktop-windows"></i>
+	  		<span>Programas</span>
+	  	</a>
+	  </li>
+  	  <li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">
+	  	<a href="{{pathFor 'user' }}">
+	  		<i class="mdi-action-question-answer"></i>
+	  		<span>Usuário</span>
+	  	</a>
+	  </li>
+	  {{/if}}
+	</ul>
+	<ul class="side-nav" id="mobile-demo">
+	  <li class="{{ isActiveRoute 'index' }}">
+	  	<a href="{{pathFor 'index' }}">
+	  		<i class="mdi-editor-insert-comment"></i>
+	  		<span>Timeline</span>
+	  	</a>
+	  </li>
+	  <!-- <li class="{{ isActiveRoute 'notify|notifyNew|notifyUpdate' }}">
+	  	<a href="{{pathFor 'notify' }}">
+	  		<i class="mdi-notification-sim-card-alert"></i>
+	  		<span>Notificações</span>
+	  	</a>
+	  </li> -->
+	  <li class="{{ isActiveRoute 'poll|pollNew|pollUpdate' }}">
+	  	<a href="{{pathFor 'poll' }}">
+	  		<i class="mdi-action-question-answer"></i>
+	  		<span>Enquetes</span>
+	  	</a>
+	  </li>
+	  {{#if admin}}
+  	  <li class="{{ isActiveRoute 'programs|programNew|programUpdate' }}">
+	  	<a href="{{pathFor 'programs' }}">
+	  		<i class="mdi-hardware-desktop-windows"></i>
+	  		<span>Programas</span>
+	  	</a>
+	  </li>
+	  <li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">
+	  	<a href="{{pathFor 'user' }}">
+	  		<i class="mdi-action-question-answer"></i>
+	  		<span>Usuário</span>
+	  	</a>
+	  </li>
+	  {{/if}}
+	</ul>
+</div>
+
+</template>

@@ -1,0 +1,52 @@
+<template name="categoryNew">
+
+<div class="container">
+
+	<header class="top-container">
+		<h4>
+			<i class="mdi-content-add"></i>Nova Categoria
+		</h4>
+
+		<a href="{{pathFor 'category' }}" class="waves-effect waves-light btn btn-model">
+			<i class="mdi-hardware-keyboard-backspace left"></i>
+			Voltar
+		</a>
+
+	</header>
+
+	<div class="content-container row">
+
+		<div class="category">
+
+			<div class="row">
+
+			  <form id="categoryForm" class="col s12">
+
+			      <div class="input-field col s12">
+			      	<i class="mdi-action-account-circle prefix"></i>
+			        <input id="category_description" type="text" class="validate" maxlength="200">
+			        <label for="category_description">Descrição *</label>
+			      </div>
+
+	  		      	<div class="input-field col s12">
+						<input id="category_status" type="checkbox" class="validate">
+						<label for="category_status">Ativar</label>
+					</div>
+
+			      <div class="btn-new col s12">
+			      	<button type="submit" class="waves-effect waves-light btn btn-submit pull-right" style="width:100%;">
+						Criar
+					</button>
+			      </div>
+
+			  </form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+</template>

@@ -1,0 +1,575 @@
+<?xml version="1.0"?>
+<sql title="" gridSize="10,10" fk_template="%f" cascadeDeleteFk="true" openEditWindowAfterAddTable="false" displayFieldType="false" defaultTableColor="#FFFFFF" defaultRelationColor="#000000" databaseType="postgresql" dataTypes="[object Object]" defaultType="VARCHAR" showGrid="false" alignToGrid="false" svgNS="http://www.w3.org/2000/svg" drawLinesOnDrag="false" defaultFkUpdate="CASCADE" defaultFkDelete="CASCADE" fkActions="CASCADE,RESTRICT,NO ACTION" autoAlignGap="10" highlightTime="500" displayFkLines="true">
+  <table x="247" y="240" name="program" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="vehicle_id">
+      <datatype>INTEGER</datatype>
+      <relation table="vehicle" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="category_id">
+      <datatype>INTEGER</datatype>
+      <relation table="category" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="name">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="description">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="hour">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="facebook_url">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="google_url">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="img_topo">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="img_avatar">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="37" y="240" name="vehicle" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="name">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="description">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="image_avatar">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="feed_url">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>BOOLEAN</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="597" y="60" name="user" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="level_id">
+      <datatype>INTEGER</datatype>
+      <default>0</default>
+      <relation table="level" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="name">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="avatar">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="email">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="password">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="facebook_id">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="google_id">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>VARCHAR(100)</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>BOOLEAN</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="">
+      <datatype>CHAR(1)</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="last_login_date">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="387" y="20" name="content" color="#FFFFFF" relation-color="#000000">
+    <comment>Aqui ira poder salvar:
+&gt; texto
+&gt; imagem
+&gt; video
+ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="program_id">
+      <datatype>INTEGER</datatype>
+      <relation table="program" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="user_id">
+      <datatype>INTEGER</datatype>
+      <relation table="user" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="text">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="img">
+      <datatype>TEXT</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="video">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>BOOLEAN</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="467" y="470" name="poll" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="program_id">
+      <datatype>INTEGER</datatype>
+      <relation table="program" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(255)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>CHAR(1)</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>CHAR(1)</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>CHAR(1)</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>0</default>
+    </row>
+    <row null="0" autoincrement="0" name="description">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="img">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="477" y="710" name="answer" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="poll_id">
+      <datatype>INTEGER</datatype>
+      <relation table="poll" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(255)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>0</default>
+    </row>
+    <row null="0" autoincrement="0" name="description">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="237" y="575" name="publicity" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="program_id">
+      <datatype>INTEGER</datatype>
+      <relation table="program" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="title">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="url">
+      <datatype>VARCHAR(255)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="file">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>0</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>BOOLEAN</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>TIMESTAMP WITH TIME ZONE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="87" y="80" name="notify" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>DATE</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>DATE</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="program_id">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="program" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="description">
+      <datatype>TEXT</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="757" y="490" name="pollUser" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="poll_id">
+      <datatype>INTEGER</datatype>
+      <relation table="poll" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="answer_id">
+      <datatype>INTEGER</datatype>
+      <relation table="answer" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="user_id">
+      <datatype>INTEGER</datatype>
+      <relation table="user" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="897" y="20" name="level" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="description">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="97" y="450" name="category" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="description">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="status">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_change">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_change">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="899" y="189" name="userban" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="userid">
+      <datatype>INTEGER</datatype>
+      <relation table="user" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="programid">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="vehicleid">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="cause">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="user_record">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+  <table x="857" y="350" name="subscription" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="userid">
+      <datatype>INTEGER</datatype>
+      <relation table="user" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="vehicleid">
+      <datatype>INTEGER</datatype>
+      <relation table="vehicle" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
+</sql>

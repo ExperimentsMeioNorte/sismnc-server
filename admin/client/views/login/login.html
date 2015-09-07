@@ -1,0 +1,60 @@
+<template name="login">
+
+<section class="loginForm">
+
+       <div class="form-login">
+
+        <div class="logo-login">
+
+
+          <img src="images/logo-mn.png" width="392" />
+
+
+        </div>
+
+        <div class="login">
+
+          <form role="form" id="login-form" novalidate="" action="/" method="POST">
+
+            <div class="item item-input item-text-wrap item-stacked-label">
+
+              <input type="email" id="login-email" name="login-email" placeholder="E-mail">
+
+            </div>
+
+            <div class="item item-input item-text-wrap item-stacked-label">
+
+              <input type="password" id="login-password" name="login-password" placeholder="Senha">
+
+            </div>
+
+
+            <button type="submit" class="btn-submit button button-positive button-block submit active" id="login-btn">
+              Entrar
+            </button>
+
+          </form>
+
+          <div class="password-link padding text-center">
+            <p>
+              Perdeu a senha?
+
+              <a href="#" id="btn-password-recovery" class="btn-register positive">Recuperar</a>
+
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- {{> password }}
+
+
+ -->
+
+      </div>
+
+
+</section>
+
+</template>

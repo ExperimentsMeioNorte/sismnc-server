@@ -1,0 +1,62 @@
+<template name="notifyUpdate">
+
+<div class="container">
+
+	<header class="top-container">
+		<h4>
+			<i class="mdi-content-add"></i> Atualizar Notificação
+		</h4>
+
+		<a href="{{pathFor 'notify' }}" class="waves-effect waves-light btn btn-model">
+			<i class="mdi-hardware-keyboard-backspace left"></i>
+			Voltar
+		</a>
+
+	</header>
+
+	<div class="content-container row">
+
+		<div class="poll notify">
+
+			<div class="row">
+
+			  <form id="notifyForm" class="col s12">
+
+				<input id="notify_id" type="text" readonly="readonly">
+
+			    <div class="col s12">
+			    	 <label>Programa *</label>
+					  <select id="notify_program">
+					    <option value="" disabled selected>Escolha o programa</option>
+					  </select>
+			    </div>
+
+				<div class="input-field col s12">
+					<i class="mdi-action-account-circle prefix"></i>
+					<input id="notify_name" type="text" class="validate" maxlength="200">
+					<label for="notify_name" class="active">Notificação *</label>
+				</div>
+
+		      	<div class="input-field col s12">
+					<input id="notify_active" type="checkbox" class="validate">
+					<label for="notify_active">Ativar</label>
+				</div>
+
+			      <div class="btn-new col s12">
+			      	<button type="submit" class="waves-effect waves-light btn btn-submit pull-right" style="width:100%;">
+						Atualizar
+					</button>
+			      </div>
+
+			  </form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+</template>

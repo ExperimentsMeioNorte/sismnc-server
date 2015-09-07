@@ -5,13 +5,17 @@
 # but you can also edit it by hand.
 
 meteor-platform
-fourseven:scss
+xcv58:collection-api
 iron:router
-jparker:crypto-md5
-accounts-ui
-accounts-google
-accounts-facebook
-aldeed:collection2
-multiply:iron-router-progress
+fourseven:scss
 accounts-base
+accounts-ui-unstyled
 accounts-password
+ostrio:iron-router-helpers
+chrismbeckett:toastr
+http
+bankfacil:vanilla-masker
+jparker:crypto-md5
+email
+accounts-facebook
+accounts-google

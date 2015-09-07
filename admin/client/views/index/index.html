@@ -1,0 +1,106 @@
+<template name="index">
+
+<div class="container">
+
+	<header class="top-container">
+
+		<h4>
+			O que estão enviando?
+		</h4>
+
+		  <span class="waves-effect waves-light btn btn-model">
+		  	{{qtUserCadastrado}} usuários cadastrados
+		  </span>
+
+	</header>
+
+	<div class="content-container row">
+
+		<div class="timeline">
+
+			<div class="col s12">
+
+				<div class="collection" data-collapsible="accordion">
+				{{#each contents}}
+					<div class="collection-item avatar">
+		  			  <div class="secondary-content actions-icons">
+
+						  <!-- 	<a href="#programStar">
+						  		<i class="mdi-action-grade"></i>
+						  	</a>
+
+						  	<i class="mdi-navigation-check"></i> -->
+
+						  	<a id="btnDelete" href="#" class="modal-trigger">
+						  		<input type="text" value="{{_id}}" id="programDelete" readonly="readonly" style="display:none;" />
+						  		<i class="mdi-navigation-close"></i>
+						  	</a>
+					  </div>
+					  <div id="visualizeMensageHistory" class="item-inner collapsible-header">
+
+					  	  <input type="text" id="mensageHistoryId" style="display:none" value="{{_id}}">
+  						  <strong class="title">{{user_name}}</strong>
+  						  <p class="date">Enviado há {{timeCompared}}</p>
+
+					  </div>
+
+					  <div class="collection-message card collapsible-body">
+					  	{{#if img}}
+					        <div class="card-image waves-effect waves-block waves-light">
+					          <img class="activator" src="{{img}}">
+					        </div>
+					        <div class="card-content">
+					          <span class="card-title activator grey-text">
+						          {{user_name}}
+						          <i class="mdi-action-info right"></i>
+					          </span>
+					        </div>
+					        <div class="card-reveal">
+					          <span class="card-title grey-text">
+					          	{{user_name}}
+					          	<i class="mdi-navigation-close right"></i>
+					          </span>
+
+					          <p class="card-message">
+			          			{{text}}
+					          </p>
+
+					        </div>
+				        {{else}}
+				        	<div class="card-image waves-effect waves-block waves-light">
+					          {{text}}
+					        </div>
+				        	<div class="card-content">
+					          <span class="card-title activator grey-text">
+						          {{user_name}}
+						          <i class="mdi-action-info right"></i>
+					          </span>
+					        </div>
+				        {{/if}}
+				      </div>
+
+					</div>
+					{{/each }}
+
+				</div>
+					<a id="mais" class="waves-effect waves-light btn btn-more color-pattern">
+						Carregar mais
+					</a>
+
+			</div>
+
+		</div>
+
+
+		  <!-- Modal Structure -->
+		  <div id="lista-usuarios" class="modal">
+		    <div class="modal-content">
+		      <h4>Lista de usuários</h4>
+		    </div>
+		  </div>
+
+	</div>
+
+</div>
+
+</template>
