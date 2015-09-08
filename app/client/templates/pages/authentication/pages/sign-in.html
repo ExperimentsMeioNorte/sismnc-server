@@ -1,0 +1,55 @@
+<template name="signIn">
+  <section id="modal-sign-in" class="modal modal-fixed-footer">
+
+    <header class="modal-header">
+
+      <a href="" class="modal-action modal-header-left modal-close">
+         <img src="images/home/icons/icon-close.svg" height="22" />
+      </a>
+
+      <h4 class="modal-title">
+        Cadastro
+      </h4>
+    </header>
+
+
+    <span class="alert">
+      Preencha os dados abaixo corretamente
+    </span>
+
+    <div class="form-pattern modal-content">
+
+      <div class="row">
+
+        <div class="input-field col s12">
+          <input id="mail" type="text">
+          <label for="mail" class="">Qual seu e-mail</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="password_0" type="text">
+          <label for="password_0" class="">Digite uma senha</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="password_1" type="text">
+          <label for="password_1" class="">Repita sua senha</label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+
+       <a class="btn modal-trigger" href="#modal-sign-in-ok">
+          CRIAR CONTA
+      </a>
+
+    </div>
+
+  </section>
+
+  {{> signInOk }}
+
+</template>

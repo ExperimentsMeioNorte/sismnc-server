@@ -10,12 +10,46 @@
         Reportar erro
       </h4>
     </header>
-    <div class="modal-content">
-      aaa
+     <span class="alert">
+      Preencha os dados abaixo corretamente
+    </span>
+
+    <div class="form-pattern modal-content">
+
+      <div class="row">
+
+        <div class="input-field col s12">
+          <input id="reportError" type="text">
+          <label for="reportError" class="">Qual é o erro?</label>
+        </div>
+
+        <div class="file-field input-field">
+
+          <strong class="title-form">Tem imagem?</strong>
+
+          <input class="file-path validate" type="text"/>
+
+          <div class="upload-image-element">
+            <img src="images/home/icons/icon-upload-image.svg" height="48" />
+            <input type="file" />
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
     <div class="modal-footer">
+
+       <a class="btn modal-trigger" href="#modal-send-mail-ok">
+          ENVIAR
+      </a>
+
     </div>
 
   </section>
 
 </template>
+
+

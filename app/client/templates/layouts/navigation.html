@@ -20,8 +20,12 @@
 
 
     <li class="item-logout">
-      <img src="images/home/icons/icon-logout.svg" height="22" />
-      <span>Desconectar</span>
+      <a href="{{ pathFor 'auth' }}" title="" data-transition-out="scaleOut" data-transition-in="scaleIn" class="modal-action modal-close">
+
+        <img src="images/home/icons/icon-logout.svg" height="22" />
+        <span>Desconectar</span>
+
+      </a>
     </li>
 
   </ul>

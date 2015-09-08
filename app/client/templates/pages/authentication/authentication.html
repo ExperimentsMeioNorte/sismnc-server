@@ -1,3 +1,44 @@
 <template name="authentication">
-  Tela de Autenticação :D
+
+  <div class="auth-page transitions-content">
+
+    <h1 class="logo-sismnc center-align">
+      <img src="/images/home/logo-sistema.png" alt="" width="260" />
+    </h1>
+
+    <div class="social">
+      <a href="#" title="" class="bg-facebook">
+        <i class="icon-facebook-rect"></i>
+        <span>Facebook</span>
+      </a>
+      <a href="#" title="" class="bg-twitter">
+      <i class="icon-twitter-bird"></i>
+        <span>Twitter</span>
+      </a>
+      <a href="#" title="" class="bg-google">
+      <i class="icon-googleplus-rect"></i>
+        <span>Google +1</span>
+      </a>
+    </div>
+
+    <small class="ou">OU</small>
+
+
+    <a class="btn log-in modal-trigger" href="#modal-log-in">
+      Entre usando e-mail
+    </a>
+
+
+    <div class="sign-in">
+      <span>Ainda não tem conta?</span>
+      <a class="btn modal-trigger" href="#modal-sign-in">
+        CRIAR CONTA
+      </a>
+    </div>
+
+    {{> signIn }}
+    {{> logIn }}
+
+  </div>
+
 </template>

@@ -20,16 +20,22 @@ Template.home.onRendered(function(){
   );
 
   $('.modal-trigger').leanModal({
-      dismissible: true,
-      opacity:1,
-      in_duration: 300,
-      out_duration: 200,
-      ready: function() { console.log('Modal Aberto'); },
-      complete: function() { console.log('Modal Fechado'); }
+    dismissible: true,
+    opacity:1,
+    in_duration: 300,
+    out_duration: 200,
+    ready: function() {
+
+    },
+    complete: function() {
+
     }
-  );
+  });
 });
 
 // Ao Sair
-// Template.home.onDestroyed(function(){
-// });
+Template.home.onDestroyed(function(){
+
+  $('#modal-about, #modal-edit-profile, #modal-error-report').closeModal();
+
+});

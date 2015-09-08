@@ -5799,7 +5799,7 @@ small {
   transition: .2s ease-out;
   cursor: pointer; }
   .btn:hover, .btn-large:hover {
-    background-color: #2bbbad; }
+    background-color: #3B508D; }
 
 .btn-floating {
   display: inline-block;
@@ -6027,7 +6027,7 @@ a.waves-effect .waves-ripple {
       height:48px;line-height:48px;
     }
     .modal-header .modal-title {
-      font-size:22px;line-height:48px;text-align:center;width:100%;position:absolute;left:0;width:100%;margin:0;z-index:4;
+      font-size:22px;line-height:48px;text-align:center;width:100%;position:absolute;left:0;width:100%;margin:0;z-index:-1;
     }
     .modal-header .modal-action {
       position:absolute;top:6px;max-height:38px;z-index:5;
@@ -6053,7 +6053,7 @@ a.waves-effect .waves-ripple {
       float: right;
       margin: 6px 0; }
 
-.lean-overlay {
+/*.lean-overlay {
   position: fixed;
   z-index: 999;
   top: -100px;
@@ -6064,7 +6064,7 @@ a.waves-effect .waves-ripple {
   width: 100%;
   background:rgba(255,255,255,0.9);
   display: none;
-  will-change: opacity; }
+  will-change: opacity; }*/
 
 .modal.modal-fixed-footer {
   padding: 0;
@@ -6168,7 +6168,7 @@ a.waves-effect .waves-ripple {
 .materialboxed.active {
   cursor: zoom-out; }
 
-#materialbox-overlay {
+/*#materialbox-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -6176,7 +6176,7 @@ a.waves-effect .waves-ripple {
   bottom: 0;
   background:rgba(255,255,255,0.9);
   z-index: 999;
-  will-change: opacity; }
+  will-change: opacity; }*/
 
 .materialbox-caption {
   position: fixed;
@@ -6229,7 +6229,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   height: 3rem;
   width: 100%;
   font-size: 1rem;
-  margin: 0 0 15px 0;
+  margin: 0 0 5px 0;
   padding: 0;
   box-shadow: none;
   -webkit-box-sizing: content-box;
@@ -6658,7 +6658,7 @@ form p:last-child {
   height: 0; }
 
 .switch label input[type=checkbox]:checked + .lever {
-  background-color: #84c7c1; }
+  background-color: #96B6F7; }
 
 .switch label input[type=checkbox]:checked + .lever:after {
   background-color: #3E61A7; }

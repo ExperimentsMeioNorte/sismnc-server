@@ -1,10 +1,25 @@
 <template name="television">
 
-   <div class="transitions-content">
+   <div class="television-page transitions-content">
 
     {{> yield "header"}}
 
-    Rede Meio Norte, aqui vai o fluxo do VTV com as adaptações :D
+    <main class="content has-header">
+
+      <ul class="programs-list">
+        <li class="programs-list-item">
+          <a href="{{ pathFor 'program' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+            <img src="images/television/img-patrulha.png" width="100%" />
+          </a>
+        </li>
+        <li class="programs-list-item">
+          <a href="{{ pathFor 'program' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+            <img src="images/television/img-ronda.png" width="100%" />
+          </a>
+        </li>
+      </ul>
+
+    </main>
 
   </div>
 
