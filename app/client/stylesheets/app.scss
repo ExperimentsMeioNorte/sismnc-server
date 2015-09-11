@@ -1,62 +1,5 @@
 /** Autor: Allan Alexandre
 *** ================================ */
-
-html {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-
-  overflow-y:scroll;
-  height:100%;
-
-}
-
-
-// Topo Padrão
-.header {
-  position:fixed;height:46px;line-height:46px;top:0;left:0;width:100%;
-
-  .button {
-    height:46px;line-height:46px;padding:6px 1rem;
-    img {
-      margin:2px 0;
-    }
-
-    &:active {
-      background:rgba(0,0,0,.1);
-    }
-  }
-
-  .side-left, .side-right {
-    height:46px;line-height:46px;
-
-    .button {
-      cursor:pointer;
-    }
-
-  }
-  .side-left {
-    float:left;
-  }
-  .side-right {
-    float:right;
-  }
-}
-
-.content {
-  // height:100%;min-height:100%;max-height:100%;
-}
-
-// Padrão de formulário
-.form-pattern  {
-  .upload-image {
-    padding:15px 0;background:#f8f8fc;width:100%;margin-bottom:15px;
-  }
-  .title-form {
-    margin:0 0.75rem;font-size:16px;display:table;float:left;margin-top:10px;
-  }
-}
-
-
 @font-face {
   font-family: 'shiva';
   src: url('font/shiva-icons/shiva.eot?27963749');
@@ -67,19 +10,7 @@ html {
   font-weight: normal;
   font-style: normal;
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'shiva';
-    src: url('../font/shiva.svg?27963749#shiva') format('svg');
-  }
-}
-*/
-
 #icons {display:none;}
-
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "shiva";
 
@@ -1423,6 +1354,64 @@ html {
 .icon-at-2:before { content: '\ed1b'; } /* '' */
 .icon-pilcrow:before { content: '\ed1c'; } /* '' */
 .icon-dial:before { content: '\ed1d'; } /* '' */
+
+
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  overflow-y:scroll;
+  height:100%;
+
+}
+
+
+// Topo Padrão
+.header {
+  position:fixed;height:46px;line-height:46px;top:0;left:0;width:100%;
+
+  .button {
+    height:46px;line-height:46px;padding:6px 1rem;
+    img {
+      margin:2px 0;
+    }
+
+    &:active {
+      background:rgba(0,0,0,.1);
+    }
+  }
+
+  .side-left, .side-right {
+    height:46px;line-height:46px;position:relative;z-index:4;
+
+    .button {
+      cursor:pointer;
+    }
+
+  }
+  .side-left {
+    float:left;
+  }
+  .side-right {
+    float:right;
+  }
+}
+
+.content {
+  // height:100%;min-height:100%;max-height:100%;
+}
+
+// Padrão de formulário
+.form-pattern  {
+  .upload-image {
+    padding:15px 0;background:#f8f8fc;width:100%;margin-bottom:15px;
+  }
+  .title-form {
+    margin:0 0.75rem;font-size:16px;display:table;float:left;margin-top:10px;
+  }
+}
+
 
 
 #lean_overlay {

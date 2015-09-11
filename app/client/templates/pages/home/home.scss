@@ -21,13 +21,16 @@
   }
 
   .content {
-    margin-top:168px;
+    display:inline;
 
     .row {
       margin-bottom:1%;
+      &:first-child {
+        margin-top:168px;
+      }
     }
     .col {
-      background:rgba(0,0,0,0.1);width:49%!important;margin:0 0.5%!important;height:200px;position:relative;
+      background:rgba(0,0,0,0.1);width:49%!important;margin:0 0.5%!important;height:200px;position:relative;padding-top:40px;
 
       transition:all 0.2s ease-in-out;
 
@@ -35,11 +38,23 @@
         background:transparent;
       }
 
+      small {
+        text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        left: 0;
+        padding: 10px 0;
+        font-size:14px;
+        background: rgba(255,255,255,0.2);
+      }
+
       a {
         display:block;color:#fff;width:100%;text-align:center;padding:36px 0;
 
         strong {
-          font-weight:bold;clear:both;width:100%;display:block;
+          font-weight:bold;clear:both;width:100%;display:none;font-size:10px;
         }
 
       }
@@ -131,4 +146,11 @@
       margin-bottom:10px;
     }
   }
+}
+
+
+.transitions-container {
+  -webkit-perspective: none!important;
+  -moz-perspective: none!important;
+  perspective: none!important;
 }

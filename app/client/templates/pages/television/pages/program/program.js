@@ -5,6 +5,8 @@ Router.route('/programa', function(){
   this.render('program');
   this.render('headerTelevision', {to: 'header'});
 
+  fastRender: true
+
 }, {
   name: 'program'
 });

@@ -4,6 +4,9 @@ Router.route('/', function(){
   this.layout('ApplicationLayout');
   this.render('home');
 
+  this.render('header', {to: 'header'});
+  this.render('navigation', {to: 'navigation'});
+
 }, {
   name: 'home'
 });

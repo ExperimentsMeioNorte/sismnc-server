@@ -1,20 +1,23 @@
 <template name="header">
 
-  <nav class="main-header">
-    <div class="nav-wrapper">
+  <header class="header">
 
-      <div class="left">
-        <a href="/" class="brand-logo">
-          <img src="/images/system/logo.png" alt="" />
-        </a>
-      </div>
-
-      <ul class="right">
-        <li><a href="#"><i class="material-icons">search</i></a></li>
-        <li><a href="#"><i class="material-icons">more_vert</i></a></li>
-      </ul>
-
+    <div class="side-left">
+      <a href="#" class="button btn-flat button-collapse" data-activates="main-navigation">
+        <img src="images/home/icons/menu.svg" height="16" />
+      </a>
     </div>
-  </nav>
+
+    <a href="#" class="logo">
+      <img src="images/home/logo-white.png" width="204" height="120" />
+    </a>
+
+    <div class="side-right">
+      <a href="#modal-about" class="button btn-flat modal-trigger">
+        <img src="images/home/icons/info.svg" height="22" />
+      </a>
+    </div>
+
+  </header>
 
 </template>
