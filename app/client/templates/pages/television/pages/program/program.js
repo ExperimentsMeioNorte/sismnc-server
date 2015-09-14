@@ -1,5 +1,5 @@
 // Rota do Programa
-Router.route('/programa', function(){
+Router.route('/rede-meionorte/programa', function(){
 
   this.layout('ApplicationLayout');
   this.render('program');
@@ -36,6 +36,9 @@ Template.program.onRendered(function(){
 
 Template.program.onDestroyed(function(){
   document.querySelector('body').classList.remove('show-message');
+
+  $('ul.tabs').tabs();
+
 });
 
 Template.program.events({

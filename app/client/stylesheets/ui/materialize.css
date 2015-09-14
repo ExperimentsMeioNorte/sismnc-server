@@ -5356,7 +5356,7 @@ nav {
     line-height: 64px; }
   .navbar-fixed {
     height: 64px; } }
-
+/*
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../fonts/roboto/Roboto-Thin.woff") format("woff"), url("../fonts/roboto/Roboto-Thin.ttf") format("truetype");
@@ -5381,7 +5381,7 @@ nav {
   font-family: "Roboto";
   src: url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700; }
-
+*/
 a {
   text-decoration: none; }
 
