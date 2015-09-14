@@ -37,3 +37,14 @@ Template.program.onRendered(function(){
 Template.program.onDestroyed(function(){
   document.querySelector('body').classList.remove('show-message');
 });
+
+Template.program.events({
+
+  'click #btn-hide-message, focus #btn-hide-message, click #btn-share-message, focus #btn-share-message': function () {
+    document.querySelector('body').classList.remove('show-message');
+  },
+
+  'click #btn-show-message, focus #btn-show-message': function () {
+    document.querySelector('body').classList.add('show-message');
+  }
+});

@@ -1,19 +1,17 @@
 // Rota Rede Meio Norte
-Router.route('/rede-meionorte', function(){
+Router.route('/rede-meionorte/sobre', function(){
 
   this.layout('ApplicationLayout');
-  this.render('television');
-  this.render('headerTelevision', {to: 'header'});
-  this.render('navigationTelevision', {to: 'navigation'});
+  this.render('aboutTelevision');
 
   fastRender: true
 
 }, {
-  name: 'television'
+  name: 'aboutTelevision'
 });
 
 // Ao Entrar
-Template.television.onRendered(function(){
+Template.aboutTelevision.onRendered(function(){
 
    $('.button-collapse').sideNav({
       menuWidth: 300,
@@ -37,7 +35,7 @@ Template.television.onRendered(function(){
 });
 
 // Ao Sair
-Template.television.onDestroyed(function(){
+Template.aboutTelevision.onDestroyed(function(){
 
   // $('#modal-about, #modal-edit-profile, #modal-error-report').closeModal();
 

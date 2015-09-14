@@ -1489,3 +1489,16 @@ html {
 .has-header {
    padding-top:46px;
 }
+#sidenav-overlay {
+  display:none!important;z-index:-1!important;
+}
+
+
+.back-to-home {
+    color: #444;
+    display: block;
+    font-size: 1rem;
+    padding: 0 15px;
+    height: 42px!important;
+    line-height: 42px!important;
+}

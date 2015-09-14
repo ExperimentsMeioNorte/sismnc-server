@@ -10,3 +10,6 @@ App.icons({
   'android_hdpi': 'resources/icons/icon-hdpi.png',
   'android_xhdpi': 'resources/icons/icon-xhdpi.png'
 });
+
+App.setPreference('BackgroundColor', '0xff0000ff');
+App.setPreference('HideKeyboardFormAccessoryBar', true);
