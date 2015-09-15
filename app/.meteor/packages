@@ -11,3 +11,10 @@ aldeed:collection2
 meteorhacks:kadira
 jamielob:transitions
 meteorhacks:fast-render
+
+# Packages login
+service-configuration
+accounts-base
+accounts-ui
+accounts-password
+particle4dev:cordova-fb

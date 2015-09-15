@@ -7,10 +7,8 @@
     </h1>
 
     <div class="social">
-      <a href="#" title="" class="bg-facebook">
-        <i class="icon-facebook-rect"></i>
-        <span>Facebook</span>
-      </a>
+      {{> loginFacebook}}
+
       <a href="#" title="" class="bg-twitter">
       <i class="icon-twitter-bird"></i>
         <span>Twitter</span>
@@ -41,4 +39,11 @@
 
   </div>
 
+</template>
+
+<template name="loginFacebook">
+    <a href="#facebook" class="login-button button button-block button-positive bg-facebook activated" data-service="facebook" id="loginFacebookButton">
+        <i class="icon-facebook-rect"></i>
+        <span>Facebook</span>
+    </a>
 </template>
