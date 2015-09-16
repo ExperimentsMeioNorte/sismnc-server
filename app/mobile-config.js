@@ -17,6 +17,5 @@ App.setPreference('HideKeyboardFormAccessoryBar', true);
 // cordova
 App.configurePlugin('com.phonegap.plugins.facebookconnect', {
     APP_ID: '638977909535835',
-    APP_NAME: 'facebook',
-    secret: "28012ad2d935da4bdbfe26b78c23f77a"
+    APP_NAME: 'vtv'
 });
