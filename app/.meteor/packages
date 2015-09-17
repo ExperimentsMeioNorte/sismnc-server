@@ -18,3 +18,4 @@ accounts-base
 accounts-ui
 accounts-password
 particle4dev:cordova-fb
+fastclick

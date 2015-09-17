@@ -1,10 +1,10 @@
 // Rota Jornal
-Router.route('/jornal-meionorte', function(){
+NewspaperController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('newspaper');
-  this.render('headerNewspaper', {to: 'header'});
-
-}, {
-  name: 'newspaper'
+Router.route('/jornal-meionorte', {
+  name: 'newspaper',
+  yieldRegions: {
+    'headerNewspaper': {to: 'header'}
+  },
+  fastRender: true
 });

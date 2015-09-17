@@ -1,12 +1,14 @@
-Router.configure({
-    layoutTemplate: 'ApplicationLayout',
-    loadingTemplate: 'loading',
-    notFoundTemplate: 'notFound',
-    onBeforeAction: function(){
-        if(!Meteor.userId()){
-            Router.go('auth');
-        }
-        this.next();
-    }
+ApplicationController = RouteController.extend({
+  layoutTemplate: 'ApplicationLayout',
+   onBeforeAction: function(){
+      // if(!Meteor.userId()){
+      //     Router.go('auth');
+      // }
+      this.next();
+   }
+});
 
+Router.configure({
+  controller: 'ApplicationController',
+  loadingTemplate: 'loading'
 });

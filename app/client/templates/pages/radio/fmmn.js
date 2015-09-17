@@ -1,10 +1,10 @@
 // Rota FM Meio norte
-Router.route('/fmmeionorte', function(){
+RadioController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('fmmn');
-  this.render('headerFMMN', {to: 'header'});
-
-}, {
-  name: 'fmmn'
+Router.route('/fmmeionorte', {
+  name: 'fmmn',
+  yieldRegions: {
+    'headerFMMN': {to: 'header'}
+  },
+  fastRender: true
 });

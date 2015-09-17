@@ -1,15 +1,13 @@
 // Rota Rede Meio Norte
-Router.route('/rede-meionorte', function(){
+TelevisionController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('television');
-  this.render('headerTelevision', {to: 'header'});
-  this.render('navigationTelevision', {to: 'navigation'});
-
+Router.route('/rede-meionorte', {
+  name: 'television',
+  yieldRegions: {
+    'headerTelevision': {to: 'header'},
+    'navigationTelevision': {to: 'navigation'}
+  },
   fastRender: true
-
-}, {
-  name: 'television'
 });
 
 // Ao Entrar
