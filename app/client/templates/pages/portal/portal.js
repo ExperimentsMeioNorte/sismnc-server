@@ -1,10 +1,10 @@
 // Rota Portal
-Router.route('/portal-meionorte', function(){
+NewspaperController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('portal');
-  this.render('headerPortal', {to: 'header'});
-
-}, {
-  name: 'portal'
+Router.route('/portal-meionorte', {
+  name: 'portal',
+  yieldRegions: {
+    'headerPortal': {to: 'header'}
+  },
+  fastRender: true
 });

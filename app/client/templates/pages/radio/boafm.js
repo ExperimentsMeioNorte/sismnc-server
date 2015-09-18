@@ -1,10 +1,10 @@
 // Rota Boa FM
-Router.route('/boafm', function(){
+RadioController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('boafm');
-  this.render('headerBOAFM', {to: 'header'});
-
-}, {
-  name: 'boafm'
+Router.route('/boafm', {
+  name: 'boafm',
+  yieldRegions: {
+    'headerBOAFM': {to: 'header'}
+  },
+  fastRender: true
 });

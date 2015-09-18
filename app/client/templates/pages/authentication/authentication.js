@@ -1,11 +1,9 @@
 // Rota Autenticação
-Router.route('/auth', function(){
+AuthController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('authentication');
-
-}, {
-  name: 'auth'
+Router.route('/auth', {
+  name: 'authentication',
+  fastRender: true
 });
 
 // Ao Entrar

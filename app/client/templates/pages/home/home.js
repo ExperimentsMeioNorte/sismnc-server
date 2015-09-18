@@ -1,15 +1,15 @@
 // Rota Principal
-Router.route('/', function(){
+HomeController = ApplicationController.extend();
 
-  this.layout('ApplicationLayout');
-  this.render('home');
-
-  this.render('header', {to: 'header'});
-  this.render('navigation', {to: 'navigation'});
-
-}, {
-  name: 'home'
+Router.route('/', {
+  name: 'home',
+  yieldRegions: {
+    'header': {to: 'header'},
+    'navigation': {to: 'navigation'}
+  },
+  fastRender: true
 });
+
 
 
 // Ao Entrar
