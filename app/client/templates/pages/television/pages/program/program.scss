@@ -1,6 +1,6 @@
 
 .info-program {
-  margin-top:20px;
+  margin-top:20px;display:table;width:100%;
   .program-description {
     color:#9FACB4;font-size:14px;line-height:18px;padding:0 0.75rem;letter-spacing:-0.01em;
   }
@@ -12,7 +12,7 @@
 
 
 .tab-flow  {
-  height:100%;min-height:100%;margin-bottom:0!important;
+ margin-bottom:0!important;
   .tab-header {
     width:100%;
     .tabs {
@@ -33,7 +33,7 @@
     }
   }
   .tab-container {
-    height:100%;min-height:100%;background:#F8F8FC!important;
+    background:#F8F8FC!important;
     .tab-content {
       padding:0 0 50px 0;position:relative;
       @extend .col;
