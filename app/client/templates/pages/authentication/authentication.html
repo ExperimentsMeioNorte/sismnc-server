@@ -9,14 +9,9 @@
     <div class="social">
       {{> loginFacebook}}
 
-      <a href="#" title="" class="bg-twitter">
-      <i class="icon-twitter-bird"></i>
-        <span>Twitter</span>
-      </a>
-      <a href="#" title="" class="bg-google">
-      <i class="icon-googleplus-rect"></i>
-        <span>Google +1</span>
-      </a>
+      {{> loginTwitter}}
+
+      {{> loginGoogle}}
     </div>
 
     <small class="ou">OU</small>
@@ -42,8 +37,23 @@
 </template>
 
 <template name="loginFacebook">
-    <a href="#facebook" class="login-button button button-block button-positive bg-facebook activated" data-service="facebook" id="loginFacebookButton">
+    <a href="#facebook" class="bg-facebook" data-service="facebook" id="loginFacebookButton">
         <i class="icon-facebook-rect"></i>
         <span>Facebook</span>
     </a>
 </template>
+
+<template name="loginTwitter">
+    <a href="#" title="" class="bg-twitter" data-service="twitter" id="loginTwitterButton">
+      <i class="icon-twitter-bird"></i>
+      <span>Twitter</span>
+    </a>
+</template>
+
+<template name="loginGoogle">
+    <a href="#" title="" class="bg-google" data-service="google" id="loginGoogleButton">
+      <i class="icon-googleplus-rect"></i>
+      <span>Google +1</span>
+    </a>
+</template>
+

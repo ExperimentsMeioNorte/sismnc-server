@@ -19,3 +19,7 @@ App.configurePlugin('com.phonegap.plugins.facebookconnect', {
     APP_ID: '638977909535835',
     APP_NAME: 'vtv'
 });
+
+App.accessRule("*://enginex.kadira.io/simplentp/sync");
+//App.accessRule("rtsp://212-133.livestream.com:8080/livestreamiphone/3332377_2958396_819a9a89_1_198@197839");
+//App.accessRule("*://new.livestream.com/accounts/3332377/events/2958396");

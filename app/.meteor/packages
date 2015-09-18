@@ -11,6 +11,7 @@ aldeed:collection2
 meteorhacks:kadira
 jamielob:transitions
 meteorhacks:fast-render
+chrismbeckett:toastr
 
 # Packages login
 service-configuration
