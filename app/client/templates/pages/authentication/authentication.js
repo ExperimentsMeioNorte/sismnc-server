@@ -4,9 +4,9 @@ AuthController = ApplicationController.extend();
 Router.route('/auth', {
   name: 'authentication',
   fastRender: true
-  waitOn: function() {
-    Meteor.remote.subscribe('user');
-  }
+  // waitOn: function() {
+  //   Meteor.remote.subscribe('user');
+  // }
 });
 
 // Ao Entrar
@@ -28,6 +28,7 @@ Template.authentication.onRendered(function(){
 });
 
 //var loginButtonsSession = Accounts._loginButtonsSession;
+
 Template.authentication.events({
     // executa o login da rede social facebook
     'click .bg-facebook': function (evento, tmp) {
@@ -40,14 +41,17 @@ Template.authentication.events({
       Meteor.loginAppService(Meteor.loginAppOptions, function(err){
         if (err){
           toastr.warning(
-            "Opaa, Login ou senha inválido.",
+            "Não deu certo, tenta novamente mais tarde",
             '',
             {
                 "progressBar": true,
                 "newestOnTop": true,
+                "showEasing": "ease-in",
+                "hideEasing": "ease-out",
                 "showDuration": "100",
                 "hideDuration": "100",
-                "timeOut": "1000"
+                "timeOut": "1000",
+                "positionClass": "toast-top-full-width"
             }
           );
         }else{

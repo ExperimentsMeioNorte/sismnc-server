@@ -18,9 +18,9 @@
 
     <main class="content has-header">
 
-       <main class="play-tv padding">
-        <iframe src="http://new.livestream.com/accounts/3332377/events/2958396/player?width=640&height=680&autoPlay=false&mute=false" width="100%" height="100%" frameborder="0" scrolling="no"> </iframe>
-      </main>
+      <!--  <div class="play-tv padding">
+        <iframe src="http://new.livestream.com/accounts/3332377/events/2958396/player?width=640&height=260&autoPlay=false&mute=false" width="100%" height="260" frameborder="0" scrolling="no"> </iframe>
+      </div> -->
 
 
       <div class="info-program">
@@ -43,27 +43,27 @@
         <div class="tab-flow row">
 
           <div class="tab-header">
-            <ul class="tabs">
+            <ul class="tabs tabsTV">
 
               <li class="tab" id="btn-show-message">
-                <a class="active" href="#tab1">Timeline</a>
+                <a class="active" href="#tab-timeline-tv">Timeline</a>
               </li>
               <li class="tab" id="btn-hide-message">
-                <a href="#tab2">Enquete</a>
+                <a href="#tab-polls-tv">Enquete</a>
               </li>
 
             </ul>
           </div>
 
           <div class="tab-container">
-            <div id="tab1" class="tab-content">
+            <div id="tab-timeline-tv" class="tab-content">
 
               <section class="timeline-content">
                 {{> timeline }}
               </section>
 
             </div>
-            <div id="tab2" class="tab-content">
+            <div id="tab-polls-tv" class="tab-content">
 
               <section class="polls-content">
                 {{> polls }}
@@ -75,8 +75,6 @@
         </div>
 
     </main>
-
-    {{> shareProgram }}
 
   </div>
 

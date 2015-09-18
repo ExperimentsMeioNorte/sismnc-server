@@ -7,12 +7,34 @@
         margin:3px 0 2px 0;
       }
     }
+
+    .player {
+      width:30px;height:30px;line-height:30px;background:#25668E;color:#fff;float:left;margin:8px 0;
+
+      border-radius:50%;text-align:center;
+      i {}
+    }
+    .music {
+      float:left;margin:0 0.75rem 0 15px;
+
+      border-radius:28px;
+
+      a {
+        padding: 5px 10px;
+        border: 2px solid #25668E;
+        color: #25668E;
+        border-radius: 28px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+
   }
 
 
 
 .tab-flow  {
-  height:100%;min-height:100%;margin-bottom:0!important;
+  margin-bottom:0!important;
   .tab-header {
     width:100%;
     .tabs {
@@ -33,7 +55,7 @@
     }
   }
   .tab-container {
-    height:100%;min-height:100%;background:#F8F8FC!important;
+    background:#F8F8FC!important;
     .tab-content {
       padding:0 0 50px 0;position:relative;
       @extend .col;
@@ -353,6 +375,7 @@
 }
 
 
-
-
 }
+
+
+
