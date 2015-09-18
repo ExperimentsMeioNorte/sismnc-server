@@ -3,7 +3,10 @@ AuthController = ApplicationController.extend();
 
 Router.route('/auth', {
   name: 'authentication',
-  fastRender: true
+  fastRender: true,
+  waitOn: function() {
+    Meteor.remote.subscribe('user');
+  }
 });
 
 // Ao Entrar
@@ -48,7 +51,69 @@ Template.authentication.events({
               }
             );
           }else{
-            Router.go('home');
+            var usersSearch = Meteor.users.findOne({_id:Meteor.userId()});
+            var userId = User.findOne(
+                {
+                  facebook_id:Meteor.userId(),
+                  email:usersSearch.services.facebook.email
+                }
+            );
+
+            if(userId !== undefined){
+              Meteor.remote.setUserId(userId._id);
+              Router.go('home');
+            }else{
+              Meteor.remote.call(
+                  'insertUser',
+                  [
+                    111,
+                    0,
+                    usersSearch.services.facebook.name,
+                    usersSearch.services.facebook.picture,
+                    usersSearch.services.facebook.email,
+                    null,
+                    Meteor.userId(),
+                    null,
+                    1
+                  ],
+                  function(error, result){
+                    if(error){
+                      toastr.warning(
+                        "Ops, algo deu errado, descupe o transtorno.",
+                        '',
+                        {
+                          "progressBar": true,
+                          "newestOnTop": true,
+                          "showDuration": "100",
+                          "hideDuration": "100",
+                          "timeOut": "1000"
+                        }
+                      );
+                    }else{
+                      toastr.success(
+                        "Aê, Seja bem vindo(a).",
+                        '',
+                        {
+                          "progressBar": true,
+                          "newestOnTop": true,
+                          "showDuration": "100",
+                          "hideDuration": "100",
+                          "timeOut": "1000"
+                        }
+                      );
+
+                      var userId = User.findOne(
+                        {
+                          facebook_id:Meteor.userId()
+                        }
+                      );
+
+                      Meteor.remote.setUserId(userId._id);
+                      Router.go('home');
+                    }
+                  }
+              );
+            }
           }
         });
     },
