@@ -1,0 +1,52 @@
+<template name="boafm">
+
+  <div class="boafm-page transitions-content" style="height:100%;">
+
+    {{> yield "header" }}
+
+    <main class="content has-header">
+
+
+        <div class="tab-flow row">
+
+          <div class="tab-header">
+            <ul class="tabs">
+
+              <li class="tab" id="btn-show-message">
+                <a class="active" href="#tab1">Timeline</a>
+              </li>
+              <li class="tab" id="btn-hide-message">
+                <a href="#tab2">Enquete</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="tab-container">
+            <div id="tab1" class="tab-content">
+
+              <section class="timeline-content">
+                {{> timeline }}
+              </section>
+
+            </div>
+            <div id="tab2" class="tab-content">
+
+              <section class="polls-content">
+                {{> polls }}
+              </section>
+
+            </div>
+          </div>
+
+        </div>
+
+    </main>
+
+    {{> shareProgram }}
+
+  </div>
+
+  {{> addMessage }}
+
+</template>
