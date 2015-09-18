@@ -1,5 +1,5 @@
 ApplicationController = RouteController.extend({
-  layoutTemplate: 'ApplicationLayout'
+  layoutTemplate: 'ApplicationLayout',
    onBeforeAction: function(){
         if(!Meteor.userId()){
           Router.go('authentication');
