@@ -24,64 +24,38 @@ Template.authentication.onRendered(function(){
 
 });
 
-// capitalize = function(str){
-//     str = (str === null)? '' : String(str);
-//     return str.charAt(0).toUpperCase() + str.slice(1);
-// };
+//var loginButtonsSession = Accounts._loginButtonsSession;
+Template.authentication.events({
+    // executa o login da rede social facebook
+    'click .bg-facebook': function (evento, tmp) {
+        evento.preventDefault();
 
-// var loginButtonsSession = Accounts._loginButtonsSession;
-// Template.authentication.events({
-//     'click .login-button': function (evt, tmp) {
-//         evt.preventDefault();
-//         var serviceName = $(evt.currentTarget).attr('data-service');
-//         //mixpanel.track("loginclicked");
-//         //close(evt, tmp);
-//         var callback = function (err) {
-//             if (!err) {
-//                 //alert("loginsucceed");
-//                 //close(evt, tmp);
-//             } else if (err instanceof Accounts.LoginCancelledError) {
-//                 // do nothing
-//                 // alert("logincancelled");
-//                 //open(evt, tmp);
-//             } else if (err instanceof ServiceConfiguration.ConfigError) {
-//                 //loginButtonsSession.configureService(serviceName);
-//                 //alert("configureService");
-//                 //open(evt, tmp);
-//             } else {
-//                 //alert("loginerror", err.reason);
-//                 console.log(err.reason || "Unknown error");
-//                 //open(evt, tmp);
-//             }
-//         };
-//         // XXX Service providers should be able to specify their
-//         // `Meteor.loginWithX` method name.
-//         var loginWithService = Meteor["loginWith" + ((serviceName === 'meteor-developer')? 'MeteorDeveloperAccount' : capitalize(serviceName))];
+        // acessa o methodo das configuracoes para efetuar o login de uma determinada rede social
+        Meteor.loginApp(evento);
 
-//         var options = {}; // use default scope unless specified
-//         if (Accounts.ui._options.requestPermissions[serviceName]){
-//             options.requestPermissions = Accounts.ui._options.requestPermissions[serviceName];
-//         }
+        // atributos montados a partir do methodo loginApp, como as opcoes e qual servidor de login é para executar
+        Meteor.loginAppService(Meteor.loginAppOptions, function(err){
+          if (err){
+            toastr.warning(
+              "Opaa, Login ou senha inválido.",
+              '',
+              {
+                  "progressBar": true,
+                  "newestOnTop": true,
+                  "showDuration": "100",
+                  "hideDuration": "100",
+                  "timeOut": "1000"
+              }
+            );
+          }else{
+            Router.go('home');
+          }
+        });
+    },
 
-//         if (Accounts.ui._options.requestOfflineToken[serviceName]){
-//             options.requestOfflineToken = Accounts.ui._options.requestOfflineToken[serviceName];
-//         }
-
-//         loginWithService(options, function(err){
-//           if (err){
-//             // The user might not have been found, or their passwword
-//             // could be incorrect. Inform the user that their
-//             // login attempt has failed.
-//           }else{
-//             Router.go('home');
-//           }
-//         });
-
-//         // console.log('fake login');
-//         // Router.go('weeklyGames');
-//     },
-//     'click .logout-button': function(evt, tmp){
-//         evt.preventDefault();
-//         Meteor.logout();
-//     }
-// });
+    // desloga na rede social atual
+    'click .logout-bg-facebook': function(evento, tmp){
+        evento.preventDefault();
+        Meteor.logout();
+    }
+});
