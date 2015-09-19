@@ -60,7 +60,8 @@ Template.authentication.events({
           var userId = User.findOne(
               {
                 facebook_id:Meteor.userId(),
-                email:usersSearch.services.facebook.email
+                email:usersSearch.services.facebook.email,
+                status:1
               }
           );
 
@@ -74,10 +75,10 @@ Template.authentication.events({
                   111,
                   0,
                   usersSearch.services.facebook.name,
-                  usersSearch.services.facebook.picture,
+                  'http://graph.facebook.com/' + usersSearch.services.facebook.id + '/picture/?type=small',
                   usersSearch.services.facebook.email,
                   null,
-                  Meteor.userId(),
+                  usersSearch.services.facebook.id,
                   null,
                   1
                 ],
