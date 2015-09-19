@@ -6,6 +6,7 @@ Router.route('/auth', {
   fastRender: true,
   waitOn: function() {
     Meteor.remote.subscribe('user');
+    Meteor.subscribe('users');
   }
 });
 

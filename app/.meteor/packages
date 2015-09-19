@@ -12,6 +12,7 @@ meteorhacks:kadira
 jamielob:transitions
 meteorhacks:fast-render
 chrismbeckett:toastr
+fastclick
 
 # Packages login
 service-configuration
@@ -19,5 +20,6 @@ accounts-base
 accounts-ui
 accounts-password
 particle4dev:cordova-fb
-fastclick
+
+# Packages camera
 mdg:camera

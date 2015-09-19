@@ -12,12 +12,14 @@
                 "public_profile",
                 "user_interests",
                 "user_activities",
-                "read_friendlists"
+                "read_friendlists",
+                "email"
             ],
             "profileFields": [
                 "name",
                 "gender",
-                "location"
+                "location",
+                "picture"
             ]
         }
     }
