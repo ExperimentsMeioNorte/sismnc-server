@@ -24,3 +24,4 @@ App.configurePlugin('com.phonegap.plugins.facebookconnect', {
 App.accessRule("*://enginex.kadira.io/simplentp/sync");
 App.accessRule("*://sistemameionorte.com.br/*");
 App.accessRule("*://zapzap.club/*");
+//App.accessRule("*://localhost:3010/*");
