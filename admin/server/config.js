@@ -92,7 +92,7 @@ Meteor.startup(function () {
 
   Meteor.publish('user', function() {
     return User.find(
-      {status:1},
+      {},
       {fields:
         {
           user_record:0,
