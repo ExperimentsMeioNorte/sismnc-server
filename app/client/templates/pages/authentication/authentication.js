@@ -60,20 +60,33 @@ Template.authentication.events({
           var userId = User.findOne(
               {
                 facebook_id:Meteor.userId(),
-                email:usersSearch.services.facebook.email,
-                status:1
+                email:usersSearch.services.facebook.email
               }
           );
 
           if(userId !== undefined){
-            Meteor.remote.setUserId(userId._id);
-            Router.go('home');
+            if(userId.status === 0){
+              toastr.warning(
+                "Ops, Você fez algo ruim, não tem autorização para utilizar o aplicativo.",
+                '',
+                {
+                  "progressBar": true,
+                  "newestOnTop": true,
+                  "showDuration": "100",
+                  "hideDuration": "100",
+                  "timeOut": "1000"
+                }
+              );
+            }else{
+              Meteor.remote.setUserId(userId._id);
+              Router.go('home');
+            }
           }else{
             Meteor.remote.call(
                 'insertUser',
                 [
                   111,
-                  0,
+                  '0',
                   usersSearch.services.facebook.name,
                   'http://graph.facebook.com/' + usersSearch.services.facebook.id + '/picture/?type=small',
                   usersSearch.services.facebook.email,
