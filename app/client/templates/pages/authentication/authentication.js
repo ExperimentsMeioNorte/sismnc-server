@@ -59,7 +59,7 @@ Template.authentication.events({
           var usersSearch = Meteor.users.findOne({_id:Meteor.userId()});
           var userId = User.findOne(
               {
-                facebook_id:Meteor.userId(),
+                facebook_id:usersSearch.services.facebook.id,
                 email:usersSearch.services.facebook.email
               }
           );
@@ -74,7 +74,7 @@ Template.authentication.events({
                   "newestOnTop": true,
                   "showDuration": "100",
                   "hideDuration": "100",
-                  "timeOut": "1000"
+                  "timeOut": "2000"
                 }
               );
             }else{
@@ -123,7 +123,8 @@ Template.authentication.events({
 
                     var userId = User.findOne(
                       {
-                        facebook_id:Meteor.userId()
+                        facebook_id:usersSearch.services.facebook.id,
+                        email:usersSearch.services.facebook.email
                       }
                     );
 
