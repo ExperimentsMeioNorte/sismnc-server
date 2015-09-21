@@ -29,13 +29,14 @@
   // Application name (No spaces)
   "appName": "SISMNC",
 
-  // Location of app (local directory)
-  "app": ".",
+  // Location of app (DIRETORIO LOCAL)
+  // obs.: Obrigatorio o caminho absolutos
+  "app": "/Users/juis/Projetos/Mobile/sismnc/app", // localizacao local do Alisson
 
   // Configure environment
   "env": {
-    "PORT" : "3003",
-    "UPSTART_UID" : "root",
+    "PORT" : "3001",
+    "UPSTART_UID" : "meteoruser",
     "ROOT_URL": "http://sistemameionorte.com.br"
   },
 
