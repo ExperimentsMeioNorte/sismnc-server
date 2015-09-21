@@ -1,5 +1,5 @@
 ApplicationController = RouteController.extend({
-  layoutTemplate: 'ApplicationLayout'
+  layoutTemplate: 'ApplicationLayout',
    // onBeforeAction: function(){
    //      //if(!Meteor.remote.userId()){ // habilitar em producao
    //      if(!Meteor.userId()){ // habilitar em desenvolvimento
@@ -7,6 +7,9 @@ ApplicationController = RouteController.extend({
    //      }
    //      this.next();
    // }
+   onBeforeAction: function () {
+    this.next();
+  }
 });
 
 Router.configure({

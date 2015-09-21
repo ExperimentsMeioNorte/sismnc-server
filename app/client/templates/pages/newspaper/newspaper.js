@@ -5,10 +5,19 @@ Router.route('/jornal-meionorte', {
   name: 'newspaper',
   yieldRegions: {
     'headerNewspaper': {to: 'header'},
-    'navigationNewspaper': {to: 'navigation'}
+    'navigationNewspaper': {to: 'navigation'},
+    'contentNewspaperFeatured': {to: 'content'}
   },
   fastRender: true
 });
+
+// 'newspaperFeatured': {to: 'featured'},
+// 'newspaperLatest': {to: 'latest'},
+// 'newspaperSection': {to: 'section'},
+// 'newspaperColumns': {to: 'columns'},
+// 'newspaperSpecials': {to: 'specials'},
+// 'newspaperPhotos': {to: 'photos'},
+// 'newspaperVideos': {to: 'videos'},
 
 // Ao Entrar
 Template.newspaper.onRendered(function(){
@@ -20,13 +29,27 @@ Template.newspaper.onRendered(function(){
     }
   );
 
-  $('ul.tabs').tabs();
+
+
+  // $('ul.tabs').tabs();
+
+  // function tabInit() {
+  //     $('ul.tabs').tabs();
+  // }
+
+  // $.ajax({
+  //     type: "GET",
+  //     url: "/",
+  //     dataType: "json",
+  //     success: tabInit
+  // });
 
   $('.tabs-items').slick({
     infinite: false,
-    slidesToShow: 1,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    arrows: false,
+    infinite: false,
+    arrows: true,
     dots: false
   });
 
@@ -61,6 +84,6 @@ Template.newspaper.onRendered(function(){
 // Ao Sair
 Template.newspaper.onDestroyed(function(){
 
-  // $('#modal-about, #modal-edit-profile, #modal-error-report').closeModal();
+  $('ul.tabs').tabs();
 
 });
