@@ -7008,9 +7008,9 @@ select {
 .drag-target {
   height: 100%;
   width: 10px;
-  position: fixed;
+  position: absolute;
   top: 0;
-  z-index: 998; }
+  z-index: 99; }
 
 .side-nav.fixed a {
   display: block;

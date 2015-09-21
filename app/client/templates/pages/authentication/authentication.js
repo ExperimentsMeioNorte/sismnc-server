@@ -45,14 +45,12 @@ Template.authentication.events({
             "Não deu certo, tenta novamente mais tarde",
             '',
             {
+                "positionClass": "toast-top-full-width",
                 "progressBar": true,
                 "newestOnTop": true,
-                "showEasing": "ease-in",
-                "hideEasing": "ease-out",
                 "showDuration": "100",
                 "hideDuration": "100",
-                "timeOut": "1000",
-                "positionClass": "toast-top-full-width"
+                "timeOut": "2000"
             }
           );
         }else{

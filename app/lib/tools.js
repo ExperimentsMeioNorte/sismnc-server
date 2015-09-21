@@ -4,7 +4,7 @@ Meteor.capitalize = function(str){
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-// Methodo de configuracao para logar-se nas redes sociais
+// Metodo de configuracao para logar-se nas redes sociais
 Meteor.loginApp = function(evento){
     var serviceName = $(evento.currentTarget).attr('data-service');
     var callback = function (err) {

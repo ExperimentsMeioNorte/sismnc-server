@@ -1,10 +1,165 @@
 <template name="newspaper">
 
-  <div class="transitions-content">
+   <div class="newspaper-page transitions-content">
+
+    {{> yield "navigation" }}
 
     {{> yield "header"}}
 
-    Feed do Jornal se possível com filtros
+    <main class="content has-header">
+
+      <section class="newspaper-tabs">
+
+        <div class="newspaper-tabs-bottom">
+
+          <ul class="tabs tabs-items">
+
+            <li class="tab col"><a class="active" href="#test1">Segunda</a></li>
+            <li class="tab col"><a href="#test2">Terça</a></li>
+
+          </ul>
+
+        </div>
+
+        <div id="test1" class="tab-container">
+
+        a
+
+          <!-- <section class="slider-featured">
+
+        <div class="inner-slider">
+          <figure class="image-featured">
+            <a href="#" class="">
+              <img src="/images/newspaper/img-destaque.png" width="100%" />
+            </a>
+          </figure>
+          <div class="info-featured">
+            <h2 class="title-featured">
+              <a href="#">
+                Possivel candidatura de vice deixa Obama em situação desconfortável
+              </a>
+            </h2>
+            <p class="description-featured">
+              O Presidente Barack Obama está em situação desconfortável, apanhado entre as aspirações à Casa
+            </p>
+
+            <div class="info-featured-bottom">
+              <div class="info-author">
+                <img src="images/avatar/avatar1.png" height="42" />
+                <span>
+                  <a href="#">EFRÉM RIBEIRO</a>
+                </span>
+              </div>
+              <div class="info-date">
+                <span>- 15 JUN 2015</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="inner-slider">
+          <figure class="image-featured">
+            <a href="#" class="">
+              <img src="/images/newspaper/img-destaque2.png" width="100%" />
+            </a>
+          </figure>
+
+          <div class="info-featured">
+            <h2 class="title-featured">
+              <a href="#">
+                Possivel candidatura de vice deixa Obama em situação desconfortável
+              </a>
+            </h2>
+            <p class="description-featured">
+              O Presidente Barack Obama está em situação desconfortável, apanhado entre as aspirações à Casa
+            </p>
+
+            <div class="info-featured-bottom">
+              <div class="info-author">
+                <img src="images/avatar/avatar1.png" height="42" />
+                <span>
+                  <a href="#">EFRÉM RIBEIRO</a>
+                </span>
+              </div>
+              <div class="info-date">
+                <span>- 15 JUN 2015</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="inner-slider">
+          <figure class="image-featured">
+            <a href="#" class="">
+              <img src="/images/newspaper/img-destaque3.png" width="100%" />
+            </a>
+          </figure>
+          <div class="info-featured">
+            <h2 class="title-featured">
+              <a href="#">
+                Possivel candidatura de vice deixa Obama em situação desconfortável
+              </a>
+            </h2>
+            <p class="description-featured">
+              O Presidente Barack Obama está em situação desconfortável, apanhado entre as aspirações à Casa
+            </p>
+
+            <div class="info-featured-bottom">
+              <div class="info-author">
+                <img src="images/avatar/avatar1.png" height="42" />
+                <span>
+                  <a href="#">EFRÉM RIBEIRO</a>
+                </span>
+              </div>
+              <div class="info-date">
+                <span>- 15 JUN 2015</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="inner-slider">
+          <figure class="image-featured">
+            <a href="#" class="">
+              <img src="/images/newspaper/img-destaque.png" width="100%" />
+            </a>
+          </figure>
+          <div class="info-featured">
+            <h2 class="title-featured">
+              <a href="#">
+                Possivel candidatura de vice deixa Obama em situação desconfortável
+              </a>
+            </h2>
+            <p class="description-featured">
+              O Presidente Barack Obama está em situação desconfortável, apanhado entre as aspirações à Casa
+            </p>
+
+            <div class="info-featured-bottom">
+              <div class="info-author">
+                <img src="images/avatar/avatar1.png" height="42" />
+                <span>
+                  <a href="#">EFRÉM RIBEIRO</a>
+                </span>
+              </div>
+              <div class="info-date">
+                <span>- 15 JUN 2015</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section> -->
+
+
+        </div>
+        <div id="test2" class="tab-container">
+          b
+        </div>
+
+      </section>
+
+    </main>
 
   </div>
 

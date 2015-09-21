@@ -1,5 +1,5 @@
  var WebFontConfig = {
-  google: { families: [ 'Roboto:400,300,500,700:latin' ] }
+  google: { families: [ 'Roboto:400,300,500,700:latin', 'Bree+Serif::latin', 'PT+Sans:400,400italic,700,700italic:latin' ] }
 };
 (function() {
   var wf = document.createElement('script');

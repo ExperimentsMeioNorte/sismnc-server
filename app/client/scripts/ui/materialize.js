@@ -2059,7 +2059,7 @@ $(document).ready(function(){
               if ((menuOut && velocityX <= 0.3) || velocityX < -0.5) {
                 menu_id.velocity({left: 0}, {duration: 300, queue: false, easing: 'easeOutQuad'});
                 $('#sidenav-overlay').velocity({opacity: 1 }, {duration: 50, queue: false, easing: 'easeOutQuad'});
-                $('.drag-target').css({width: '50%', right: 0, left: ''});
+                $('.drag-target').css({width: '16%', right: 0, left: ''});
               }
               else if (!menuOut || velocityX > 0.3) {
                 // Enable Scrolling
@@ -2077,7 +2077,7 @@ $(document).ready(function(){
               if ((menuOut && velocityX >= -0.3) || velocityX > 0.5) {
                 menu_id.velocity({right: 0}, {duration: 300, queue: false, easing: 'easeOutQuad'});
                 $('#sidenav-overlay').velocity({opacity: 1 }, {duration: 50, queue: false, easing: 'easeOutQuad'});
-                $('.drag-target').css({width: '50%', right: '', left: 0});
+                $('.drag-target').css({width: '16%', right: '', left: 0});
               }
               else if (!menuOut || velocityX < -0.3) {
                 // Enable Scrolling
@@ -2107,11 +2107,11 @@ $(document).ready(function(){
               $('body').css('overflow', 'hidden');
 
               if (options.edge === 'left') {
-                $('.drag-target').css({width: '50%', right: 0, left: ''});
+                $('.drag-target').css({width: '16%', right: 0, left: ''});
                 menu_id.velocity({left: 0}, {duration: 300, queue: false, easing: 'easeOutQuad'});
               }
               else {
-                $('.drag-target').css({width: '50%', right: '', left: 0});
+                $('.drag-target').css({width: '16%', right: '', left: 0});
                 menu_id.velocity({right: 0}, {duration: 300, queue: false, easing: 'easeOutQuad'});
                 menu_id.css('left','');
               }
@@ -2346,9 +2346,9 @@ $(document).ready(function(){
 		    var offset = $(this.hash).offset().top + 1;
 
 //          offset - 200 allows elements near bottom of page to scroll
-			
+
 	    	$('html, body').animate({ scrollTop: offset - 200 }, {duration: 400, queue: false, easing: 'easeOutCubic'});
-			
+
 		  });
 		});
 		options = options || {

@@ -1631,6 +1631,7 @@ button.toast-close-button {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  font-size:12px;
 }
 #toast-container > div {
   position: relative;
@@ -1639,7 +1640,7 @@ button.toast-close-button {
   margin: 0 0 6px;
   text-align:center!important;
   font-weight:bold;
-  padding: 15px 15px 15px 50px;
+  padding: 15px!important;
   width: 96%;
   -moz-border-radius: 28px 28px 28px 28px;
   -webkit-border-radius: 28px 28px 28px 28px;

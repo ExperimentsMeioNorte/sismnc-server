@@ -1,0 +1,92 @@
+<template name="navigationNewspaper">
+
+  <ul id="newspaper-navigation" class="side-nav">
+
+    <li class="item-nav">
+      <a href="{{ pathFor 'home' }}" title="Voltar para o início" class="back-to-home" data-transition-out="scaleOut" data-transition-in="scaleIn">
+        <i class="icon-left-2"></i>
+        <span>Voltar ao início</span>
+      </a>
+
+      <a href="{{ pathFor 'home' }}" class="subscribe-button">
+        ASSINE
+      </a>
+    </li>
+
+    <li class="item-nav">
+
+      <ul class="collapsible collapsible-accordion">
+
+        <li>
+          <a class="link-nav collapsible-header" href="{{ pathFor 'newspaperSections' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+            Seções
+
+            <i class="icon-down-open-mini"></i>
+          </a>
+
+          <div class="collapsible-body">
+
+            <ul>
+              <li><a href="#!">First</a></li>
+              <li><a href="#!">Second</a></li>
+              <li><a href="#!">Third</a></li>
+              <li><a href="#!">Fourth</a></li>
+            </ul>
+
+          </div>
+
+        </li>
+
+      </ul>
+
+    </li>
+
+    <li class="item-nav">
+
+      <ul class="collapsible collapsible-accordion">
+
+        <li>
+          <a class="link-nav collapsible-header" href="{{ pathFor 'newspaperColumns' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+            Colunas
+
+            <i class="icon-down-open-mini"></i>
+          </a>
+
+          <div class="collapsible-body">
+
+            <ul>
+              <li><a href="#!">First</a></li>
+              <li><a href="#!">Second</a></li>
+              <li><a href="#!">Third</a></li>
+              <li><a href="#!">Fourth</a></li>
+            </ul>
+
+          </div>
+
+        </li>
+
+      </ul>
+
+    </li>
+
+    <li class="item-nav">
+      <a class="link-nav" href="{{ pathFor 'newspaperSpecials' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+        Especiais
+      </a>
+    </li>
+
+    <li class="item-nav">
+      <a class="link-nav" href="{{ pathFor 'newspaperPhotos' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+        Fotos
+      </a>
+    </li>
+
+    <li class="item-nav">
+      <a class="link-nav" href="{{ pathFor 'newspaperVideos' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+        Vídeos
+      </a>
+    </li>
+
+  </ul>
+
+</template>
