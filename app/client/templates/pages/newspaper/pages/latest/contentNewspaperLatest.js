@@ -1,7 +1,7 @@
 NewspaperLatest = ApplicationController.extend();
 
 Router.route('/jornal-meionorte/ultimas', {
-  name: 'newspaperLatest',
+  name: 'contentNewspaperLatest',
   yieldRegions: {
     'headerNewspaper': {to: 'header'},
     'navigationNewspaper': {to: 'navigation'},
@@ -20,21 +20,6 @@ Template.contentNewspaperLatest.onRendered(function(){
       closeOnClick: true
     }
   );
-
-
-
-  // $('ul.tabs').tabs();
-
-  // function tabInit() {
-  //     $('ul.tabs').tabs();
-  // }
-
-  // $.ajax({
-  //     type: "GET",
-  //     url: "/",
-  //     dataType: "json",
-  //     success: tabInit
-  // });
 
   $('.tabs-items').slick({
     infinite: false,
