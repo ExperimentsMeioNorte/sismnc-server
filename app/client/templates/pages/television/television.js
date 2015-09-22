@@ -38,5 +38,7 @@ Template.television.onRendered(function(){
 Template.television.onDestroyed(function(){
 
   // $('#modal-about, #modal-edit-profile, #modal-error-report').closeModal();
+  document.querySelector('body').classList.remove('show-message');
+  $('ul.tabsTV').tabs();
 
 });

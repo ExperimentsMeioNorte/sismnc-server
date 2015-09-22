@@ -1,5 +1,12 @@
 /** Autor: Allan Alexandre
 *** ================================ */
+
+body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'shiva';
   src: url('font/shiva-icons/shiva.eot?27963749');
@@ -1516,16 +1523,6 @@ html {
 .show {
   display:block;visibility: visible;opacity:1;
 }
-
-
-
-.transitions-container {
-  -webkit-perspective: none!important;
-  -moz-perspective: none!important;
-  perspective: none!important;
-  overflow:hidden!important;
-}
-
 
 
 .toast-title {

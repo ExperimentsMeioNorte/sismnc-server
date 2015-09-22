@@ -2,8 +2,6 @@
 
    <div class="newspaper-page transitions-content">
 
-    {{> yield "navigation" }}
-
     {{> yield "header"}}
 
     <main class="content has-header">
@@ -16,12 +14,12 @@
 
         </div>
 
-        {{> navigationTabs }}
-
       </section>
 
     </main>
 
   </div>
+
+  {{> navigationTabs }}
 
 </template>

@@ -2,15 +2,20 @@
 
     <div class="newspaper-tabs-bottom">
 
-      <ul class="tabs tabs-items">
+      <ul class="tabs-items">
 
-        <li class="tab col {{isActiveRoute 'newspaper'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'newspaper' }}">Capa</a></li>
-        <li class="tab col {{isActiveRoute 'contentNewspaperLatest'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'contentNewspaperLatest' }}">Últimas</a></li>
-        <li class="tab col {{isActiveRoute 'newspaperSection'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'newspaperSection' }}">Seções</a></li>
-        <li class="tab col {{isActiveRoute 'newspaperColumns'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'newspaperColumns' }}">Colunas</a></li>
-        <li class="tab col {{isActiveRoute 'newspaperSpecials'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'newspaperSpecials' }}">Especiais</a></li>
-        <li class="tab col {{isActiveRoute 'newspaperPhotos'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'newspaperPhotos' }}">Fotos</a></li>
-        <li class="tab col {{isActiveRoute 'newspaperVideos'}}"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'newspaperVideos' }}">Vídeos</a></li>
+        <li class="tab-item">
+          <a class="{{isActiveRoute 'newspaper'}}" data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'home' }}">Capa</a>
+        </li>
+        <li class="tab-item">
+          <a class="{{isActiveRoute 'contentNewspaperLatest'}}" data-transition-out="scaleOut" data-transition-in="scaleIn" href="{{ pathFor 'contentNewspaperLatest' }}">Últimas</a>
+        </li>
+
+        <li class="tab-item"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="#">Seções</a></li>
+        <li class="tab-item"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="#">Colunas</a></li>
+        <li class="tab-item"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="#">Especiais</a></li>
+        <li class="tab-item"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="#">Fotos</a></li>
+        <li class="tab-item"><a data-transition-out="scaleOut" data-transition-in="scaleIn" href="#">Vídeos</a></li>
 
       </ul>
 

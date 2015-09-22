@@ -35,7 +35,7 @@
   .tab-container {
     background:#F8F8FC!important;
     .tab-content {
-      padding:0 0 50px 0;position:relative;
+      padding:0 0 0 0;position:relative;
       @extend .col;
       @extend .s12;
     }
@@ -45,14 +45,23 @@
 
 
 .show-message {
+  position:relative;height:100%;
   .message {
     bottom:0;opacity:1;
+  }
+  .transitions-container {
+    //padding-bottom:48px;position:relative;z-index:4;
+    -webkit-perspective:none!important;
+    -moz-perspective: none!important;
+    perspective: none!important;
   }
 }
 
 
 .message {
-  bottom:-52px;position:fixed;left:0;width:100%;box-shadow:0 -2px 10px -4px rgba(0,0,0,0.3);height:48px;background:#fff;opacity:0;z-index:5;
+  bottom:-81px;position:fixed;left:0;width:100%;box-shadow:0 -2px 10px -4px rgba(0,0,0,0.3);height:48px;background:#fff;opacity:0;z-index:9998;
+
+  -webkit-backface-visibility:hidden;
 
 
   transition:all .4s ease-in-out;
@@ -143,7 +152,7 @@
 .message-feedback {
   margin:20px 0 40px 0!important;
   .btn {
-    background:#798B91!important;
+    background:#798B91!important;font-weight:bold;
     &:focus, &:active {
       background:#6B797F!important;
     }
@@ -251,7 +260,7 @@
 }
 
 .timeline-content, .polls-content {
-  padding:20px;
+  padding:20px 20px 50px 20px;
 }
 
 
@@ -346,7 +355,7 @@
     .poll-answers-footer {
       position:absolute;bottom:0;left:0;width:100%;
       .btn {
-        width:100%;border-radius:0!important;-webkit-border-radius:0!important;-moz-border-radius:0!important;background:#84D672;
+        width:100%;border-radius:0!important;-webkit-border-radius:0!important;-moz-border-radius:0!important;background:#84D672;font-weight:bold;
       }
     }
   }

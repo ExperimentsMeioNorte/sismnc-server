@@ -11,10 +11,16 @@ Router.route('/jornal-meionorte', {
   fastRender: true
 });
 
-// 'newspaperFeatured': {to: 'featured'},
-// 'newspaperLatest': {to: 'latest'},
-// 'newspaperSection': {to: 'section'},
-// 'newspaperColumns': {to: 'columns'},
-// 'newspaperSpecials': {to: 'specials'},
-// 'newspaperPhotos': {to: 'photos'},
-// 'newspaperVideos': {to: 'videos'},
+Template.newspaper.onRendered(function(){
+
+    Meteor.setTimeout(function(){
+      document.querySelector('body').classList.add('show-tabs');
+    }, 1000);
+
+});
+
+Template.newspaper.onDestroyed(function(){
+
+  document.querySelector('body').classList.remove('show-tabs');
+
+});
