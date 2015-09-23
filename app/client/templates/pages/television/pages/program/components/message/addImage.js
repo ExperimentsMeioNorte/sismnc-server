@@ -14,7 +14,7 @@ var getPicture = function(opts) {
 
 Template.addImage.events({
     'focus #btn-close-add-image, click #btn-close-add-image': function () {
-      document.querySelector('body').classList.remove('add-image-buttons');
+      document.querySelector('body').classList.remove('add-image-buttons-television');
     },
    'focus #btn-capture-image, click #btn-capture-image': function () {
     if (Meteor.isClient) {
@@ -39,8 +39,8 @@ Template.addImage.events({
       console.log('Roda apenas no cordova');
     }
 
-    document.querySelector('body').classList.remove('add-image-buttons');
-    document.querySelector('body').classList.add('show-file-message');
+    document.querySelector('body').classList.remove('add-image-buttons-television');
+    document.querySelector('body').classList.add('show-file-message-television');
 
   }
 

@@ -6,36 +6,40 @@
 
     <main class="content has-header">
 
-        <div class="tab-flow row">
+        <div class="inner-content">
 
-          <div class="tab-header">
-            <ul class="tabs">
+          <div class="tab-flow row">
 
-              <li class="tab" id="btn-show-message">
-                <a class="active" href="#tab1">Timeline</a>
-              </li>
-              <li class="tab" id="btn-hide-message">
-                <a href="#tab2">Enquete</a>
-              </li>
+            <div class="tab-header">
+              <ul class="tabs">
 
-            </ul>
-          </div>
+                <li class="tab" id="btn-show-message">
+                  <a class="active" href="#tab1">Timeline</a>
+                </li>
+                <li class="tab" id="btn-hide-message">
+                  <a href="#tab2">Enquete</a>
+                </li>
 
-          <div class="tab-container">
-            <div id="tab1" class="tab-content">
-
-              <section class="timeline-content">
-                {{> timeline }}
-              </section>
-
+              </ul>
             </div>
-            <div id="tab2" class="tab-content">
 
-              <section class="polls-content">
-                {{> polls }}
-              </section>
+            <div class="tab-container">
+              <div id="tab1" class="tab-content">
 
+                <section class="timeline-content">
+                  {{> timeline }}
+                </section>
+
+              </div>
+              <div id="tab2" class="tab-content">
+
+                <section class="polls-content">
+                  {{> polls }}
+                </section>
+
+              </div>
             </div>
+
           </div>
 
         </div>
@@ -46,6 +50,6 @@
 
   </div>
 
-  {{> addMessage }}
+
 
 </template>

@@ -14,14 +14,14 @@ App.info({
 App.setPreference('BackgroundColor', '0xff0000ff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 
-// cordova plugin facebook
-App.configurePlugin('com.phonegap.plugins.facebookconnect', {
-    APP_ID: '638977909535835',
-    APP_NAME: 'vtv'
-});
+// // cordova plugin facebook
+// App.configurePlugin('com.phonegap.plugins.facebookconnect', {
+//     APP_ID: '638977909535835',
+//     APP_NAME: 'vtv'
+// });
 
-// regras de acesso cross origen
-App.accessRule("*://enginex.kadira.io/simplentp/sync");
-App.accessRule("*://sistemameionorte.com.br/*");
-App.accessRule("*://zapzap.club/*");
-//App.accessRule("*://localhost:3010/*");
+// // regras de acesso cross origen
+// App.accessRule("*://enginex.kadira.io/simplentp/sync");
+// App.accessRule("*://sistemameionorte.com.br/*");
+// App.accessRule("*://zapzap.club/*");
+// //App.accessRule("*://localhost:3010/*");

@@ -2,12 +2,12 @@
 Template.addVideoBOAFM.events({
 
   'focus #btn-close-add-video, click #btn-close-add-video': function () {
-    document.querySelector('body').classList.remove('add-video-buttons');
+    document.querySelector('body').classList.remove('add-video-buttons-boafm');
   },
 
   'focus #btn-upload-video, click #btn-upload-video' : function(){
-    document.querySelector('body').classList.remove('add-video-buttons');
-    document.querySelector('body').classList.add('show-file-message');
+    document.querySelector('body').classList.remove('add-video-buttons-boafm');
+    document.querySelector('body').classList.add('show-file-message-boafm');
   }
 
 });

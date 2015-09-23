@@ -1,4 +1,4 @@
-<template name="contentNewspaperLatest">
+<template name="newspaperColumns">
 
    <div class="newspaper-page transitions-content">
 
@@ -6,11 +6,11 @@
 
     <main class="content has-header">
 
-      <section class="newspaper-tabs">
+      <section class="inner-content">
 
         <div class="tab-container">
 
-          aaaa
+          Colunas
 
         </div>
 
@@ -18,8 +18,8 @@
 
     </main>
 
-  </div>
+    {{> yield "search"}}
 
-  {{> navigationTabs }}
+  </div>
 
 </template>

@@ -8,20 +8,17 @@
 
     <main class="content has-header">
 
-      <section class="newspaper-tabs">
-
-        <div class="tab-container">
+      <section class="inner-content">
 
           {{> yield "content" }}
-
-        </div>
 
       </section>
 
     </main>
 
+    {{> yield "search"}}
+
   </div>
 
-  {{> navigationTabs }}
-
 </template>
+

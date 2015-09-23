@@ -7,7 +7,6 @@ Template.navigationTabs.onRendered(function(){
     infinite: false,
     arrows: true,
     dots: false,
-    draggable: false
   });
 
 });

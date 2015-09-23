@@ -12,7 +12,7 @@ Router.route('/fmmeionorte', {
 Template.fmmn.onRendered(function(){
 
   Meteor.setTimeout(function(){
-    document.querySelector('body').classList.add('show-message');
+    document.querySelector('body').classList.add('show-message-fmmn');
   }, 1000);
 
   $('ul.tabs').tabs();
@@ -33,7 +33,7 @@ Template.fmmn.onRendered(function(){
 });
 
 Template.fmmn.onDestroyed(function(){
-  document.querySelector('body').classList.remove('show-message');
+  document.querySelector('body').classList.remove('show-message-fmmn');
 
   $('ul.tabs').tabs();
 
@@ -42,10 +42,10 @@ Template.fmmn.onDestroyed(function(){
 Template.fmmn.events({
 
   'click #btn-hide-message, focus #btn-hide-message, click #btn-share-message, focus #btn-share-message': function () {
-    document.querySelector('body').classList.remove('show-message');
+    document.querySelector('body').classList.remove('show-message-fmmn');
   },
 
   'click #btn-show-message, focus #btn-show-message': function () {
-    document.querySelector('body').classList.add('show-message');
+    document.querySelector('body').classList.add('show-message-fmmn');
   }
 });
