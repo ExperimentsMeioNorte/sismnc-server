@@ -14,4 +14,9 @@ Meteor.startup(function () {
        }
      });
    }
+
+  /*Cordova.depends({
+      'com.phonegap.plugins.facebookconnect': '0.11.0',
+      'cordova-plugin-camera': '1.2.0'
+  });*/
  });

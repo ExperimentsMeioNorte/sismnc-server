@@ -36,7 +36,7 @@
   // Configure environment
   "env": {
     "PORT" : "3001",
-    "UPSTART_UID" : "meteoruser",
+    "UPSTART_UID" : "root",
     "ROOT_URL": "http://sistemameionorte.com.br"
   },
 

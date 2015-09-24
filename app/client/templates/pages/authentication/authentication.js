@@ -12,7 +12,6 @@ Router.route('/auth', {
 
 // Ao Entrar
 Template.authentication.onRendered(function(){
-
   $('.modal-trigger').leanModal({
       dismissible: true,
       opacity:1,
@@ -25,7 +24,6 @@ Template.authentication.onRendered(function(){
 
       }
   });
-
 });
 
 //var loginButtonsSession = Accounts._loginButtonsSession;
