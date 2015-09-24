@@ -44,10 +44,10 @@
 
 
 
-.show-message {
+.show-message-television {
   position:relative;height:100%;
-  .message {
-    bottom:0;opacity:1;
+  #message-program {
+    bottom:0;opacity:1!important;
   }
   .transitions-container {
     //padding-bottom:48px;position:relative;z-index:4;
@@ -58,13 +58,16 @@
 }
 
 
+
+
+
+
 .message {
-  bottom:-81px;position:fixed;left:0;width:100%;box-shadow:0 -2px 10px -4px rgba(0,0,0,0.3);height:48px;background:#fff;opacity:0;z-index:9998;
+  bottom:-81px;position:fixed;left:0;width:100%;box-shadow:0 -2px 10px -4px rgba(0,0,0,0.3);height:48px;background:#fff;opacity:0;z-index:8;
 
   -webkit-backface-visibility:hidden;
 
-
-  transition:all .4s ease-in-out;
+   transition:all .4s ease-in-out;
   -webkit-transition:all .4s ease-in-out;
   -moz-transition:all .4s ease-in-out;
 
@@ -197,7 +200,7 @@
 }
 
 
-  .add-image-buttons {
+  .add-image-buttons-television {
      #btn-show-add-video {
       opacity:0.2;
     }
@@ -209,7 +212,7 @@
     }
   }
 
-  .add-video-buttons {
+  .add-video-buttons-television {
      #btn-show-add-image {
       opacity:0.2;
     }
@@ -221,7 +224,7 @@
     }
   }
 
-  .add-image-buttons, .add-video-buttons {
+  .add-image-buttons-television, .add-video-buttons-television {
     position:relative;
 
     &:before {
@@ -253,8 +256,8 @@
 }
 
 
-.show-file-message {
-  .file-message {
+.show-file-message-television {
+  #file-message-television {
     bottom:0!important;visibility: visible!important;opacity:1!important;
   }
 }

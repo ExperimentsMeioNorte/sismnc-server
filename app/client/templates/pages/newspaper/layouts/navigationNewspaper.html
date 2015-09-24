@@ -18,19 +18,18 @@
       <ul class="collapsible collapsible-accordion">
 
         <li>
-          <a class="link-nav collapsible-header" href="{{ pathFor 'newspaperSections' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+          <a class="link-nav collapsible-header" href="#">
             Seções
-
             <i class="icon-down-open-mini"></i>
           </a>
 
           <div class="collapsible-body">
 
             <ul>
-              <li><a href="#!">First</a></li>
-              <li><a href="#!">Second</a></li>
-              <li><a href="#!">Third</a></li>
-              <li><a href="#!">Fourth</a></li>
+              <li><a href="{{ pathFor 'newspaperSection' }}">Opinião</a></li>
+              <li><a href="{{ pathFor 'newspaperSection' }}">Theresina</a></li>
+              <li><a href="{{ pathFor 'newspaperSection' }}">Olé</a></li>
+              <li><a href="{{ pathFor 'newspaperSection' }}">Piauí</a></li>
             </ul>
 
           </div>
@@ -46,7 +45,7 @@
       <ul class="collapsible collapsible-accordion">
 
         <li>
-          <a class="link-nav collapsible-header" href="{{ pathFor 'newspaperColumns' }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
+          <a class="link-nav collapsible-header" href="#" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
             Colunas
 
             <i class="icon-down-open-mini"></i>
@@ -55,10 +54,11 @@
           <div class="collapsible-body">
 
             <ul>
-              <li><a href="#!">First</a></li>
-              <li><a href="#!">Second</a></li>
-              <li><a href="#!">Third</a></li>
-              <li><a href="#!">Fourth</a></li>
+              <li><a href="{{ pathFor 'newspaperColumns' }}">Todas as colunas</a></li>
+              <li><a href="{{ pathFor 'newspaperColumn' }}">First</a></li>
+              <li><a href="{{ pathFor 'newspaperColumn' }}">Second</a></li>
+              <li><a href="{{ pathFor 'newspaperColumn' }}">Third</a></li>
+              <li><a href="{{ pathFor 'newspaperColumn' }}">Fourth</a></li>
             </ul>
 
           </div>

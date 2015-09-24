@@ -6,21 +6,11 @@
 
 fourseven:scss
 iron:router
-aldeed:collection2
 meteorhacks:kadira
 jamielob:transitions
 meteorhacks:fast-render
 chrismbeckett:toastr
-
-# Packages login
-service-configuration
-accounts-base
-accounts-ui
-accounts-password
-particle4dev:cordova-fb
-
-# Packages camera
-mdg:camera
+jparker:crypto-md5
 zimme:active-route
 standard-minifiers
 meteor-base
@@ -36,3 +26,13 @@ random
 ejson
 spacebars
 check
+
+# Packages login
+service-configuration
+accounts-base
+accounts-ui
+accounts-password
+particle4dev:cordova-fb
+
+# Packages camera
+mdg:camera

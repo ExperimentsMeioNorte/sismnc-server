@@ -1,11 +1,12 @@
 /** Autor: Allan Alexandre
 *** ================================ */
 
-body {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+body {}
 
 @font-face {
   font-family: 'shiva';
@@ -1491,6 +1492,11 @@ html {
   .txt-google {
     color:#dd4b39;
   }
+
+.inner-content {
+  position:relative;height:100%;width:100%;
+}
+
 
 
 .has-header {

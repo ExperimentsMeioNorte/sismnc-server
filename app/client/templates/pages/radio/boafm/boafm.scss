@@ -64,9 +64,16 @@
 
 
 
-.show-message {
-  .message {
-    bottom:0;opacity:1;
+.show-message-boafm {
+  position:relative;height:100%;
+  #message-boafm {
+    bottom:0;opacity:1!important;
+  }
+  .transitions-container {
+    //padding-bottom:48px;position:relative;z-index:4;
+    -webkit-perspective:none!important;
+    -moz-perspective: none!important;
+    perspective: none!important;
   }
 }
 
@@ -207,7 +214,7 @@
 }
 
 
-  .add-image-buttons {
+  .add-image-buttons-boafm {
      #btn-show-add-video {
       opacity:0.2;
     }
@@ -219,7 +226,7 @@
     }
   }
 
-  .add-video-buttons {
+  .add-video-buttons-boafm {
      #btn-show-add-image {
       opacity:0.2;
     }
@@ -231,7 +238,7 @@
     }
   }
 
-  .add-image-buttons, .add-video-buttons {
+  .add-image-buttons-boafm, .add-video-buttons-boafm {
     position:relative;
 
     &:before {
@@ -263,8 +270,8 @@
 }
 
 
-.show-file-message {
-  .file-message {
+.show-file-message-boafm {
+  #file-message-boafm {
     bottom:0!important;visibility: visible!important;opacity:1!important;
   }
 }

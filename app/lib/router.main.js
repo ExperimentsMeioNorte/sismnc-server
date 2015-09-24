@@ -7,9 +7,6 @@ ApplicationController = RouteController.extend({
         }
         this.next();
    }
-  //  onBeforeAction: function () {
-  //   this.next();
-  // }
 });
 
 Router.configure({

@@ -1,21 +1,23 @@
+Meteor.smtpServerUsername = 'alissonplus2@gmail.com'
+
 // Metodo para deixar a primeira letra da string em Maiusculo
 Meteor.capitalize = function(str){
     str = (str === null)? '' : String(str);
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-// Metodo de configuracao para logar-se nas redes sociais
-Meteor.loginApp = function(evento){
-    var serviceName = $(evento.currentTarget).attr('data-service');
-    var callback = function (err) {
-        if (!err) {
-            toastr.success(
-                "Oba, sejá bem vindo.",
-                '',
-                {
-                    "progressBar": true,
-                    "newestOnTop": true,
-                    "showDuration": "100",
+ // Metodo de configuracao para logar-se nas redes sociais
+ Meteor.loginApp = function(evento){
+     var serviceName = $(evento.currentTarget).attr('data-service');
+     var callback = function (err) {
+         if (!err) {
+             toastr.success(
+                 "Oba, sejá bem vindo.",
+                 '',
+                 {
+                     "progressBar": true,
+                     "newestOnTop": true,
+                     "showDuration": "100",
                     "hideDuration": "100",
                     "timeOut": "1000"
                 }

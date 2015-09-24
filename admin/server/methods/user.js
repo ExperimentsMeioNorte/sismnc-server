@@ -64,6 +64,22 @@ Meteor.methods({
 		}
 	},
 
+	'updateUserPassword': function(data){
+		if(data[0] === 222){
+	   		User.update(
+	   			{_id:data[1]},
+	   			{$set:
+	   				{
+	   					password:CryptoJS.MD5(data[2] + data[3]).toString(),
+	   					date_change:Meteor.call('dateNow')
+	   				}
+	   			}
+   			);
+		}else{
+		  //erro aqui
+		}
+	},
+
 	'insertLevel': function(){
 		Level.insert({status:1, level:'0', description:'Usuario'});
 		Level.insert({status:1, level:'1', description:'Programa'});

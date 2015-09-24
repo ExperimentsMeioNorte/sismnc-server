@@ -12,7 +12,7 @@ Router.route('/boafm', {
 Template.boafm.onRendered(function(){
 
   Meteor.setTimeout(function(){
-    document.querySelector('body').classList.add('show-message');
+    document.querySelector('body').classList.add('show-message-boafm');
   }, 1000);
 
   $('ul.tabs').tabs();
@@ -33,7 +33,7 @@ Template.boafm.onRendered(function(){
 });
 
 Template.boafm.onDestroyed(function(){
-  document.querySelector('body').classList.remove('show-message');
+  document.querySelector('body').classList.remove('show-message-boafm');
 
   $('ul.tabs').tabs();
 
@@ -42,10 +42,10 @@ Template.boafm.onDestroyed(function(){
 Template.boafm.events({
 
   'click #btn-hide-message, focus #btn-hide-message, click #btn-share-message, focus #btn-share-message': function () {
-    document.querySelector('body').classList.remove('show-message');
+    document.querySelector('body').classList.remove('show-message-boafm');
   },
 
   'click #btn-show-message, focus #btn-show-message': function () {
-    document.querySelector('body').classList.add('show-message');
+    document.querySelector('body').classList.add('show-message-boafm');
   }
 });

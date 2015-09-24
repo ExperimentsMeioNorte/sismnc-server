@@ -3,7 +3,7 @@ AuthController = ApplicationController.extend();
 
 Router.route('/auth', {
   name: 'authentication',
-  fastRender: true,
+  fastRender: true
   waitOn: function() {
     Meteor.remote.subscribe('user');
     Meteor.subscribe('users');
@@ -125,7 +125,6 @@ Template.authentication.events({
                         email:usersSearch.services.facebook.email
                       }
                     );
-
                     Meteor.remote.setUserId(userId._id);
                     Router.go('home');
                   }
@@ -134,11 +133,5 @@ Template.authentication.events({
           }
         }
       });
-    },
-
-    // desloga na rede social atual
-    'click .logout-bg-facebook': function(evento, tmp){
-        evento.preventDefault();
-        Meteor.logout();
     }
 });

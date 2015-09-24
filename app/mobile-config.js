@@ -16,8 +16,8 @@ App.setPreference('HideKeyboardFormAccessoryBar', true);
 
 // cordova plugin facebook
 App.configurePlugin('com.phonegap.plugins.facebookconnect', {
-    APP_ID: '638977909535835',
-    APP_NAME: 'vtv'
+     APP_ID: '638977909535835',
+     APP_NAME: 'vtv'
 });
 
 // regras de acesso cross origen
