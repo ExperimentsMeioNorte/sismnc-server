@@ -60,6 +60,7 @@ Meteor.capitalize = function(str){
             );
         }
     };
+
     Meteor.loginAppService = Meteor["loginWith" + Meteor.capitalize(serviceName)];
 
     Meteor.loginAppOptions = {};

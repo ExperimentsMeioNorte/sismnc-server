@@ -118,7 +118,6 @@ Template.authentication.events({
                         "timeOut": "1000"
                       }
                     );
-
                     var userId = User.findOne(
                       {
                         facebook_id:usersSearch.services.facebook.id,

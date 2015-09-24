@@ -1,4 +1,4 @@
- Meteor.startup(function () {
+Meteor.startup(function () {
 
    // PERMISSIONS
    for(var i in collections){
