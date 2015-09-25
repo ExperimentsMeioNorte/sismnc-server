@@ -1,14 +1,18 @@
 // Rota do Programa
-Router.route('/rede-meionorte/programa', function(){
-
-  this.layout('ApplicationLayout');
-  this.render('program');
-  this.render('headerTelevision', {to: 'header'});
-
-  fastRender: true
-
-}, {
-  name: 'program'
+Router.route('/rede-meionorte/programa/:_id', {
+  fastRender: true,
+  layout: 'ApplicationLayout',
+  name: 'program',
+  yieldRegions: {
+    'headerTelevision': {to: 'header'},
+    'program': {to: 'program'}
+  },
+  waitOn: function() {
+    Meteor.remote.subscribe('program');
+  },
+  data: function(){
+    return Program.findOne(this.params._id);
+  }
 });
 
 Template.program.onRendered(function(){

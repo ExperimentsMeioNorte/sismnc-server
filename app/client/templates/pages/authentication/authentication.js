@@ -2,8 +2,8 @@
 AuthController = ApplicationController.extend();
 
 Router.route('/auth', {
-  name: 'authentication',
   fastRender: true,
+  name: 'authentication',
   waitOn: function() {
     Meteor.remote.subscribe('user');
     Meteor.subscribe('users');

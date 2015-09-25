@@ -4,12 +4,18 @@ Meteor.remote = DDP.connect("http://zapzap.club:3000"); // em producao
 
 //collection
 User = new Meteor.Collection('user', Meteor.remote);
+Program = new Meteor.Collection('program', Meteor.remote);
+Category = new Meteor.Collection('category', Meteor.remote);
 
 //configurações automatizadas
 collectionsName = {
-    User: 'user'
+    User: 'user',
+    Program: 'program',
+    Category: 'category'
 };
 
 collections = {
-    User: User
+    User: User,
+    Program: Program,
+    Category: Category
 };
