@@ -116,12 +116,14 @@ Template.authentication.events({
                         "timeOut": "1000"
                       }
                     );
+
                     var userId = User.findOne(
                       {
                         facebook_id:usersSearch.services.facebook.id,
                         email:usersSearch.services.facebook.email
                       }
                     );
+
                     Meteor.remote.setUserId(userId._id);
                     Router.go('home');
                   }
@@ -130,5 +132,11 @@ Template.authentication.events({
           }
         }
       });
+    },
+
+    // desloga na rede social atual
+    'click .logout-bg-facebook': function(evento, tmp){
+        evento.preventDefault();
+        Meteor.logout();
     }
 });

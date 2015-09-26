@@ -11,7 +11,7 @@ App.info({
   'android_xhdpi': 'resources/icons/icon-xhdpi.png'
 });*/
 
-App.setPreference('BackgroundColor', '0xff0000ff');
+App.setPreference('BackgroundColor', '0xffffffff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 
 // cordova plugin facebook
@@ -21,7 +21,5 @@ App.configurePlugin('com.phonegap.plugins.facebookconnect', {
 });
 
 // // regras de acesso cross origen
-App.accessRule("*://enginex.kadira.io/simplentp/sync");
-App.accessRule("*://sistemameionorte.com.br/*");
-App.accessRule("*://zapzap.club/*");
+App.accessRule("*");
 // //App.accessRule("*://localhost:3010/*");

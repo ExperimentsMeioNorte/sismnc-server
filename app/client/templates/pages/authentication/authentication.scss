@@ -1,6 +1,12 @@
 .auth-page {
   .logo-sismnc {
-    margin:2.5rem 0px 1.68rem !important;
+    margin:5rem 0px 1.68rem !important;
+  }
+
+  .meteor-connect {
+    a {
+      color:#2d2d2d!important;
+    }
   }
 
   // Login
@@ -47,7 +53,7 @@
       background:#55acee;margin:0 10px;
     }
     .bg-google {
-      background:#dd4b39;
+      background:#dd4b39;margin-top:10px;
 
       // -webkit-border-top-right-radius: 28px;
       // -webkit-border-bottom-right-radius: 28px;

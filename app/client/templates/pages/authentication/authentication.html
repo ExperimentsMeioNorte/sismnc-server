@@ -8,48 +8,11 @@
 
     <div class="social">
       {{> loginFacebook}}
+      {{> loginGoogle}}
+
+      {{> loginButtons}}
     </div>
-
-    <small class="ou">OU</small>
-
-
-    <a class="btn log-in modal-trigger" href="#modal-log-in">
-      Entre usando e-mail
-    </a>
-
-
-    <div class="sign-in">
-      <span>Ainda não tem conta?</span>
-      <a class="btn modal-trigger" href="#modal-sign-in">
-        CRIAR CONTA
-      </a>
-    </div>
-
-    {{> signIn }}
-    {{> logIn }}
 
   </div>
 
 </template>
-
-<template name="loginFacebook">
-    <a href="#facebook" class="bg-facebook" data-service="facebook" id="loginFacebookButton">
-        <i class="icon-facebook-rect"></i>
-        <span>Entrar usando facebook</span>
-    </a>
-</template><!--
-
-<template name="loginTwitter">
-    <a href="#" title="" class="bg-twitter" data-service="twitter" id="loginTwitterButton">
-      <i class="icon-twitter-bird"></i>
-      <span>Twitter</span>
-    </a>
-</template>
-
-<template name="loginGoogle">
-    <a href="#" title="" class="bg-google" data-service="google" id="loginGoogleButton">
-      <i class="icon-googleplus-rect"></i>
-      <span>Google +</span>
-    </a>
-</template>-->
-
