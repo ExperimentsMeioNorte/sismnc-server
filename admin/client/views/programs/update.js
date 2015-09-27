@@ -44,11 +44,12 @@ Template.programUpdate.rendered = function () {
 			document.querySelector("#program_label_description").className = ' active';
 		}
 
-		if(this.data.collection._docs['_map'][Router.current().params._id]['hour']){
-			document.querySelector("#program_hour").value = this.data.collection._docs['_map'][Router.current().params._id]['hour'];
-			document.querySelector("#program_img_hour").className = document.querySelector("#program_img_hour").className + ' valid active';
-			document.querySelector("#program_hour").className = document.querySelector("#program_hour").className + ' valid';
-			document.querySelector("#program_label_hour").className = ' active';
+		if(this.data.collection._docs['_map'][Router.current().params._id]['hour_begin']){
+			document.querySelector("#program_hour_begin").value = this.data.collection._docs['_map'][Router.current().params._id]['hour_begin'];
+			document.querySelector("#program_hour_end").value = this.data.collection._docs['_map'][Router.current().params._id]['hour_end'];
+			document.querySelector("#program_img_hour_begin").className = document.querySelector("#program_img_hour").className + ' valid active';
+			document.querySelector("#program_hour_begin").className = document.querySelector("#program_hour").className + ' valid';
+			document.querySelector("#program_label_hour_begin").className = ' active';
 		}
 
 		if(this.data.collection._docs['_map'][Router.current().params._id]['day']){
@@ -84,7 +85,8 @@ Template.programUpdate.rendered = function () {
 		);
 	}
 
-	VMasker(this.find("[data-vm-mask-hour]")).maskPattern("99:99");
+	VMasker(this.find("[data-vm-mask-hour-begin]")).maskPattern("99:99");
+	VMasker(this.find("[data-vm-mask-hour-end]")).maskPattern("99:99");
 	$('select').material_select();
 };
 
@@ -132,9 +134,10 @@ Template.programUpdate.events({
 					form.target[7].value,
 					form.target[8].value,
 					form.target[9].value,
+					form.target[10].value,
 					Session.get('getupFormImgBase64Avatar'),
 					Session.get('getupFormImgBase64Top'),
-					((form.target[14].checked)? 1 : 0),
+					((form.target[15].checked)? 1 : 0),
 					Router.current().params._id,
 					Meteor.userId2
 				],
