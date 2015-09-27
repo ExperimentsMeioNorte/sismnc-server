@@ -23,6 +23,8 @@ Template.timeline.helpers({
       limit: Session.get('limit')
     }).map(
       function(c) {
+
+        // pega o nome e o avatar do usuario da mensagem atual
         var user = User.find(
         {
           _id:c.user_id
@@ -36,6 +38,16 @@ Template.timeline.helpers({
         );
 
         if(c.user_id){
+
+          // pega o tempo em que o registro atual está
+          Meteor.remote.call(
+            'timeCompare',
+            c.date_record,
+            function(error, result){
+              Session.set('getupTimeLineTimeCompare' + c._id, result);
+            }
+          );
+
           return {
             _id: c._id,
             text: c.text,
@@ -43,7 +55,8 @@ Template.timeline.helpers({
             video: c.video,
             date_record: c.date_record,
             user_name: user[0].name,
-            user_avatar: user[0].avatar
+            user_avatar: user[0].avatar,
+            msg_time: Session.get('getupTimeLineTimeCompare' + c._id)
           };
         }else{
           return '';
