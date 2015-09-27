@@ -50,6 +50,10 @@ Template.timeline.helpers({
         }
       }
     );
+  },
+
+  'mais': function(){
+    return 'display:initial';
   }
 });
 
