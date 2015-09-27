@@ -15,22 +15,12 @@ Router.route('/rede-meionorte/programa/:_id', {
     return Program.findOne({_id:this.params._id});
   }
 });
-Template.program.onCreated(function () {
-  console.log('entrou');
-});
-
-Template.program.onDestroyed(function () {
-  console.log('dezentrou');
-});
 
 Template.program.onRendered(function(){
   //console.log(Router.current().data());
 
-  // mostra a televisao
-  Meteor.playTv(Router.current().data()['hour_begin'], Router.current().data()['hour_end']);
-
   // preenche as descricoes do programa
-  document.querySelector(".play-tv").style.display = Router.current().data()['name'];
+  document.querySelector(".title").innerHTML = Router.current().data()['name'];
   document.querySelector("#programDias").innerHTML = Router.current().data()['day'];
   document.querySelector("#programHoraInicial").innerHTML = Router.current().data()['hour_begin'];
   document.querySelector("#programHoraFinal").innerHTML = Router.current().data()['hour_end'];
@@ -63,5 +53,12 @@ Template.program.events({
 
   'click #sendMsg': function(){
     console.log('clicou2');
+  }
+});
+
+Template.playTvLayout.helpers({
+  // mostra a televisao
+  playTvValidate: function(){
+    return Meteor.playTv(Router.current().data()['hour_begin'], Router.current().data()['hour_end']);;
   }
 });
