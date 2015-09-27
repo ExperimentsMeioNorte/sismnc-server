@@ -65,7 +65,7 @@ Template.programs.helpers({
     );
 
     var program = Program.find(
-      {},
+      {status:1},
       {sort: {category_id:"asc"}}
     ).map(
       function(p) {
