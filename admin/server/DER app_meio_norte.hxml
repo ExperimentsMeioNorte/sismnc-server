@@ -21,7 +21,11 @@
     <row null="1" autoincrement="0" name="description">
       <datatype>TEXT</datatype>
     </row>
-    <row null="1" autoincrement="0" name="hour">
+    <row null="1" autoincrement="0" name="hour_begin">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="hour_end">
       <datatype>VARCHAR(100)</datatype>
       <default>NULL</default>
     </row>
