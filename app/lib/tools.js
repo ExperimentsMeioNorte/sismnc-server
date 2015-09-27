@@ -16,21 +16,10 @@ Meteor.playTv = function(hourBegin, hourEnd){
     var hourMinutes = (hour-1 + ':' + minutes);
 
     if(hourMinutes >= hourBegin && hourMinutes <= hourEnd){
-        document.querySelector(".play-tv").style.display = 'initial';
+        return true;
     }else{
-        document.querySelector(".play-tv").style.display = 'none';
         var hourMinutesBegin = (hour -2) + ':' + minutes;
         var hourMinutesEnd =(hour +2) + ':' + minutes;
-        /*var programs = Program.findOne({
-            hour_begin: {
-                $gt: ((hour - 1) + ':' + minutes),
-                $lt: hour_end + 1,
-            },
-            hour_end: {
-                $gt: ((hour - 1) + ':' + minutes),
-                $lt: hour_end + 1,
-            }
-        });*/
 
         var programs = Program.find(
             {},
@@ -51,7 +40,6 @@ Meteor.playTv = function(hourBegin, hourEnd){
             };
           }
         );
-
 
         for(x in programs){
             if(hourMinutes >= programs[x].hour_begin
@@ -74,6 +62,8 @@ Meteor.playTv = function(hourBegin, hourEnd){
                 "extendedTimeOut": 0
             }
         );
+
+        return false;
     }
 };
 
