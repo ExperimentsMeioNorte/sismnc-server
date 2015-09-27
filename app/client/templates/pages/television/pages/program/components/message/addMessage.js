@@ -1,5 +1,9 @@
 Template.addMessage.events({
 
+  'submit form#addMessage' : function(){
+    console.log(opa entrou);
+  },
+
   'focus #btn-show-add-image, click #btn-show-add-image': function () {
     document.querySelector('body').classList.add('add-image-buttons-television');
   },

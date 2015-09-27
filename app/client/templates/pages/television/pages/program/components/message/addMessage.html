@@ -2,6 +2,8 @@
 
   <div id="message-program" class="message">
 
+    <form name="addMessage" id="addMessage">
+
     <div class="buttons-actions left">
       <a href="#" id="btn-show-add-image">
         <img src="/images/television/icons/icon-photo.svg" height="16" />
@@ -12,7 +14,7 @@
     </div>
 
     <div class="input-field">
-      <input type="text" name="message" />
+      <input id="messageField" type="text" name="message" />
     </div>
 
     <button class="send-button btn btn-flat" type="submit">
@@ -21,6 +23,8 @@
 
     {{> addImage }}
     {{> addVideo }}
+
+    </form>
 
   </div>
 
