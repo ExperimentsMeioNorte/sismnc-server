@@ -32,9 +32,6 @@ Template.program.onRendered(function(){
   }, 1000);
 
   $('ul.tabsTV').tabs();
-
-  // limite de visualizacoes na paginacao
-  Session.set('limit', 5);
 });
 
 Template.program.onDestroyed(function(){

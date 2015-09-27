@@ -1,3 +1,8 @@
+Template.timeline.onRendered(function(){
+  // limite de visualizacoes na paginacao
+  Session.set('limit', 5);
+});
+
 Template.timeline.helpers({
   'contents': function(){
     var dateObj = new Date();
@@ -14,9 +19,7 @@ Template.timeline.helpers({
       }
     },
     {
-      sort: {date_record:"desc"}
-    },
-    {
+      sort: {date_record:"desc"},
       limit: Session.get('limit')
     }).map(
       function(c) {
@@ -47,14 +50,11 @@ Template.timeline.helpers({
         }
       }
     );
-  },
-
-  // paginacao
-  'mais': function(){
-    return (Session.get('limit') >= Content.find(
-      {
-        user_id: Meteor.remote.userId(),
-        program_id:Router.current().params._id
-      }).count())? 'display:none' : 'display:block';
   }
+});
+
+Template.timeline.events({
+    'click #mais': function(){
+        Meteor.incrementLimit();
+    }
 });
