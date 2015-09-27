@@ -4,9 +4,8 @@ Template.addMessage.events({
         document.querySelector('body').classList.add('add-video-buttons-television');
     },
 
-    'click #sendMsg': function(){
-        //events.preventDefault();
-        console.log('clicou');
+    'click .send-button': function(events){
+        events.preventDefault();
         if(!document.querySelector('#message').value){
             toastr.warning(
                 "Ops, necessário preencher um texto.",
@@ -17,6 +16,7 @@ Template.addMessage.events({
             Meteor.remote.call(
                 'insertContent',
                 [
+                    111,
                     Router.current().params._id,
                     Meteor.remote.userId(),
                     document.querySelector('#message').value, // texto

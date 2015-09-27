@@ -10,6 +10,7 @@ Router.route('/rede-meionorte/programa/:_id', {
   waitOn: function() {
     Meteor.remote.subscribe('program');
     Meteor.remote.subscribe('content');
+    Meteor.remote.subscribe('user');
   },
   data: function(){
     return Program.findOne({_id:this.params._id});
@@ -49,10 +50,6 @@ Template.program.events({
 
   'click #btn-show-message, focus #btn-show-message': function () {
     document.querySelector('body').classList.add('show-message-television');
-  },
-
-  'click #sendMsg': function(){
-    console.log('clicou2');
   }
 });
 
