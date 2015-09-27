@@ -80,7 +80,6 @@ Template.programs.helpers({
     for(cID in category){
       for(pID in program){
         if(program[pID].category_id === category[cID]._id){
-          console.log(program[pID]._id);
           programs[pID] = {
             program_id: program[pID]._id,
             image_avatar: program[pID].image_avatar,
