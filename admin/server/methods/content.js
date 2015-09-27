@@ -1,9 +1,26 @@
 Meteor.methods({
-	'insertContent': function(data){
-	    if(data[0] !== 111){
-	    	return false;
-    	}
+  /*
+    data[0] = 111 (obrigatorio)
+    data[1] = ID do programa (obrigatorio)
+    data[2] = ID do usuario (obrigatorio)
+    data[3] = texto (obrigatorio somente se nao tiver imagem ou video)
+    data[4] = imagem
+    data[5] = video
+    data[6] = *status (default: 1)
 
+    * status:
+      0 = inativo
+      1 = ativo
+  */
+	'insertContent': function(data){
+    var msgError = '';
+    if(data[0] !== 111){
+      msgError = Meteor.call('msgFeedback', 'error', '000');
+    }else if(!data[3] && !data[4] && !data[5]){
+      msgError = Meteor.call('msgFeedback', 'error', '006');
+    }
+
+    if(!msgError){
     	Content.insert(
     		{
     			program_id:data[1],
@@ -12,51 +29,88 @@ Meteor.methods({
     			img:data[4],
           video:data[5],
           status:data[6],
-          user_record:Meteor.userId(),
-          user_change:Meteor.userId(),
     			date_record:Meteor.call('dateNow'),
     			date_change:Meteor.call('dateNow')
     		}
   		);
-  		return true;
+
+      return Meteor.call('msgFeedback', 'sucess', '000');
+    }else{
+      throw new Meteor.Error(500, msgError);
+    }
 	},
 
+  /*
+    data[0] = 111 (obrigatorio)
+    data[1] = ID do programa (obrigatorio)
+    data[2] = ID do usuario (obrigatorio)
+    data[3] = texto (obrigatorio somente se nao tiver imagem ou video)
+    data[4] = imagem
+    data[5] = video
+    data[6] = *status (default: 1)
+    data[7] = id da mensagem (obrigatorio)
+
+    * status:
+      0 = inativo
+      1 = ativo
+  */
   'updateContent': function(data){
-    if(data[0] === 222){
+    var msgError = '';
+    if(data[0] !== 222){
+      msgError = Meteor.call('msgFeedback', 'error', '000');
+    }else if(!data[3] && !data[4] && !data[5]){
+      msgError = Meteor.call('msgFeedback', 'error', '006');
+    }else if(!data[7]){
+      msgError = Meteor.call('msgFeedback', 'error', '005') + ' mensagem.';
+    }
+
+    if(!msgError){
       Content.update(
-        {_id:data[1]},
+        {_id:data[7]},
         {$set:
           {
-            program_id:data[2],
-            user_id:data[3],
-            text:data[4],
-            img:data[5],
-            video:data[6],
-            status:data[7],
-            user_change:Meteor.userId(),
+            program_id:data[1],
+            user_id:data[2],
+            text:data[3],
+            img:data[4],
+            video:data[5],
+            status:data[6],
             date_change:Meteor.call('dateNow')
           }
         }
       );
+
+      return Meteor.call('msgFeedback', 'sucess', '001');
     }else{
-      //erro aqui
+      throw new Meteor.Error(500, msgError);
     }
   },
 
-	'deleteContent': function(data){
+  /*
+    data[0] = 333 (obrigatorio)
+    data[1] = id da mensagem (obrigatorio)
+  */
+	'disableContent': function(data){
+    var msgError = '';
+    if(data[0] !== 333){
+      msgError = Meteor.call('msgFeedback', 'error', '000');
+    }else if(!data[1]){
+      msgError = Meteor.call('msgFeedback', 'error', '005') + ' mensagem.';
+    }
+
 		if(data[0] === 333){
       Content.update(
         {_id:data[1]},
         {$set:
           {
             status:0,
-            user_change:Meteor.userId(),
             date_change:Meteor.call('dateNow')
           }
         }
       );
+      return Meteor.call('msgFeedback', 'sucess', '002');
     }else{
-      //erro aqui
+      throw new Meteor.Error(500, msgError);
     }
 	}
 });
