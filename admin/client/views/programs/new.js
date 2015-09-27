@@ -2,7 +2,8 @@
 Template.programNew.onRendered(function(){
 	Session.set( 'getupFormImgBase64Top', null );
 	Session.set( 'getupFormImgBase64Avatar', null );
-	VMasker(this.find("[data-vm-mask-hour]")).maskPattern("99:99");
+	VMasker(this.find("[data-vm-mask-hour-begin]")).maskPattern("99:99");
+	VMasker(this.find("[data-vm-mask-hour-end]")).maskPattern("99:99");
 
 	//preeche o select option de programa
 	var vehicle = Vehicle.find().map(function(vehicleData) {
@@ -65,6 +66,7 @@ Template.programNew.events({
 				{"progressBar": true}
 			);
 		}else{
+
 			Meteor.call(
 				'insertProgram',
 				[
@@ -77,16 +79,17 @@ Template.programNew.events({
 					form.target[7].value,
 					form.target[8].value,
 					form.target[9].value,
+					form.target[10].value,
 					Session.get('getupFormImgBase64Avatar'),
 					Session.get('getupFormImgBase64Top'),
-					((form.target[14].checked)? 1 : 0),
+					((form.target[15].checked)? 1 : 0),
 					Meteor.userId2
 				],
 				function(error, result){
 					if(!error){
 						//remove os dados dos campos do form para evitar a duplicidade do registro
-						form.target[0].value = form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = form.target[6].value = form.target[7].value = '';
-						form.target[12].checked = false;
+						form.target[0].value = form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = form.target[6].value = form.target[7].value =form.target[8].value = '';
+						form.target[15].checked = false;
 						Session.set( 'getupFormImgBase64Top', null );
 						Session.set( 'getupFormImgBase64Avatar', null );
 						document.querySelector('#topo_imgBase64').src = '#';
