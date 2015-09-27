@@ -1,8 +1,18 @@
 Template.timeline.helpers({
   'contents': function(){
+    var dateObj = new Date();
+    dateBegin = dateObj.getDate() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' 00:00:00';
+    dateNow = dateObj.getDate() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
+
     return Content.find(
     {
-      program_id:Router.current().params._id},
+      program_id:Router.current().params._id,
+      status: 1,
+      date_record: {
+        $gt: dateBegin,
+        $lt: dateNow
+      }
+    },
     {
       sort: {date_record:"desc"}
     },
