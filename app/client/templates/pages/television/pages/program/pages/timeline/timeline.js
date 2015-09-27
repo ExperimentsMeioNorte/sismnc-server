@@ -6,16 +6,16 @@ Template.timeline.onRendered(function(){
 Template.timeline.helpers({
   'contents': function(){
     var dateObj = new Date();
-    dateBegin = dateObj.getDate() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' 00:00:00';
-    dateNow = dateObj.getDate() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
+    Meteor.dateBegin = dateObj.getDate() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' 00:00:00';
+    Meteor.dateNow = (dateObj.getDate() + 1) + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' 01:00:00'
 
     return Content.find(
     {
       program_id:Router.current().params._id,
       status: 1,
       date_record: {
-        $gt: dateBegin,
-        $lt: dateNow
+        $gt: Meteor.dateBegin,
+        $lt: Meteor.dateNow
       }
     },
     {
@@ -52,8 +52,19 @@ Template.timeline.helpers({
     );
   },
 
+  // verifica se esta no final do registro e some com o botao mais
   'mais': function(){
-    return 'display:initial';
+    var contentCount = Content.find(
+    {
+      program_id:Router.current().params._id,
+      status: 1,
+      date_record: {
+        $gt: Meteor.dateBegin,
+        $lt: Meteor.dateNow
+      }
+    }).count();
+
+    return (Session.get('limit') >= contentCount)? 'display:none' : 'display:block';
   }
 });
 
