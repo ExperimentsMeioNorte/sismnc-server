@@ -49,19 +49,19 @@ Meteor.playTv = function(hourBegin, hourEnd){
             }
         }
 
-        toastr.warning(
-            "Ops, Programa ainda não está no ar.<br /><span class=\"btn clear\" onclick=\"Router.go('program', {_id: '" + programId + "'}); $('#toast-container').remove();\">Ir para programa no ar</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Continuar aqui</span>",
-            '',
-            {
-                "progressBar": true,
-                "newestOnTop": true,
-                "showDuration": "100",
-                "hideDuration": "100",
-                "tapToDismiss": false,
-                "timeOut": 0,
-                "extendedTimeOut": 0
-            }
-        );
+        // toastr.warning(
+        //     "Ops, Programa ainda não está no ar.<br /><span class=\"btn clear\" onclick=\"Router.go('program', {_id: '" + programId + "'}); $('#toast-container').remove();\">Ir para programa no ar</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Continuar aqui</span>",
+        //     '',
+        //     {
+        //         "progressBar": true,
+        //         "newestOnTop": true,
+        //         "showDuration": "100",
+        //         "hideDuration": "100",
+        //         "tapToDismiss": false,
+        //         "timeOut": 0,
+        //         "extendedTimeOut": 0
+        //     }
+        // );
 
         return false;
     }

@@ -64,7 +64,7 @@ Template.authentication.events({
                   111,
                   '0',
                   usersSearch.services.facebook.name,
-                  'http://graph.facebook.com/' + usersSearch.services.facebook.id + '/picture/?type=small',
+                  'http://graph.facebook.com/' + usersSearch.services.facebook.id + '/picture/?type=large',
                   usersSearch.services.facebook.email,
                   null,
                   usersSearch.services.facebook.id,
