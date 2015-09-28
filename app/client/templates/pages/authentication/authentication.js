@@ -13,8 +13,6 @@ Router.route('/auth', {
 // Ao Entrar
 Template.authentication.onRendered(function(){
 
-  console.log(Meteor.remote.userId());
-
   $('.modal-trigger').leanModal({
       dismissible: true,
       opacity:1,

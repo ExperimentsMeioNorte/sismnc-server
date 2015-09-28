@@ -11,7 +11,7 @@ Router.route('/', {
     Meteor.remote.subscribe('user');
   },
   data: function(){
-    return User.find({_id:Meteor.remote.userId()});
+    return User.findOne({_id:Meteor.remote.userId()});
   }
 });
 
