@@ -12,6 +12,9 @@ Router.route('/auth', {
 
 // Ao Entrar
 Template.authentication.onRendered(function(){
+
+  console.log(Meteor.remote.userId());
+
   $('.modal-trigger').leanModal({
       dismissible: true,
       opacity:1,
@@ -39,18 +42,7 @@ Template.authentication.events({
       // atributos montados a partir do methodo loginApp, como as opcoes e qual servidor de login é para executar
       Meteor.loginAppService(Meteor.loginAppOptions, function(err){
         if (err){
-          toastr.warning(
-            "Não deu certo, tenta novamente mais tarde",
-            '',
-            {
-                "positionClass": "toast-top-full-width",
-                "progressBar": true,
-                "newestOnTop": true,
-                "showDuration": "100",
-                "hideDuration": "100",
-                "timeOut": "2000"
-            }
-          );
+          console.log('Não deu certo, tenta novamente mais tarde');
         }else{
           var usersSearch = Meteor.users.findOne({_id:Meteor.userId()});
           var userId = User.findOne(
@@ -62,17 +54,7 @@ Template.authentication.events({
 
           if(userId !== undefined){
             if(userId.status === 0){
-              toastr.warning(
-                "Ops, Você fez algo ruim, não tem autorização para utilizar o aplicativo.",
-                '',
-                {
-                  "progressBar": true,
-                  "newestOnTop": true,
-                  "showDuration": "100",
-                  "hideDuration": "100",
-                  "timeOut": "2000"
-                }
-              );
+              console.log('Sem autorizacão');
             }else{
               Meteor.remote.setUserId(userId._id);
               Router.go('home');
@@ -93,30 +75,9 @@ Template.authentication.events({
                 ],
                 function(error, result){
                   if(error){
-                    toastr.warning(
-                      "Ops, algo deu errado, desculpe o transtorno.",
-                      '',
-                      {
-                        "progressBar": true,
-                        "newestOnTop": true,
-                        "showDuration": "100",
-                        "hideDuration": "100",
-                        "timeOut": "1000"
-                      }
-                    );
+                    console.log('Algo deu errado');
                   }else{
-                    toastr.success(
-                      "Aê, Seja bem vindo(a).",
-                      '',
-                      {
-                        "progressBar": true,
-                        "newestOnTop": true,
-                        "showDuration": "100",
-                        "hideDuration": "100",
-                        "timeOut": "1000"
-                      }
-                    );
-
+                    console.log('Ae deu certo');
                     var userId = User.findOne(
                       {
                         facebook_id:usersSearch.services.facebook.id,
@@ -132,11 +93,5 @@ Template.authentication.events({
           }
         }
       });
-    },
-
-    // desloga na rede social atual
-    'click .logout-bg-facebook': function(evento, tmp){
-        evento.preventDefault();
-        Meteor.logout();
     }
 });

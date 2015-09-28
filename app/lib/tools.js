@@ -86,53 +86,13 @@ Meteor.capitalize = function(str){
      var serviceName = $(evento.currentTarget).attr('data-service');
      var callback = function (err) {
          if (!err) {
-             toastr.success(
-                 "Oba, sejá bem vindo.",
-                 '',
-                 {
-                     "progressBar": true,
-                     "newestOnTop": true,
-                     "showDuration": "100",
-                    "hideDuration": "100",
-                    "timeOut": "1000"
-                }
-            );
+          console.log('Ae deu certo');
         } else if (err instanceof Accounts.LoginCancelledError) {
-            toastr.warning(
-                "Ops, Não pode efetuar o login.",
-                '',
-                {
-                    "progressBar": true,
-                    "newestOnTop": true,
-                    "showDuration": "100",
-                    "hideDuration": "100",
-                    "timeOut": "1000"
-                }
-            );
+          console.log('Não deu certo');
         } else if (err instanceof ServiceConfiguration.ConfigError) {
-            toastr.warning(
-                "Ops, Erro de configuração.",
-                '',
-                {
-                    "progressBar": true,
-                    "newestOnTop": true,
-                    "showDuration": "100",
-                    "hideDuration": "100",
-                    "timeOut": "1000"
-                }
-            );
+          console.log('Falta configurar algo');
         } else {
-            toastr.warning(
-                "Ixi, Algo de ruim ocorreu inesperadamente.",
-                '',
-                {
-                    "progressBar": true,
-                    "newestOnTop": true,
-                    "showDuration": "100",
-                    "hideDuration": "100",
-                    "timeOut": "1000"
-                }
-            );
+          console.log('Ixi vei');
         }
     };
 

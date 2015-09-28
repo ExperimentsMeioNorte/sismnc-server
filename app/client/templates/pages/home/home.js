@@ -7,13 +7,21 @@ Router.route('/', {
     'header': {to: 'header'},
     'navigation': {to: 'navigation'}
   },
-  fastRender: true
+  waitOn: function() {
+    Meteor.remote.subscribe('user');
+  },
+  data: function(){
+    return User.find({_id:Meteor.remote.userId()});
+  }
 });
 
 
 
 // Ao Entrar
 Template.home.onRendered(function(){
+
+  console.log(Router.current().data());
+  console.log(Router.current().data()['name']);
 
    $('.button-collapse').sideNav({
       menuWidth: 300,
@@ -35,6 +43,7 @@ Template.home.onRendered(function(){
     }
   });
 });
+
 
 // Ao Sair
 Template.home.onDestroyed(function(){
