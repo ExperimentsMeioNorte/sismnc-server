@@ -19,17 +19,3 @@
   </div>
 
 </template>
-
-
-<template name="programs">
-    {{#each programList}}
-      <div class="list-category">
-        {{#if categoryValid}}<strong>{{category_name}}</strong>{{/if}}
-        <li class="programs-list-item">
-          <a href="{{pathFor 'program' _id=this.program_id }}" data-transition-out="slideFadeLeftOut" data-transition-in="slideFadeRightIn">
-            <img src="{{image_avatar}}" width="100%" />
-          </a>
-        </li>
-      </div>
-    {{/each}}
-</template>

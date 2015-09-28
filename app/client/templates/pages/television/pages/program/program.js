@@ -1,5 +1,5 @@
 // Rota do Programa
-Router.route('/rede-meionorte/programa/:_id', {
+Router.route('/rede-meionorte/:_id', {
   fastRender: true,
   layout: 'ApplicationLayout',
   name: 'program',
@@ -18,20 +18,13 @@ Router.route('/rede-meionorte/programa/:_id', {
 });
 
 Template.program.onRendered(function(){
-  //console.log(Router.current().data());
-
-  // preenche as descricoes do programa
-  document.querySelector(".title").innerHTML = Router.current().data()['name'];
-  document.querySelector("#programDias").innerHTML = Router.current().data()['day'];
-  document.querySelector("#programHoraInicial").innerHTML = Router.current().data()['hour_begin'];
-  document.querySelector("#programHoraFinal").innerHTML = Router.current().data()['hour_end'];
-  document.querySelector(".program-description").innerHTML = Router.current().data()['description'];
 
   Meteor.setTimeout(function(){
     document.querySelector('body').classList.add('show-message-television');
   }, 1000);
 
   $('ul.tabsTV').tabs();
+
 });
 
 Template.program.onDestroyed(function(){
@@ -50,9 +43,20 @@ Template.program.events({
   }
 });
 
-Template.playTvLayout.helpers({
-  // mostra a televisao
-  playTvValidate: function(){
-    return Meteor.playTv(Router.current().data()['hour_begin'], Router.current().data()['hour_end']);;
+Template.program.helpers({
+  programTitle: function(){
+    return Router.current().data()['name'];
+  },
+  programDay: function(){
+    return Router.current().data()['day'];
+  },
+  programHourBegin: function(){
+    return Router.current().data()['hour_begin'];
+  },
+  programHourEnd: function(){
+    return Router.current().data()['hour_end'];
+  },
+  programDescription: function(){
+    return Router.current().data()['description'];
   }
-});
+})

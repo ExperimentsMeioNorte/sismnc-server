@@ -100,7 +100,7 @@
   .item-avatar {
     height:90px;padding-top:15px;padding-bottom:15px;background:#f8f8fc;margin-bottom:15px;
     img {
-      float:left;margin-right:15px;
+      float:left;margin-right:15px;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;
     }
     strong {font-size: 18px;margin-top:8px;color:#666;}
     span {color:#666;font-size:12px;}
@@ -151,7 +151,3 @@
     }
   }
 }
-
-
-
-
