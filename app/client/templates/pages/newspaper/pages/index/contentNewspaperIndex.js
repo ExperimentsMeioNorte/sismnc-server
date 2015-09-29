@@ -1,5 +1,5 @@
 // Ao Entrar
-Template.contentNewspaperFeatured.onRendered(function(){
+Template.contentNewspaperIndex.onRendered(function(){
 
   $('.slider-featured').slick({
     infinite: false,

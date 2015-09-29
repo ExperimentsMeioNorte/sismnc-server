@@ -6,7 +6,7 @@ Router.route('/jornal-meionorte', {
   yieldRegions: {
     'headerNewspaper': {to: 'header'},
     'navigationNewspaper': {to: 'navigation'},
-    'contentNewspaperFeatured': {to: 'content'},
+    'contentNewspaperIndex': {to: 'content'},
     'searchNewspaper': {to: 'search'}
   },
   fastRender: true

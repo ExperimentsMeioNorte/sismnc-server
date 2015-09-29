@@ -8,7 +8,7 @@
 //	====================== /
 
 body {
-	background:#f5f5f5;
+	background:#f8f8fc;
 }
 
 .no-padding {
@@ -28,12 +28,12 @@ body {
 		// Header Bar
 		.nav-wrapper {
 
-			background:#788d95!important;
+			background:#4061A6!important;
 
 			// Logo
 			.brand-logo {
 				img {
-					margin: 8px;width: 245px;display:table;
+					margin: 8px 0.75rem;width: 222px;display:table;
 				}
 			}
 
@@ -62,7 +62,7 @@ body {
 		.top-container {
 			position:relative;margin-top:30px;width:100%;padding-bottom:10px;margin-bottom:20px;border-bottom:1px solid #e5e5e5;
 			.btn-model {
-				position:absolute;right:0;top:0;background:none!important;color:#788e95;box-shadow:none!important;-webkit-box-shadow:none!important;-moz-box-shadow:none!important;padding:0!important;
+				position:absolute;right:0;top:0;background:none!important;color:#4061A6;box-shadow:none!important;-webkit-box-shadow:none!important;-moz-box-shadow:none!important;padding:0!important;
 			}
 			.btn-add {
 				position:absolute;right:0;top:0;background-color:#8BC34A;color:#fff;
@@ -125,12 +125,12 @@ body {
 			}
 		}
 		.btn-more {
-			margin-left: -90px;left: 50%;  background-color: #788d95!important;color: #fff!important;
+			margin-left: -90px;left: 50%;  background-color: #4061A6!important;color: #fff!important;
 		}
 	}
 
   .btn-more {
-    background-color: #788d95!important;color: #fff!important;
+    background-color: #4061A6!important;color: #fff!important;
   }
 
 
@@ -285,10 +285,10 @@ body {
 	}
 
 	.btn-submit {
-		background:#788e95;color:#fff;
+		background:#4061A6;color:#fff;
 	}
 	.btn-submit-white {
-		background:#fff;color:#788e95;
+		background:#fff;color:#4061A6;
 	}
 	#poll_id, #notify_id, #program_id {display:none;}
 
@@ -397,7 +397,7 @@ body {
 			-webkit-border-radius:28px;
 			-moz-border-radius:28px;
 			text-transform: uppercase;
-			background: #788e95 !important;
+			background: #4061A6 !important;
 			  letter-spacing: -0.03em;
 			  border: 2px solid #fff;
 			  font-weight:bold;
@@ -411,16 +411,16 @@ body {
 	}
 
 	.newuser-link {
-		color:#788e95!important;
+		color:#4061A6!important;
 		a {
-			color:#788e95!important;font-weight:bold!important;
+			color:#4061A6!important;font-weight:bold!important;
 		}
 	}
 
 	.password-link {
-		color:#788e95!important;width:100%;text-align:center;
+		color:#4061A6!important;width:100%;text-align:center;
 		a {
-			color:#788e95!important;font-weight:bold!important;
+			color:#4061A6!important;font-weight:bold!important;
 		}
 	}
 	.social-media {
@@ -456,7 +456,7 @@ body {
 			-moz-border-radius:28px;
 			width:100%;
 			text-transform: uppercase;
-			background: #788e95 !important;
+			background: #4061A6 !important;
 			  letter-spacing: -0.03em;
 			  border: 2px solid #fff!important;
 			  font-weight:bold;
@@ -490,7 +490,7 @@ body {
 			-webkit-border-radius:28px;
 			-moz-border-radius:28px;
 			text-transform: uppercase;
-			background: #788e95 !important;
+			background: #4061A6 !important;
 			  letter-spacing: -0.03em;
 			  border: 2px solid #fff!important;
 			  font-weight:bold;
@@ -529,7 +529,7 @@ body {
 }
 
 .button-send {
-	background: linear-gradient(to right, #788e95 0%, #a5b6c0 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)!important;
+	background: linear-gradient(to right, #4061A6 0%, #a5b6c0 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)!important;
     border-color: rgba(0, 0, 0, 0.1) !important;
     color:#fff!important;
 }
@@ -542,16 +542,16 @@ body {
 }
 
 .toggle input:checked + .track {
-	background-color:#788e95;
+	background-color:#4061A6;
 	border-color:#a5b6c0;
 }
 
 .button-submit {
-	background:#788e95;
+	background:#4061A6;
 	color:#fff;
 	border-color:rgba(0,0,0,.01);
 	&:active, &:focus {
-		background:#788e95;
+		background:#4061A6;
 		color:#fff!important;
 	}
 }
