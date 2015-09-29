@@ -79,6 +79,10 @@ body {
 	.timeline {
 		.collection {
 
+			.card-image {
+				padding:22px;
+			}
+
 			// Elements
 			.collection-item {
 				height:auto;cursor:pointer;padding-top:25px;padding-bottom:25px;padding-left:25px!important;
