@@ -128,9 +128,9 @@ Template.authentication.events({
                   usersSearch.services.google.picture,
                   usersSearch.services.google.email,
                   null,
-                  usersSearch.services.google.id,
                   null,
-                  2
+                  usersSearch.services.google.id,
+                  1
                 ],
                 function(error, result){
                   if(error){
