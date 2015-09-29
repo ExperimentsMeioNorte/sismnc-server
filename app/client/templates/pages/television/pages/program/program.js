@@ -11,6 +11,7 @@ Router.route('/rede-meionorte/:_id', {
     Meteor.remote.subscribe('program');
     Meteor.remote.subscribe('content');
     Meteor.remote.subscribe('user');
+    Meteor.remote.subscribe('answer');
   }
 });
 

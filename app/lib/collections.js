@@ -7,18 +7,24 @@ User = new Mongo.Collection('user', Meteor.remote);
 Program = new Mongo.Collection('program', Meteor.remote);
 Category = new Mongo.Collection('category', Meteor.remote);
 Content = new Mongo.Collection('content', Meteor.remote);
+Answer = new Mongo.Collection('answer', Meteor.remote);
+Poll = new Mongo.Collection('poll', Meteor.remote);
 
 //configurações automatizadas
 collectionsName = {
     User: 'user',
     Program: 'program',
     Category: 'category',
-    Content: 'content'
+    Content: 'content',
+    Answer: 'answer',
+    Poll: 'poll'
 };
 
 collections = {
     User: User,
     Program: Program,
     Category: Category,
-    Content: Content
+    Content: Content,
+    Answer: Answer,
+    Poll: Poll
 };
