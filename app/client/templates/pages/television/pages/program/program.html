@@ -1,7 +1,7 @@
 <template name="program">
 
   <div class="television-page transitions-content">
-
+  {{#each programs}}
     <nav class="main-header header">
 
       <div class="side-left">
@@ -11,7 +11,7 @@
       </div>
 
       <a href="#" class="title center-align">
-        {{ programTitle }}
+        {{ name }}
       </a>
 
     </nav>
@@ -26,22 +26,22 @@
           <div class="row">
             <div  class="col s6">
               <small>DIA(S)</small>
-              <strong id="programDias" class="truncate">Segunda à Sexta</strong>
+              <strong id="programDias" class="truncate">{{ day }}</strong>
             </div>
             <div class="col s6">
               <small>HORÁRIO</small>
               <strong class="truncate">
                 <span id="programHoraInicial">
-                  {{ programHourBegin }}
+                  {{ hour_begin }}
                 </span> às
                 <span id="programHoraFinal">
-                  {{ programHourEnd }}
+                  {{ hour_end }}
                 </span>
               </strong>
             </div>
           </div>
           <p class="program-description">
-            {{ programDescription }}
+            {{ description }}
           </p>
         </div>
 
@@ -84,7 +84,7 @@
 
 
     </main>
-
+    {{/each}}
   </div>
 
 </template>

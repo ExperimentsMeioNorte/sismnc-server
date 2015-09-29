@@ -1,7 +1,14 @@
 Template.playTvLayout.helpers({
   // mostra a televisao
-  playTvValidate: function(){
-    //return Meteor.playTv(Router.current().data()['hour_begin'], Router.current().data()['hour_end']);
-  }
+  playTvValidate: function(hour_begin, hour_end){
+    return Meteor.playTv.playValidate(hour_begin, hour_end);
+  },
 
+  buttonValidate: function(){
+    return Meteor.playTv.buttonPlayTv();
+  },
+
+  buttonProgramId: function(){
+    return Meteor.playTv.programId;
+  }
 });

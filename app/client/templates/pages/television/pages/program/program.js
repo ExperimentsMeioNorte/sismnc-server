@@ -11,9 +11,6 @@ Router.route('/rede-meionorte/:_id', {
     Meteor.remote.subscribe('program');
     Meteor.remote.subscribe('content');
     Meteor.remote.subscribe('user');
-  },
-  data: function(){
-    return Program.findOne({_id:this.params._id});
   }
 });
 
@@ -44,19 +41,23 @@ Template.program.events({
 });
 
 Template.program.helpers({
-  programTitle: function(){
-    return Router.current().data()['name'];
-  },
-  programDay: function(){
-    return Router.current().data()['day'];
-  },
-  programHourBegin: function(){
-    return Router.current().data()['hour_begin'];
-  },
-  programHourEnd: function(){
-    return Router.current().data()['hour_end'];
-  },
-  programDescription: function(){
-    return Router.current().data()['description'];
+  // gera os dados do programa atual
+  programs: function(){
+    return Program.find(
+      {
+        _id: Router.current().params._id,
+        status: 1
+      }
+    ).map(
+      function(p) {
+        return {
+          name: p.name,
+          day: p.day,
+          hour_begin: p.hour_begin,
+          hour_end: p.hour_end,
+          description: p.description
+        };
+      }
+    );
   }
 })
