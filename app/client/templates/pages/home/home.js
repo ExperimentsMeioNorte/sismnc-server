@@ -9,19 +9,11 @@ Router.route('/', {
   },
   waitOn: function() {
     Meteor.remote.subscribe('user');
-  },
-  data: function(){
-    return User.findOne({_id:Meteor.remote.userId()});
   }
 });
 
-
-
 // Ao Entrar
 Template.home.onRendered(function(){
-
-  console.log(Router.current().data());
-  console.log(Router.current().data()['name']);
 
    $('.button-collapse').sideNav({
       menuWidth: 300,
@@ -50,4 +42,25 @@ Template.home.onDestroyed(function(){
 
   $('#modal-about, #modal-edit-profile, #modal-error-report').closeModal();
 
+});
+
+Template.home.helpers({
+  // gera os dados do programa atual
+  userData: function(){
+    return User.find(
+      {
+        _id: Meteor.remote.userId(),
+        status: 1
+      }
+    ).map(
+      function(u) {
+        return {
+          _id: u._id,
+          name: u.name,
+          avatar: u.avatar,
+          email: u.email
+        };
+      }
+    );
+  }
 });

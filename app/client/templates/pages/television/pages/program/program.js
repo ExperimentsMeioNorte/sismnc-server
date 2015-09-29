@@ -61,4 +61,4 @@ Template.program.helpers({
       }
     );
   }
-})
+});

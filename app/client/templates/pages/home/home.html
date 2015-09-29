@@ -1,5 +1,5 @@
 <template name="home">
-
+{{#each userData}}
   <div class="home-page transitions-content">
 
     {{> yield "navigation" }}
@@ -52,5 +52,5 @@
     {{> changeRadio}}
 
   </div>
-
+{{/each}}
 </template>

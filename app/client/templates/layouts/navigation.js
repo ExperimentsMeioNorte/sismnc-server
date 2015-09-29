@@ -7,15 +7,3 @@ Template.navigation.events({
     }, 1000)
   }
 });
-
-Template.navigation.helpers({
-  userName: function () {
-    return Router.current().data()['name'];
-  },
-  avatar: function () {
-    return Router.current().data()['avatar'];
-  },
-  email: function () {
-    return Router.current().data()['email'];
-  }
-});
