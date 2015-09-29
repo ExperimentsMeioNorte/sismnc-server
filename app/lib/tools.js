@@ -23,9 +23,7 @@ Meteor.playTv = {
         Meteor.playTv.dateObj = new Date();
         Meteor.playTv.hour = Meteor.addZeroHour(Meteor.playTv.dateObj.getHours());
         Meteor.playTv.minutes = Meteor.addZeroHour(Meteor.playTv.dateObj.getMinutes());
-        Meteor.playTv.hourMinutes = ((Meteor.playTv.hour - 1) + ':' + Meteor.playTv.minutes);
-        Meteor.playTv.hourMinutesBegin = ((Meteor.playTv.hour - 2) + ':' + Meteor.playTv.minutes);
-        Meteor.playTv.hourMinutesEnd = ((Meteor.playTv.hour + 2) + ':' + Meteor.playTv.minutes);
+        Meteor.playTv.hourMinutes = (Meteor.playTv.hour + ':' + Meteor.playTv.minutes);
     },
 
     // verifica se é para mostrar a tv ou nao
