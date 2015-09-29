@@ -1,5 +1,6 @@
 Meteor.smtpServerUsername = 'alissonplus2@gmail.com'
 
+// adiciona o zero a esquerda
 Meteor.addZeroHour = function(i) {
     if (i < 10) {
         i = "0" + i;
@@ -8,21 +9,42 @@ Meteor.addZeroHour = function(i) {
 }
 
 // Metodo para mostrar ou nao a tv no programa
-Meteor.playTv = function(hourBegin, hourEnd){
-    var programId = undefined;
-    var dateObj = new Date();
-    var hour = Meteor.addZeroHour(dateObj.getHours());
-    var minutes = Meteor.addZeroHour(dateObj.getMinutes());
-    var hourMinutes = (hour-1 + ':' + minutes);
+Meteor.playTv = {
+    dateObj: undefined,
+    hour: undefined,
+    minutes: undefined,
+    hourMinutes: undefined,
+    hourMinutesBegin: undefined,
+    hourMinutesEnd: undefined,
+    programId: 0,
 
-    if(hourMinutes >= hourBegin && hourMinutes <= hourEnd){
-        return true;
-    }else{
-        var hourMinutesBegin = (hour -2) + ':' + minutes;
-        var hourMinutesEnd =(hour +2) + ':' + minutes;
+    // gera os atributos de tempo para uso no playTv
+    getTime: function(){
+        Meteor.playTv.dateObj = new Date();
+        Meteor.playTv.hour = Meteor.addZeroHour(Meteor.playTv.dateObj.getHours());
+        Meteor.playTv.minutes = Meteor.addZeroHour(Meteor.playTv.dateObj.getMinutes());
+        Meteor.playTv.hourMinutes = ((Meteor.playTv.hour - 1) + ':' + Meteor.playTv.minutes);
+        Meteor.playTv.hourMinutesBegin = ((Meteor.playTv.hour - 2) + ':' + Meteor.playTv.minutes);
+        Meteor.playTv.hourMinutesEnd = ((Meteor.playTv.hour + 2) + ':' + Meteor.playTv.minutes);
+    },
 
+    // verifica se é para mostrar a tv ou nao
+    playValidate: function(hourBegin, hourEnd){
+        Meteor.playTv.getTime();
+        if(Meteor.playTv.hourMinutes >= hourBegin && Meteor.playTv.hourMinutes <= hourEnd){
+            return true;
+        }else{
+            return false;
+        }
+    },
+
+    // verifica se é para mostrar o botao do programa que está passando a tv ou nao
+    buttonPlayTv: function(){
+        Meteor.playTv.getTime();
         var programs = Program.find(
-            {},
+            {
+                status: 1
+            },
             {
                 fields: {
                     _id: 1,
@@ -32,7 +54,6 @@ Meteor.playTv = function(hourBegin, hourEnd){
             }
         ).map(
           function(p) {
-
             return {
               _id: p._id,
               hour_begin: p.hour_begin,
@@ -42,28 +63,18 @@ Meteor.playTv = function(hourBegin, hourEnd){
         );
 
         for(x in programs){
-            if(hourMinutes >= programs[x].hour_begin
-                && hourMinutes <= programs[x].hour_end){
-                programId = programs[x]._id;
+            if(Meteor.playTv.hourMinutes >= programs[x].hour_begin
+                && Meteor.playTv.hourMinutes <= programs[x].hour_end){
+                Meteor.playTv.programId = programs[x]._id;
                 break;
             }
         }
 
-        // toastr.warning(
-        //     "Ops, Programa ainda não está no ar.<br /><span class=\"btn clear\" onclick=\"Router.go('program', {_id: '" + programId + "'}); $('#toast-container').remove();\">Ir para programa no ar</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Continuar aqui</span>",
-        //     '',
-        //     {
-        //         "progressBar": true,
-        //         "newestOnTop": true,
-        //         "showDuration": "100",
-        //         "hideDuration": "100",
-        //         "tapToDismiss": false,
-        //         "timeOut": 0,
-        //         "extendedTimeOut": 0
-        //     }
-        // );
-
-        return false;
+        if(Meteor.playTv.programId){
+            return true;
+        }else{
+            return false;
+        }
     }
 };
 
