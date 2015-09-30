@@ -3,21 +3,22 @@
   <div class="polls-answers">
     {{#each poll}}
       <strong class="polls-question">
+        <input name="poll_id" type="text" id="poll_id" value="{{ _id }}" style="display:none;"/>
         <img src="{{ img }}" height="40" />  {{ description }}
       </strong>
     {{/each}}
 
     {{#each answers}}
       <div class="polls-answers-item">
-        <input name="enquete" type="radio" id="{{ _id }}" value="{{ _id }}"/>
+        <input name="answer" type="radio" id="{{ _id }}" value="{{ _id }}"/>
         <label for="{{ _id }}">{{ description }}</label>
       </div>
     {{/each}}
     <div class="poll-answers-footer">
 
-       <a class="btn" href="#">
+       <button class="btn btn-answer">
           ENVIAR RESPOSTA
-       </a>
+       </button>
 
     </div>
 

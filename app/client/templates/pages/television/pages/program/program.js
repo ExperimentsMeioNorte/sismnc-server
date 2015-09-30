@@ -13,6 +13,7 @@ Router.route('/rede-meionorte/:_id', {
     Meteor.remote.subscribe('user');
     Meteor.remote.subscribe('answer');
     Meteor.remote.subscribe('poll');
+    Meteor.remote.subscribe('polluser');
   }
 });
 

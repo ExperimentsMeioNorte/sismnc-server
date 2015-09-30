@@ -9,6 +9,8 @@ Category = new Mongo.Collection('category', Meteor.remote);
 Content = new Mongo.Collection('content', Meteor.remote);
 Answer = new Mongo.Collection('answer', Meteor.remote);
 Poll = new Mongo.Collection('poll', Meteor.remote);
+PollUser = new Mongo.Collection('polluser', Meteor.remote);
+
 
 //configurações automatizadas
 collectionsName = {
@@ -17,7 +19,8 @@ collectionsName = {
     Category: 'category',
     Content: 'content',
     Answer: 'answer',
-    Poll: 'poll'
+    Poll: 'poll',
+    PollUser: 'polluser'
 };
 
 collections = {
@@ -26,5 +29,6 @@ collections = {
     Category: Category,
     Content: Content,
     Answer: Answer,
-    Poll: Poll
+    Poll: Poll,
+    PollUser: PollUser
 };
