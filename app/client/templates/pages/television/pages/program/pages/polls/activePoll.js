@@ -1,48 +1,8 @@
-Template.activePoll.onRendered(function(){
-    var poll = Poll.find(
-      {
-        status: 0,
-        program_id: Router.current().params._id
-      }
-    ).map(
-      function(p){
-        return {
-          _id: p._id,
-          description: p.description,
-          img: p.img
-        }
-      }
-    );
-
-    if(poll && poll[0] !== undefined){
-        console.log(poll[0]._id);
-        var pollUser = PollUser.find(
-        {
-            status: 1,
-            poll_id: poll[0]._id,
-            user_id: Meteor.remote.userId()
-        }).map(
-          function(pu){
-            return {
-              _id: pu._id
-            }
-          }
-        );
-
-        if(pollUser  && pollUser[0] !== undefined){
-            document.querySelector('.polls-answers').classList.add('hide');
-            document.querySelector('.results-question').classList.remove('hide');
-        }
-    }else{
-        document.querySelector('.polls-answers').classList.add('hide');
-        document.querySelector('.message-feedback').classList.remove('hide');
-    }
-});
-
 Template.activePoll.helpers({
-  // mostra a televisao
+
+  // mostra a enquete
   poll: function(){
-    return Poll.find(
+    var poll = Poll.find(
       {
         status: 1,
         program_id: Router.current().params._id
@@ -56,8 +16,38 @@ Template.activePoll.helpers({
         }
       }
     );
+
+    // validate poll
+    if(poll && poll[0] !== undefined){
+      var pollUser = PollUser.find(
+      {
+          status: 1,
+          poll_id: poll[0]._id,
+          user_id: Meteor.remote.userId()
+      }).map(
+        function(pu){
+          return {
+            _id: pu._id
+          }
+        }
+      );
+
+      if(pollUser && pollUser[0] !== undefined
+        && document.querySelector('.polls-answers') !== null
+        && document.querySelector('.results-question') !== null){
+        document.querySelector('.polls-answers').classList.add('hide');
+        document.querySelector('.results-question').classList.remove('hide');
+      }
+    }else if(document.querySelector('.polls-answers') !== null &&
+        document.querySelector('.message-feedback') !== null){
+        document.querySelector('.polls-answers').classList.add('hide');
+        document.querySelector('.message-feedback').classList.remove('hide');
+    }
+
+    return poll;
   },
 
+  // mostra as respostas
   answers: function(){
     var poll = Poll.find(
       {
