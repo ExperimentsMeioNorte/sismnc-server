@@ -32,14 +32,11 @@ Template.activePoll.helpers({
         }
       );
 
-      if(pollUser && pollUser[0] !== undefined
-        && document.querySelector('.polls-answers') !== null
-        && document.querySelector('.results-question') !== null){
+      if(pollUser && pollUser[0] !== undefined){
         document.querySelector('.polls-answers').classList.add('hide');
         document.querySelector('.results-question').classList.remove('hide');
       }
-    }else if(document.querySelector('.polls-answers') !== null &&
-        document.querySelector('.message-feedback') !== null){
+    }else{
         document.querySelector('.polls-answers').classList.add('hide');
         document.querySelector('.message-feedback').classList.remove('hide');
     }
