@@ -1,19 +1,19 @@
 <template name="activePoll">
 
   <div class="polls-answers">
-    {{#with pollActive}}
+    {{#each pollActive}}
       <strong class="polls-question">
         <input name="poll_id" type="text" id="poll_id" value="{{ _id }}" style="display:none;"/>
         <img src="{{ img }}" height="40" />  {{ description }}
       </strong>
-    {{/with}}
+    {{/each}}
 
-    {{#with answersActive}}
+    {{#each answersActive}}
       <div class="polls-answers-item">
         <input name="answer" type="radio" id="{{ _id }}" value="{{ _id }}"/>
         <label for="{{ _id }}">{{ description }}</label>
       </div>
-    {{/with}}
+    {{/each}}
     <div class="poll-answers-footer">
 
        <button class="btn btn-answer">
