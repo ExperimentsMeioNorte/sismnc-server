@@ -14,6 +14,7 @@
         <label for="{{ _id }}">{{ description }}</label>
       </div>
     {{/each}}
+    {{#if pollActive}}
     <div class="poll-answers-footer">
 
        <button class="btn btn-answer">
@@ -21,7 +22,7 @@
        </button>
 
     </div>
-
+    {{/if}}
   </div>
 
 </template>
