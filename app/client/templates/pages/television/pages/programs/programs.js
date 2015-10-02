@@ -1,5 +1,5 @@
 Template.programs.helpers({
-  'programList': function(){
+  programList: function(){
     var categoryId = null;
     var programs = [];
 

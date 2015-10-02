@@ -1,10 +1,10 @@
-Template.timeline.onRendered(function(){
+Template.timeline.onCreated(function(){
   // limite de visualizacoes na paginacao
   Session.set('limit', 5);
 });
 
 Template.timeline.helpers({
-  'contents': function(){
+  contents: function(){
     var dateObj = new Date();
     Meteor.dateBegin = dateObj.getDate() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' 00:00:00';
     Meteor.dateNow = (dateObj.getDate() + 1) + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear() + ' 01:00:00'
@@ -66,7 +66,7 @@ Template.timeline.helpers({
   },
 
   // verifica se esta no final do registro e some com o botao mais
-  'mais': function(){
+  mais: function(){
     var contentCount = Content.find(
     {
       program_id:Router.current().params._id,

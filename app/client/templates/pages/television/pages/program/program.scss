@@ -227,11 +227,11 @@
   .add-image-buttons-television, .add-video-buttons-television {
     position:relative;
 
-    &:before {
-      width:100%;height:100%;z-index:1;background:rgba(255, 255, 255, 0.85);content:"";position:absolute;left:0;top:0;
-    }
+    // &:before {
+    //   width:100%;height:100%;z-index:1;background:rgba(255, 255, 255, 0.85);content:"";position:absolute;left:0;top:0;
+    // }
 
-    .message {
+    #message-programs {
       box-shadow: 0 0 0 0!important;bottom:-52px!important;
     }
 
@@ -263,7 +263,7 @@
 }
 
 .timeline-content, .polls-content {
-  padding:20px 20px 50px 20px;
+  padding:20px 20px 75px 20px;
 }
 
 
@@ -363,4 +363,3 @@
     }
   }
 }
-

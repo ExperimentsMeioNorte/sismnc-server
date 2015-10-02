@@ -45,12 +45,3 @@ Template.addImage.events({
   }
 
 });
-
-
-
-
-
-
-
-
-
