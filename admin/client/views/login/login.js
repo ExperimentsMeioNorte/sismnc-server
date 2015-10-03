@@ -3,10 +3,14 @@ Template.login.events({
 		event.preventDefault();
 		var userId = User.findOne(
     		{
-    			email:template.find('#login-email').value,
-    			password:CryptoJS.MD5(template.find('#login-email').value + template.find('#login-password').value).toString()
+    			email: document.querySelector("#login-email").value,
+    			password: CryptoJS.MD5(document.querySelector("#login-email").value + document.querySelector("#login-password").value).toString(),
+                status: 1
     		},
-            {$or: [{level: 1},{level: 2}]}
+            {$or: [
+                {level: '1'},
+                {level: '2'}
+            ]}
 		);
 
 		if(userId === undefined){
