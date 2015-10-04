@@ -4,14 +4,11 @@
     <small>ESCOLHA UMA DAS RÁDIOS</small>
 
     <div class="form-pattern modal-content center-align">
-
-        <a href="{{ pathFor 'fmmn' }}" class="go-to-fmmn">
-          <img src="images/radio/fmmn-logo.png" height="170" />
+    {{#each radio}}
+        <a href="{{ pathFor this.name _id=this._id}}" class="go-to-{{name}}">
+          <img src="{{image_folder}}" height="150" />
         </a>
-        <a href="{{ pathFor 'boafm' }}">
-          <img src="images/radio/boafm-logo.png" height="139" />
-        </a>
-
+    {{/each}}
     </div>
 
   </section>

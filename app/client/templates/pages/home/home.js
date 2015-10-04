@@ -9,6 +9,8 @@ Router.route('/', {
   },
   waitOn: function() {
     Meteor.remote.subscribe('user');
+    Meteor.remote.subscribe('vehicle');
+    Meteor.remote.subscribe('program');
   }
 });
 
