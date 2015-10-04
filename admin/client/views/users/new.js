@@ -68,6 +68,12 @@ Template.userNew.events({
 				'',
 				{"progressBar": true}
 			);
+		}else if(form.target[5].value === 1 && !form.target[7].value){
+			toastr.warning(
+				"rum, Necessario escolher um programa.",
+				'',
+				{"progressBar": true}
+			);
 		}else{
 			Meteor.call(
 				'insertUser',
@@ -80,7 +86,9 @@ Template.userNew.events({
 					form.target[3].value,
 					null,
 		    		null,
-		    		1
+		    		form.target[7].value,
+		    		((form.target[10].value)? 1 : 0),
+		    		Meteor.userId2
 				]
 			);
 

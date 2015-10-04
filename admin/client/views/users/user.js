@@ -5,9 +5,7 @@ Template.user.rendered = function(){
 Template.user.helpers({
 	'users': function(){
     	return User.find(
-            {
-                status:1
-            },
+            {},
             {
                 limit: Session.get('limit')
             }).map(function(u) {

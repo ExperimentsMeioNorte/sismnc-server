@@ -8,12 +8,17 @@ Template.userUpdate.rendered = function(){
 			this.data.collection._docs['_map'][user_id]['password']
 		);
 
+		document.querySelector("#user_status").checked = this.data.collection._docs['_map'][user_id]['status'];
 		document.querySelector("#user_id").value = this.data.collection._docs['_map'][user_id]['_id'];
 		document.querySelector("#user_name").value = this.data.collection._docs['_map'][user_id]['name'];
 		document.querySelector("#user_email").value = this.data.collection._docs['_map'][user_id]['email'];
-		document.querySelector("#user_password").value = '';
 		document.querySelector("#avatar_upload").src = document.querySelector("#avatar_imgBase64").src = this.data.collection._docs['_map'][user_id]['avatar'];
+
 		document.querySelector("#program").style.display = 'none';
+		if(this.data.collection._docs['_map'][user_id]['level'] === '1'){
+			document.querySelector("#program").style.display = 'initial';
+		}
+
 		//preeche o select option de programa
 		var levels = Level.find().map(function(a) {
 			return [
@@ -38,11 +43,12 @@ Template.userUpdate.rendered = function(){
 		});
 
 		for(var x in programs){
-			activeSelected = (this.data.collection._docs['_map'][user_id]['_id'] === programs[x][0])? ['active', 'selected'] : ['',''];
+			activeSelected = (this.data.collection._docs['_map'][user_id]['program_id'] === programs[x][0])? ['active', 'selected'] : ['',''];
 
-			$("#user_program").append("<option value=\""+programs[x][0]+"\">"+programs[x][1]+"<option/>");
-			$(".dropdown-content").append("<li class=\"\"><span>"+programs[x][1]+"</span></li>");
+			$("#user_program").append("<option value=\""+programs[x][0]+"\" "+activeSelected[1]+">"+programs[x][1]+"<option/>");
+			$(".dropdown-content").append("<li class=\""+activeSelected[0]+"\"><span>"+programs[x][1]+"</span></li>");
 		}
+
 
 		$('select').material_select();
 	}
@@ -70,20 +76,28 @@ Template.userUpdate.events({
 				'',
 				{"progressBar": true}
 			);
+		}else if(form.target[5].value === 1 && !form.target[7].value){
+			toastr.warning(
+				"rum, Necessario escolher um programa.",
+				'',
+				{"progressBar": true}
+			);
 		}else{
-			notBlockNotify = (form.target[8].ownerDocument.all.user_block_all_notify.checked === true)? 1 : 0;
 			Meteor.call(
 				'updateUser',
 				[
 					222,
-					form.target[0].value,
-					form.target[1].value,
-					form.target[2].value,
-					(form.target[3].value !== '')? CryptoJS.MD5(form.target[3].value).toString() : this.data.collection._docs['_map'][user_id]['password'],
 					form.target[5].value,
-					(form.target[7].value !== '')? form.target[7].value : null,
-					notBlockNotify,
-					((Session.get('getupFormImgBase64Avatar'))? Session.get('getupFormImgBase64Avatar') : this.data.collection._docs['_map'][user_id]['avatar']),
+					form.target[1].value,
+					Session.get('getupFormImgBase64Avatar'),
+					form.target[2].value,
+					(form.target[3].value !== '')? form.target[3].value : Session.get('getupFormPassword'),
+					null,
+		    		null,
+		    		form.target[7].value,
+		    		((form.target[10].value)? 1 : 0),
+		    		form.target[0].value,
+		    		Meteor.userId2
 				]
 			);
 
