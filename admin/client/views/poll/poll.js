@@ -1,27 +1,27 @@
 Meteor.setInterval(updateDateRecord, 1000 * 60);
 
-Template.poll.rendered = function(){ 
+Template.poll.rendered = function(){
 	Session.set('limit', 5);
 
 	if(Session.get('getupFormPollId') && Session.get('getupFormProgramId')){
-		
+
 		// Deixar somente uma enquete ativa por programa
 		searchPoll = Poll.find(
 			{
-				status:1, 
+				status:1,
 				program_id:Session.get('getupFormProgramId')
 			}).map(
 				function(a) {
-					return [a._id]; 
+					return [a._id];
 				}
 			);
 
 		if(searchPoll.length > 0){
 			Meteor.call(
-				'updateStatusPoll', 
+				'updateStatusPoll',
 				[
-					222, 
-					searchPoll[0][0], 
+					222,
+					searchPoll[0][0],
 					0
 				]
 			);
@@ -29,27 +29,27 @@ Template.poll.rendered = function(){
 
 		// Deixa ativo a enquete escolhida
 		Meteor.call(
-			'updateStatusPoll', 
+			'updateStatusPoll',
 			[
-				222, 
-				Session.get('getupFormPollId'), 
+				222,
+				Session.get('getupFormPollId'),
 				1
 			]
 		);
 
 		Session.set(
-			'getupFormPollId', 
+			'getupFormPollId',
 			null
 		);
 
 		Session.set(
-			'getupFormProgramId', 
+			'getupFormProgramId',
 			null
 		);
 
 		toastr.success(
-			"Enquete ativada com sucesso.", 
-			'', 
+			"Enquete ativada com sucesso.",
+			'',
 			{"progressBar": true}
 		);
 	}
@@ -61,48 +61,61 @@ Template.notify.destroyed = function() {
 
 Template.poll.helpers({
 	'polls': function(){
+        var find = {};
+        if(Meteor.userLevel === 1){
+            find = {
+                program_id: Meteor.userProgram
+            };
+        }
+
 		var dateRecords = [];
 		var i = 0;
-    	return Poll.find({}, {limit: Session.get('limit')}, {sort: {status:-1}}).map(
+    	return Poll.find(find, {limit: Session.get('limit')}, {sort: {status:-1}}).map(
     		function(p) {
     			dateRecords[i] = {
-    				_id:p._id, 
+    				_id:p._id,
     				date_record:p.date_record
     			};
     			Session.set('getupDateRecods', dateRecords);
     			i++;
-    			
+
     			Meteor.call(
-    				'timeCompare', 
-    				p.date_record, 
+    				'timeCompare',
+    				p.date_record,
     				function(error, result){
     					Session.set('getupToolTimeCompare' + p._id, result);
     				}
 				);
 
     			return {
-    				_id:p._id, 
-    				description:p.description, 
+    				_id:p._id,
+    				description:p.description,
     				timeCompared:Session.get('getupToolTimeCompare' + p._id),
     				status:(p.status === 1)? 'Ativada' : 'Desativada'
-    			}; 
+    			};
     		}
 		);
 	},
 
     'mais': function(){
-        return (Session.get('limit') >= Poll.find().count())? 'display:none' : 'display:block';
+        var find = {};
+        if(Meteor.userLevel === 1){
+            find = {
+                program_id: Meteor.userProgram
+            };
+        }
+        return (Session.get('limit') >= Poll.find(find).count())? 'display:none' : 'display:block';
     }
 });
 
 Template.poll.events({
 	'click #btnDelete': function(form){
 		toastr.warning(
-			"Deseja realmente remover a enquete e todas respostas equivalente?<br /><span class=\"btn clear\" onclick=\"Meteor.call('deletePoll', [333, '"+form.currentTarget.childNodes[1].value+"']); $('#toast-container').remove();\">Ok</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Cancelar</span>", 
-			'', 
+			"Deseja realmente remover a enquete e todas respostas equivalente?<br /><span class=\"btn clear\" onclick=\"Meteor.call('deletePoll', [333, '"+form.currentTarget.childNodes[1].value+"']); $('#toast-container').remove();\">Ok</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Cancelar</span>",
+			'',
 			{
-				"tapToDismiss": false, 
-				"timeOut": 0, 
+				"tapToDismiss": false,
+				"timeOut": 0,
 				"extendedTimeOut": 0
 			}
 		);

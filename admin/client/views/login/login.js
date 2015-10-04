@@ -20,6 +20,7 @@ Template.login.events({
 				{"progressBar": false, "positionClass": "toast-top-center", "showDuration": "100"}
 			);
 		}else{
+            Meteor.userProgram = userId.program_id;
             Meteor.userLevel = userId.level;
 			Meteor.userId2 = userId._id;
             //Meteor.setUserId(userId._id);
