@@ -1,11 +1,25 @@
 <template name="headerPortal">
 
-  <nav class="main-header header">
+  <nav class="header header-portal">
 
-    <div class="side-left">
-      <a href="{{ pathFor 'home' }}" class="button btn-flat" data-transition-out="slideFadeRightOut" data-transition-in="slideFadeLeftIn">
-        <img src="images/home/icons/icon-back.svg" height="18" />
+    <div class="nav-wrapper">
+
+      <div class="side-left">
+        <a href="#" class="button btn-flat button-collapse" data-activates="portal-navigation">
+          <img src="/images/newspaper/icons/icon-navigation.svg" height="18" />
+        </a>
+      </div>
+
+      <a href="#" class="logo">
+        <img src="/images/portal/marca.png" height="32" alt="" />
       </a>
+
+      <div class="side-right">
+        <a href="#modal-search-portal" class="button btn-flat button-search modal-trigger">
+          <img src="/images/newspaper/icons/icon-search.svg" height="24" />
+        </a>
+      </div>
+
     </div>
 
   </nav>
