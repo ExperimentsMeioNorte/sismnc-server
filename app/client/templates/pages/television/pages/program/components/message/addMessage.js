@@ -1,4 +1,4 @@
-Template.addMessage.events({
+Template.addMessageTelevision.events({
 
     'focus #btn-show-add-image, click #btn-show-add-image': function () {
         document.querySelector('body').classList.add('add-image-buttons-television');

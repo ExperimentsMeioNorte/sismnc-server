@@ -2,7 +2,7 @@
 
 .newspaper-page {
 
-  font-family:'PT Sans', Helvetica Neue, Helvetica, sans-serif;
+  font-family:'Roboto', Helvetica Neue, Helvetica, sans-serif;
 
   .content {
     //height:100%;
@@ -28,7 +28,7 @@
       background:#2d2d2d!important;
     }
     .title {
-      font-family:'Bree Serif', Roboto, Helvetica Neue, Helvetica, Arial, sans-serif!important;color:#fff;line-height:44px!important;font-weight:bold!important;font-size:22px;
+      font-family:Roboto, Helvetica Neue, Helvetica, Arial, sans-serif!important;color:#fff;line-height:44px!important;font-weight:bold!important;font-size:22px;
     }
     .logo, .title {
       position:absolute;left:0;top:0;height:48px;line-height:48px;z-index:0;width:100%;font-size:22px;text-align:center;
@@ -135,7 +135,7 @@
       .title-featured {
         margin:0!important;line-height:0!important;max-height:44px;overflow:hidden;
         a {
-          font-family:'Bree Serif', Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-family:Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
           font-size: 18px;
           line-height: 22px;
           font-weight: bold;
@@ -219,7 +219,7 @@
   }
   .post-title {
     margin:0!important;line-height:0!important;max-height: 66px;overflow: hidden;
-    a {font-size: 18px;line-height: 22px;font-family:'Bree Serif', Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:bold;}
+    a {font-size: 18px;line-height: 22px;font-family:Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:bold;}
   }
   .post-info {
     .post-info-author {float:left; line-height: 26px;font-weight: bold;font-size:12px;}
@@ -228,10 +228,10 @@
 }
 
 
-.show-tabs {
+.show-tabs-newspaper {
   position:relative;height:100%;
-  .newspaper-tabs-bottom {
-    bottom:0;opacity:1;
+  #nav-tabs-newspaper {
+    bottom:0!important;opacity:1!important;
   }
   .newspaper-page {
     padding-bottom:50px;
@@ -358,4 +358,3 @@
 
 
 }
-

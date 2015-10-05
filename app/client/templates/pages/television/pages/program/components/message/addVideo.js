@@ -1,5 +1,5 @@
 // Rota do Programa
-Template.addVideo.events({
+Template.addVideoTelevision.events({
 
   'focus #btn-close-add-video, click #btn-close-add-video': function () {
     document.querySelector('body').classList.remove('add-video-buttons-television');
