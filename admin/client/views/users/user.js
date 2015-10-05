@@ -1,22 +1,26 @@
-Template.user.rendered = function(){ 
+Template.user.rendered = function(){
 	Session.set('limit', 5);
 }
 
 Template.user.helpers({
 	'users': function(){
-    	return User.find({status:1}, {limit: Session.get('limit')}).map(function(u) {
-    		return {
-    			_id:u._id, 
-    			name:u.name, 
-    			email:u.email, 
-    			picture:u.picture,
-    			level:(Level.find({level:u.level}).map(
-	    				function(l) {
-	    					return l.description; 
-						}
-					)
+    	return User.find(
+            {},
+            {
+                limit: Session.get('limit')
+            }).map(function(u) {
+    		  return {
+        			_id:u._id,
+        			name:u.name,
+        			email:u.email,
+        			avatar:u.avatar,
+        			level:(Level.find({level:u.level}).map(
+        				function(l) {
+    	    					return l.description;
+    						}
+    					)
 				)
-    		}; 
+    		};
     	});
 	},
 
@@ -33,11 +37,11 @@ Template.user.helpers({
 Template.user.events({
 	'click #btnDelete': function(form){
 		toastr.warning(
-			"Deseja realmente desabilitar o usuário?<br /><span class=\"btn clear\" onclick=\"Meteor.call('deleteUser', [333, '"+form.currentTarget.childNodes[1].value+"']); $('#toast-container').remove();\">Ok</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Cancelar</span>", 
-			'', 
+			"Deseja realmente desabilitar o usuário?<br /><span class=\"btn clear\" onclick=\"Meteor.call('deleteUser', [333, '"+form.currentTarget.childNodes[1].value+"']); $('#toast-container').remove();\">Ok</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Cancelar</span>",
+			'',
 			{
-				"tapToDismiss": false, 
-				"timeOut": 0, 
+				"tapToDismiss": false,
+				"timeOut": 0,
 				"extendedTimeOut": 0
 			}
 		);

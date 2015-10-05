@@ -1,7 +1,7 @@
 // Rota do Meio Norte FM
 RadioController = ApplicationController.extend();
 
-Router.route('/fmmeionorte', {
+Router.route('/fmmeionorte/:_id', {
   name: 'fmmn',
   yieldRegions: {
     'headerFMMN': {to: 'header'}

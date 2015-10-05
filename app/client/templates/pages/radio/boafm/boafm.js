@@ -1,7 +1,7 @@
 // Rota do Programa
 RadioController = ApplicationController.extend();
 
-Router.route('/boafm', {
+Router.route('/boafm/:_id', {
   name: 'boafm',
   yieldRegions: {
     'headerBOAFM': {to: 'header'}

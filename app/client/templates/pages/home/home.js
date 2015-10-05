@@ -9,10 +9,8 @@ Router.route('/', {
   },
   waitOn: function() {
     Meteor.remote.subscribe('user');
-  },
-  onBeforeAction: function(){
-    Router.go('home');
-     this.next();
+    Meteor.remote.subscribe('vehicle');
+    Meteor.remote.subscribe('program');
   }
 });
 

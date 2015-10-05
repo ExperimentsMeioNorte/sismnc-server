@@ -3,8 +3,8 @@ Template.userNew.rendered = function () {
 	if(Level.find().count() === 0){
 		Router.go('user');
 		toastr.warning(
-			"Necessario ter algum nível de permissão cadastrado.", 
-			'', 
+			"Necessario ter algum nível de permissão cadastrado.",
+			'',
 			{"progressBar": true}
 		);
 	}
@@ -14,9 +14,9 @@ Template.userNew.rendered = function () {
 	//preeche os levels
 	var levels = Level.find().map(function(a) {
 		return [
-			a.level, 
+			a.level,
 			a.description
-		]; 
+		];
 	});
 
 	for(var i in levels){
@@ -27,9 +27,9 @@ Template.userNew.rendered = function () {
 	//preeche o select option de programa
 	var programs = Program.find().map(function(a) {
 		return [
-			a._id, 
+			a._id,
 			a.name
-		]; 
+		];
 	});
 
 	for(var x in programs){
@@ -46,59 +46,63 @@ Template.userNew.helpers({
 	}
 });
 
-Template.userNew.events({ 
+Template.userNew.events({
 	'change #user_nivel': function(form){
 		document.querySelector("#program").style.display = (form.target.selectedIndex === 3)? 'block' : 'none';
 	},
 
 	'submit #userForm': function(form){
 		form.preventDefault();
-		if(form.target[1].value === '' 
-			|| form.target[2].value === '' 
-			|| form.target[3].value === '' 
-			|| form.target[5].value === ''
-			|| (form.target[7].value === '' && form.target[5].value === '1')){
+		if(form.target[1].value === ''
+			|| form.target[2].value === ''
+			|| form.target[3].value === ''
+			|| form.target[5].value === ''){
 			toastr.warning(
-				"Preecha os campos obrigatorios.", 
-				'', 
+				"Preecha os campos obrigatorios.",
+				'',
 				{"progressBar": true}
 			);
 		}else if((form.target[1].value).length > 200 || (form.target[2].value).length > 200 || (form.target[3].value).length > 200){
 			toastr.warning(
-				"rum, ultrapassou o limite de caracteres, somente possivel 200.", 
-				'', 
+				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
+				'',
+				{"progressBar": true}
+			);
+		}else if(form.target[5].value === 1 && !form.target[7].value){
+			toastr.warning(
+				"rum, Necessario escolher um programa.",
+				'',
 				{"progressBar": true}
 			);
 		}else{
-			notBlockNotify = (form.target[8].ownerDocument.all.user_block_all_notify.checked === true)? 1 : 0;
 			Meteor.call(
-				'insertUser', 
+				'insertUser',
 				[
-					111, 
-					form.target[1].value, 
-					form.target[2].value, 
-					CryptoJS.MD5(form.target[3].value).toString(), 
-					form.target[5].value, 
-					(form.target[7].value !== '')? form.target[7].value : null, 
-					notBlockNotify,
-		    		0,
+					111,
+					form.target[5].value,
+					form.target[1].value,
+					Session.get('getupFormImgBase64Avatar'),
+					form.target[2].value,
+					form.target[3].value,
+					null,
 		    		null,
-		    		Session.get('getupFormImgBase64Avatar'), 
+		    		form.target[7].value,
+		    		((form.target[10].value)? 1 : 0),
+		    		Meteor.userId2
 				]
 			);
-			
+
 			//remove os dados dos campos do form para evitar a duplicidade do registro
 			form.target[1].value = form.target[2].value = form.target[3].value = form.target[5].value = '';
 			form.target[6].src = '';
-			form.target[8].ownerDocument.all.user_block_all_notify.checked = false;
 
 			//mostra a mensagem de sucesso, com botao OK para confirmar e ir para a lista
 			toastr.success(
-				"Usuário inserido com sucesso.<br /><a href=\"/usuarios\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Ok</a>", 
-				'', 
+				"Usuário inserido com sucesso.<br /><a href=\"/usuarios\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Ok</a>",
+				'',
 				{
-					"tapToDismiss": false, 
-					"timeOut": 0, 
+					"tapToDismiss": false,
+					"timeOut": 0,
 					"extendedTimeOut": 0
 				}
 			);
@@ -113,8 +117,8 @@ Template.userNew.events({
 	    var file = files[0];
 	    if(file.size > (3*100000)){
 	    	toastr.warning(
-	    		'A imagem ultrapassou o limite de 3mb.', 
-	    		'', 
+	    		'A imagem ultrapassou o limite de 3mb.',
+	    		'',
 	    		{"progressBar": true}
     		);
 	    }else{
@@ -122,7 +126,7 @@ Template.userNew.events({
 		    var fileReader = new FileReader();
 		    fileReader.onload = function(event){
 		      	Session.set(
-			      	'getupFormImgBase64Avatar', 
+			      	'getupFormImgBase64Avatar',
 			      	(event.target.result)? event.target.result : false
 		      	);
 		    };

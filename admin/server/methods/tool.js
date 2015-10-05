@@ -85,7 +85,8 @@ Meteor.methods({
 	            '005': 'Necessário conter o ID do conteúdo.',
 	            '006': 'Necessário conter a mensagem.',
 	            '007': 'Necessário conter o status.',
-	            '008': 'Necessário conter email/senha ou rede social.'
+	            '008': 'Necessário conter email/senha ou rede social.',
+	            '009': 'Necessário conter um programa.'
 	        },
 
 	        'sucess': {
