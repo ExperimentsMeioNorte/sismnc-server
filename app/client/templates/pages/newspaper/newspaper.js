@@ -15,7 +15,7 @@ Router.route('/jornal-meionorte', {
 Template.newspaper.onRendered(function(){
 
     Meteor.setTimeout(function(){
-      document.querySelector('body').classList.add('show-tabs');
+      document.querySelector('body').classList.add('show-tabs-newspaper');
     }, 1000);
 
     $('.modal-trigger').leanModal({
@@ -39,6 +39,6 @@ Template.newspaper.onRendered(function(){
 
 Template.newspaper.onDestroyed(function(){
 
-  document.querySelector('body').classList.remove('show-tabs');
+  document.querySelector('body').classList.remove('show-tabs-newspaper');
 
 });

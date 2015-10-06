@@ -12,7 +12,7 @@ var getPicture = function(opts) {
 };
 
 
-Template.addImage.events({
+Template.addImageTelevision.events({
     'focus #btn-close-add-image, click #btn-close-add-image': function () {
       document.querySelector('body').classList.remove('add-image-buttons-television');
     },

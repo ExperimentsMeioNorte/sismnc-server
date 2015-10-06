@@ -1,13 +1,12 @@
 Template.ApplicationLayout.onRendered(function(){
 
   if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
-          FastClick.attach(document.body);
-      }, false);
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
   }
-
   var WebFontConfig = {
-    google: { families: [ 'Roboto:400,300,500,700:latin', 'Bree+Serif::latin', 'PT+Sans:400,400italic,700,700italic:latin' ] }
+    google: { families: [ 'Roboto:400,300,500,700:latin' ] }
   };
   (function() {
     var wf = document.createElement('script');

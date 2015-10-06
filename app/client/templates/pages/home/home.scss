@@ -2,8 +2,7 @@
 .home-page {
 
   color:#fff;
-  background: #445da2;
-  background: linear-gradient(to bottom, #445da2 0%, #5d80c6 100%);
+  background: #445DA2;
 
   .header {
     .side-right {
@@ -30,7 +29,7 @@
       }
     }
     .col {
-      background:rgba(0,0,0,0.05);width:49%!important;margin:0 0.5%!important;height:166px;position:relative;padding-top:40px;
+      background:rgba(0,0,0,0.13);width:49%!important;margin:0 0.5%!important;height:166px;position:relative;padding-top:40px;
 
       transition:all 0.2s ease-in-out;
 
@@ -48,14 +47,14 @@
         font-weight:bold;
         padding: 10px 0;
         font-size:14px;
-        background: rgba(255,255,255,0.08);
+        background: rgba(0, 0, 0, 0.08);
       }
 
       a {
         display:block;color:#fff;width:100%;text-align:center;padding:20px 0;
 
         strong {
-          font-weight:bold;clear:both;width:100%;display:none;font-size:10px;
+          font-weight:bold;clear:both;width:100%;font-size:10px;position:absolute;left:0;bottom:0;font-size:10px;color:#fff;display:none;
         }
 
       }

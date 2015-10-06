@@ -1,4 +1,4 @@
-Template.addMessage.events({
+Template.addMessageTelevision.events({
 
     'focus #btn-show-add-image, click #btn-show-add-image': function () {
         document.querySelector('body').classList.add('add-image-buttons-television');
@@ -11,11 +11,7 @@ Template.addMessage.events({
     'click .send-button': function(events){
         events.preventDefault();
         if(!document.querySelector('#message').value){
-            toastr.warning(
-                "Ops, necessário preencher um texto.",
-                '',
-                {"progressBar": true}
-            );
+            console.log('Precisa de um texto');
         }else{
             Meteor.remote.call(
                 'insertContent',
@@ -32,17 +28,9 @@ Template.addMessage.events({
                     if(!error){
                         //remove os dados dos campos do form para evitar a duplicidade do registro
                         document.querySelector('#message').value = '';
-                        toastr.success(
-                            result,
-                            '',
-                            {"progressBar": true}
-                        );
+                        console.log('Nova Mensagem');
                     }else{
-                        toastr.warning(
-                            error.reason,
-                            '',
-                            {"progressBar": true}
-                        );
+                        console.log('Não deu Nova Mensagem');
                     }
                 }
             );

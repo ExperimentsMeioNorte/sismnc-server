@@ -1,6 +1,23 @@
 <template name="portal">
 
-  {{> yield "header"}}
+   <div class="portal-page transitions-content">
 
-  Feed do Portal com os filtros também
+    {{> yield "navigation" }}
+
+    {{> yield "header"}}
+
+    <main class="content has-header">
+
+      <section class="inner-content">
+
+          {{> yield "content" }}
+
+      </section>
+
+    </main>
+
+    {{> yield "search"}}
+
+  </div>
+
 </template>
