@@ -25,7 +25,7 @@ Template.userNew.rendered = function () {
 	}
 
 	//preeche o select option de programa
-	var programs = Program.find().map(function(a) {
+	var programs = Program.find({status:1}).map(function(a) {
 		return [
 			a._id,
 			a.name

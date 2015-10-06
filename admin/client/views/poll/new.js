@@ -1,31 +1,31 @@
 // POLL NEW PAGE
-Template.pollNew.rendered = function () { 
+Template.pollNew.rendered = function () {
 	Session.set(
-		'getupFormAnswerIds', 
+		'getupFormAnswerIds',
 		null
 	);
 
 	Session.set(
-		'getupFormPollId', 
+		'getupFormPollId',
 		null
 	);
 
 	//testa se existe dados na collection local, se nao, envia pra pagina inicial de enquete
-	if(Program.find().count() === 0){
+	if(Program.find({status:1}).count() === 0){
 		Router.go('poll');
 		toastr.warning(
-			"Necessario ter algum programa cadastrado.", 
-			'', 
+			"Necessario ter algum programa cadastrado.",
+			'',
 			{"progressBar": true}
 		);
 	}
 
 	//preeche o select option de programa
-	var programs = Program.find().map(function(a) {
+	var programs = Program.find({status:1}).map(function(a) {
 		return [
-			a._id, 
+			a._id,
 			a.name
-		]; 
+		];
 	});
 
 	for(var i in programs){
@@ -37,64 +37,64 @@ Template.pollNew.rendered = function () {
 
 };
 
-Template.pollNew.helpers({ 
+Template.pollNew.helpers({
 	'imgBase64': function(){
 		return Session.get('getupFormImgBase64');
 	},
 
 	'answers': function(){
-		return (Session.get('getupFormAnswerIds'))? 
+		return (Session.get('getupFormAnswerIds'))?
 					Answer.find(
 						{
-							status: 1, 
+							status: 1,
 							_id:{ $in:Session.get('getupFormAnswerIds') }
-						}, 
-						{fields: 
+						},
+						{fields:
 							{
-								_id:1, 
+								_id:1,
 								description:1
 							}
 						}
-					) 
+					)
 				: '';
 	}
 });
 
-Template.pollNew.events({ 
+Template.pollNew.events({
 	'click #addAnswer': function(form){
 		if(form.target.ownerDocument.all.answerNewDescription.value === ''){
 			toastr.warning(
-				"Preecha o campo de resposta.", 
-				'', 
+				"Preecha o campo de resposta.",
+				'',
 				{"progressBar": true}
 			);
 		}else if((form.target.ownerDocument.all.answerNewDescription.value).length > 200){
 			toastr.warning(
-				"rum, ultrapassou o limite de caracteres, somente possivel 200.", 
-				'', 
+				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
+				'',
 				{"progressBar": true}
 			);
 		}else{
 			Meteor.call(
-				'insertAnswer', 
+				'insertAnswer',
 				[
-					111, 
+					111,
 					form.target.ownerDocument.all.answerNewDescription.value
-				], 
+				],
 				function(err, data){
 					var answerIds = (Session.get('getupFormAnswerIds'))? Session.get('getupFormAnswerIds') : [];
 					answerIds[answerIds.length] = data;
 				    Session.set('getupFormAnswerIds', answerIds);
 				}
 			);
-			
+
 			//remove os dados dos campos do form para evitar a duplicidade do registro
 			form.target.ownerDocument.all.answerNewDescription.value = '';
 
 			//mostra a mensagem de sucesso
 			toastr.success(
-				"Resposta inserida com sucesso.", 
-				'', 
+				"Resposta inserida com sucesso.",
+				'',
 				{"progressBar": true}
 			);
 		}
@@ -103,29 +103,29 @@ Template.pollNew.events({
 	'click #btnAnswerUpdate': function(form){
 		if(form.currentTarget.ownerDocument.all["answerDescription"+form.currentTarget.children[0].value]['value'] === ''){
 			toastr.warning(
-				"Necessario preencher o campo da resposta a ser alterada.", 
-				'', 
+				"Necessario preencher o campo da resposta a ser alterada.",
+				'',
 				{"progressBar": true}
 			);
 		}else if((form.currentTarget.ownerDocument.all["answerDescription"+form.currentTarget.children[0].value]['value']).length > 200){
 			toastr.warning(
-				"rum, ultrapassou o limite de caracteres, somente possivel 200.", 
-				'', 
+				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
+				'',
 				{"progressBar": true}
 			);
 		}else{
 			Meteor.call(
-				'updateAnswer', 
+				'updateAnswer',
 				[
-					222, 
-					form.currentTarget.children[0].value, 
+					222,
+					form.currentTarget.children[0].value,
 					form.currentTarget.ownerDocument.all["answerDescription"+form.currentTarget.children[0].value]['value']
 				]
 			);
 
 			toastr.success(
-				"Resposta atualizada com sucesso.", 
-				'', 
+				"Resposta atualizada com sucesso.",
+				'',
 				{"progressBar": true}
 			);
 		}
@@ -133,11 +133,11 @@ Template.pollNew.events({
 
 	'click #btnAnswerDelete': function(form){
 		toastr.warning(
-			"Deseja realmente remover esta resposta?<br /><span class=\"btn clear\" onclick=\"Meteor.call('deleteAnswer', [333, '"+form.currentTarget.childNodes[1].value+"']); $('#toast-container').remove();\">Ok</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Cancelar</span>", 
-			'', 
+			"Deseja realmente remover esta resposta?<br /><span class=\"btn clear\" onclick=\"Meteor.call('deleteAnswer', [333, '"+form.currentTarget.childNodes[1].value+"']); $('#toast-container').remove();\">Ok</span><span class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Cancelar</span>",
+			'',
 			{
-				"tapToDismiss": false, 
-				"timeOut": 0, 
+				"tapToDismiss": false,
+				"timeOut": 0,
 				"extendedTimeOut": 0
 			}
 		);
@@ -147,14 +147,14 @@ Template.pollNew.events({
 		form.preventDefault();
 		if(form.target[2].value === '' || form.target[3].value === '' || !Session.get('getupFormAnswerIds')){
 			toastr.warning(
-				"Preecha os campos obrigatórios.", 
-				'', 
+				"Preecha os campos obrigatórios.",
+				'',
 				{"progressBar": true}
 			);
 		}else if((form.target[3].value).length > 200){
 			toastr.warning(
-				"rum, ultrapassou o limite de caracteres, somente possivel 200.", 
-				'', 
+				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
+				'',
 				{"progressBar": true}
 			);
 		}else{
@@ -164,18 +164,18 @@ Template.pollNew.events({
 			searchPoll = Poll.find({description:form.target[3].value}).map(function(a) {return [a._id]; });
 			if(searchPoll.length > 0){
 				Session.set(
-					'getupFormPollId', 
+					'getupFormPollId',
 					searchPoll[0][0]
 				);
 
 				Session.set(
-					'getupFormProgramId', 
+					'getupFormProgramId',
 					form.target[2].value
 				);
 
 				toastr.warning(
-					"Já existe uma enquete registrada com esta pergunta, deseja ativa-lá?<br /><a href=\"/enquetes\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Sim</a><a href=\"#\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Não</a>", 
-					'', 
+					"Já existe uma enquete registrada com esta pergunta, deseja ativa-lá?<br /><a href=\"/enquetes\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Sim</a><a href=\"#\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Não</a>",
+					'',
 					{"progressBar": true}
 				);
 			}else{
@@ -183,21 +183,21 @@ Template.pollNew.events({
 				// Deixar somente uma enquete ativa por programa
 				searchPoll = Poll.find(
 					{
-						status:1, 
+						status:1,
 						program_id:form.target[2].value
 					}
 				).map(
 					function(a) {
-						return [a._id]; 
+						return [a._id];
 					}
 				);
 
 				if(searchPoll.length > 0){
 					Meteor.call(
-						'updateStatusPoll', 
+						'updateStatusPoll',
 						[
-							222, 
-							searchPoll[0][0], 
+							222,
+							searchPoll[0][0],
 							0
 						]
 					);
@@ -205,45 +205,45 @@ Template.pollNew.events({
 
 				// insere a nova enquete ativa
 				Meteor.call(
-					'insertPoll', 
+					'insertPoll',
 					[
-						111, 
-						form.target[2].value, 
-						form.target[3].value, 
-						Session.get('getupFormAnswerIds'), 
+						111,
+						form.target[2].value,
+						form.target[3].value,
+						Session.get('getupFormAnswerIds'),
 						Session.get('getupFormImgBase64')
 					]
 				);
-				
+
 				//remove os dados dos campos do form para evitar a duplicidade do registro
 				form.target[2].value = form.target[3].value = '';
 				Session.set(
-					'getupFormImgBase64', 
+					'getupFormImgBase64',
 					null
 				);
 
 				Session.set(
-					'getupFormAnswerIds', 
+					'getupFormAnswerIds',
 					null
 				);
 
 				Session.set(
-					'getupFormProgramId', 
+					'getupFormProgramId',
 					null
 				);
 
 				Session.set(
-					'getupFormPollId', 
+					'getupFormPollId',
 					null
 				);
 
 				//mostra a mensagem de sucesso, com botao OK para confirmar e ir para a lista
 				toastr.success(
-					"Enquete inserida com sucesso.<br /><a href=\"/enquetes\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Ok</a>", 
-					'', 
+					"Enquete inserida com sucesso.<br /><a href=\"/enquetes\" class=\"btn clear\" onclick=\"$('#toast-container').remove()\">Ok</a>",
+					'',
 					{
-						"tapToDismiss": false, 
-						"timeOut": 0, 
+						"tapToDismiss": false,
+						"timeOut": 0,
 						"extendedTimeOut": 0
 					}
 				);
@@ -259,8 +259,8 @@ Template.pollNew.events({
 	    var file = files[0];
 	    if(file.size > (3*100000)){
 	    	toastr.warning(
-	    		'A imagem ultrapassou o limite de 3mb.', 
-	    		'', 
+	    		'A imagem ultrapassou o limite de 3mb.',
+	    		'',
 	    		{"progressBar": true}
     		);
 	    }else{
@@ -268,7 +268,7 @@ Template.pollNew.events({
 		    var fileReader = new FileReader();
 		    fileReader.onload = function(event){
 		      	Session.set(
-			      	'getupFormImgBase64', 
+			      	'getupFormImgBase64',
 			      	(event.target.result)? event.target.result : 'undefined'
 		      	);
 		    };
