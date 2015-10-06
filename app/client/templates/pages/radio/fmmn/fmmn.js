@@ -23,28 +23,13 @@ Template.fmmn.onRendered(function(){
     document.querySelector('body').classList.add('show-message-television');
   }, 1000);
 
-  $('ul.tabs').tabs();
-
-  $('.modal-trigger').leanModal({
-    dismissible: true,
-    opacity:1,
-    in_duration: 300,
-    out_duration: 200,
-    ready: function() {
-
-    },
-    complete: function() {
-
-    }
-  });
+  $('ul.tabsTV').tabs();
 
 });
 
 Template.fmmn.onDestroyed(function(){
   document.querySelector('body').classList.remove('show-message-television');
-
-  $('ul.tabs').tabs();
-
+  $('ul.tabsTV').tabs();
 });
 
 Template.fmmn.events({
