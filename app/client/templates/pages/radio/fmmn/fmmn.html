@@ -1,7 +1,7 @@
 <template name="fmmn">
 
   <div class="fmmn-page transitions-content" style="height:100%;">
-
+{{#each programs}}
     {{> yield "header"}}
 
     <main class="content has-header">
@@ -45,8 +45,8 @@
         </div>
 
     </main>
-
-    {{> shareFMMN }}
+{{/each}}
+    {{> share }}
 
   </div>
 
