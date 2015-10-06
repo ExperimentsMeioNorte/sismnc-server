@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sql title="" gridSize="10,10" fk_template="%f" cascadeDeleteFk="true" openEditWindowAfterAddTable="false" displayFieldType="false" defaultTableColor="#FFFFFF" defaultRelationColor="#000000" databaseType="postgresql" dataTypes="[object Object]" defaultType="VARCHAR" showGrid="false" alignToGrid="false" svgNS="http://www.w3.org/2000/svg" drawLinesOnDrag="false" defaultFkUpdate="CASCADE" defaultFkDelete="CASCADE" fkActions="CASCADE,RESTRICT,NO ACTION" autoAlignGap="10" highlightTime="500" displayFkLines="true">
-  <table x="247" y="240" name="program" color="#FFFFFF" relation-color="#000000">
+  <table x="241" y="240" name="program" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -48,6 +48,10 @@
       <datatype>VARCHAR(100)</datatype>
       <default>NULL</default>
     </row>
+    <row null="1" autoincrement="0" name="layout">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
     <row null="1" autoincrement="0" name="status">
       <datatype>BOOLEAN</datatype>
       <default>0</default>
@@ -80,7 +84,7 @@
       <part>_id</part>
     </key>
   </table>
-  <table x="37" y="240" name="vehicle" color="#FFFFFF" relation-color="#000000">
+  <table x="31" y="240" name="vehicle" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -126,7 +130,7 @@
       <part>_id</part>
     </key>
   </table>
-  <table x="597" y="60" name="user" color="#FFFFFF" relation-color="#000000">
+  <table x="591" y="60" name="user" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -137,6 +141,11 @@
       <datatype>INTEGER</datatype>
       <default>0</default>
       <relation table="level" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="program_id">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="program" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
     </row>
     <row null="0" autoincrement="0" name="name">
       <datatype>VARCHAR(100)</datatype>
@@ -197,7 +206,7 @@
       <part>_id</part>
     </key>
   </table>
-  <table x="387" y="20" name="content" color="#FFFFFF" relation-color="#000000">
+  <table x="381" y="20" name="content" color="#FFFFFF" relation-color="#000000">
     <comment>Aqui ira poder salvar:
 &gt; texto
 &gt; imagem
@@ -244,7 +253,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="467" y="470" name="poll" color="#FFFFFF" relation-color="#000000">
+  <table x="461" y="470" name="poll" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -305,7 +314,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="477" y="710" name="answer" color="#FFFFFF" relation-color="#000000">
+  <table x="471" y="710" name="answer" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -343,7 +352,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="237" y="575" name="publicity" color="#FFFFFF" relation-color="#000000">
+  <table x="231" y="575" name="publicity" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -388,7 +397,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="87" y="80" name="notify" color="#FFFFFF" relation-color="#000000">
+  <table x="81" y="80" name="notify" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -425,7 +434,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="757" y="490" name="pollUser" color="#FFFFFF" relation-color="#000000">
+  <table x="751" y="490" name="pollUser" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -465,7 +474,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="897" y="20" name="level" color="#FFFFFF" relation-color="#000000">
+  <table x="891" y="20" name="level" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -496,7 +505,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="97" y="450" name="category" color="#FFFFFF" relation-color="#000000">
+  <table x="91" y="450" name="category" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -528,7 +537,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="899" y="189" name="userban" color="#FFFFFF" relation-color="#000000">
+  <table x="893" y="189" name="userban" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -560,7 +569,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="857" y="350" name="subscription" color="#FFFFFF" relation-color="#000000">
+  <table x="851" y="350" name="subscription" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
