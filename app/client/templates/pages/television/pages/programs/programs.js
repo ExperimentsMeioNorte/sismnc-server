@@ -4,7 +4,7 @@ Template.programs.helpers({
     var programs = [];
 
     var category = Category.find(
-      {},
+      {description: { $not: 'Radio' }},
       {sort: {description:"asc"}}
     ).map(
       function(c) {
