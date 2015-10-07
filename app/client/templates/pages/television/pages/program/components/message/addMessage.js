@@ -20,7 +20,7 @@ Template.addMessageTelevision.events({
                     Router.current().params._id,
                     Meteor.remote.userId(),
                     document.querySelector('#message').value, // texto
-                    '', // imagem
+                    (Session.get("photo"))? Session.get("photo") : '', // imagem
                     '', // video
                     1,
                 ],
