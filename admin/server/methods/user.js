@@ -1,11 +1,11 @@
 Meteor.methods({
-  /*
+  	/*
     data[0] = 111 (obrigatorio)
     data[1] = *nivel (obrigatorio)
     data[2] = nome (obrigatorio)
 	data[3] = avatar (obrigatorio)
 	data[4] = email (obrigatorio)
-	data[5] = senha (obrigatorio)
+	data[5] = senha
 	data[6] = facebook ID
 	data[7] = google ID
 	data[8] = programa ID (obrigatorio se tiver marcado o nivel como administrador do programa)
@@ -25,7 +25,7 @@ Meteor.methods({
 	    var msgError = '';
 	    if(data[0] !== 111){
 	      msgError = Meteor.call('msgFeedback', 'error', '000');
-	    }else if(!data[1] || !data[2] || !data[3] || !data[4] || !data[5]){
+	    }else if(!data[1] || !data[2] || !data[3] || !data[4]){
 	      msgError = Meteor.call('msgFeedback', 'error', '002');
 	    }else if(data[1] === 1 && !data[8]){
 	      msgError = Meteor.call('msgFeedback', 'error', '009');
