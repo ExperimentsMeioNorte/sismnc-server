@@ -46,7 +46,7 @@
 
 .show-message-television {
   position:relative;height:100%;
-  #message-program {
+  .message {
     bottom:0;opacity:1!important;
   }
   .transitions-container {
@@ -253,6 +253,10 @@
   -webkit-transition:all .4s ease-in-out;
   -moz-transition:all .4s ease-in-out;
 
+  img {
+    width:100%;
+  }
+
 }
 
 
@@ -329,6 +333,9 @@
     color:#7A8B91;
     display: table;
     margin-bottom: 20px;
+    img {
+      width:100%;border-radius:5px;
+    }
   }
   .polls-answers {
     margin:10px 0;
@@ -337,7 +344,7 @@
       border-right-color:#62A0BD!important;
     }
     .polls-answers-item {
-      margin-bottom:5px;display:block;position:relative;padding:12px 0 12px 60px;
+      margin-bottom:5px;display:block;position:relative;padding:12px 0 12px 0;
       img {
         position:absolute;left:0;top:4px;
       }

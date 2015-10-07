@@ -1,15 +1,6 @@
-Session.setDefault('img', null);
-
-var getPicture = function(opts) {
-  MeteorCamera.getPicture(opts, function(err, data) {
-    if (err) {
-      console.log('error', err);
-    }
-    if (data) {
-      Session.set('img', data)
-    }
-  });
-};
+Meteor.startup(function(){
+  Session.setDefault('photo', null);
+});
 
 
 Template.addImageTelevision.events({
@@ -18,22 +9,32 @@ Template.addImageTelevision.events({
     },
    'focus #btn-capture-image, click #btn-capture-image': function () {
     if (Meteor.isClient) {
-      getPicture({
+
+      var cameraOptions = {
         width: 640,
         height: 480,
-        quality: 70
+        quality:70
+      };
+
+      MeteorCamera.getPicture(cameraOptions, function (error, data) {
+        Session.set("photo", data);
       });
+
     } else {
-      alert('Cordova only feature.');
+      alert('Roda apenas no cordova');
     }
   },
   'focus #btn-upload-image, click #btn-upload-image' : function(){
     if (Meteor.isCordova) {
-      getPicture({
+      var cameraOptions = {
         width: 640,
         height: 480,
-        quality: 70,
+        quality:70,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+      };
+
+      MeteorCamera.getPicture(cameraOptions, function (error, data) {
+        Session.set("photo", data);
       });
     } else {
       console.log('Roda apenas no cordova');

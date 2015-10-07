@@ -4,8 +4,12 @@
       <img src="/images/television/icons/icon-close-white.svg" height="20" />
     </strong>
 
-    <!-- <img src="{{ img }}" width="100%" /> -->
-    <img src="/images/television/img1.png" width="100%" />
+    {{#if photo}}
+      <div>
+        <img src={{photo}} />
+      </div>
+    {{/if}}
+    
 
   </div>
 </template>
