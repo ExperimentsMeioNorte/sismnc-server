@@ -69,13 +69,11 @@ Template.authentication.events({
                   null,
                   usersSearch.services.facebook.id,
                   null,
+                  null,
+                  1,
                   1
                 ],
-                function(error, result){
-                  if(error){
-                    console.log('Algo deu errado');
-                  }else{
-                    console.log('Ae deu certo');
+                function(result){
                     var userId = User.findOne(
                       {
                         facebook_id:usersSearch.services.facebook.id,
@@ -85,7 +83,6 @@ Template.authentication.events({
 
                     Meteor.remote.setUserId(userId._id);
                     Router.go('home');
-                  }
                 }
             );
           }
