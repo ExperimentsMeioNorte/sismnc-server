@@ -127,13 +127,11 @@ Template.authentication.events({
                   null,
                   null,
                   usersSearch.services.google.id,
+                  null,
+                  1,
                   1
                 ],
                 function(error, result){
-                  if(error){
-                    console.log('Algo deu errado');
-                  }else{
-                    console.log('Ae deu certo');
                     var userId = User.findOne(
                       {
                         google_id:usersSearch.services.google.id,
@@ -143,7 +141,6 @@ Template.authentication.events({
 
                     Meteor.remote.setUserId(userId._id);
                     Router.go('home');
-                  }
                 }
             );
           }
