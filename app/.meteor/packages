@@ -16,16 +16,17 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
+insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
-fourseven:scss
-particle4dev:cordova-fb
 accounts-ui
 service-configuration
-chrismbeckett:toastr
-zimme:active-route
-jamielob:transitions
-meteorhacks:kadira
-accounts-google
-ejson
-mdg:camera
 meteorhacks:fast-render
+accounts-google
+zimme:active-route
+meteorhacks:kadira
+mdg:camera
+jamielob:transitions
+chrismbeckett:toastr
+particle4dev:cordova-fb
+ejson
+fourseven:scss
