@@ -37,7 +37,7 @@ Template.timeline.helpers({
           }
         );
 
-        if(c.user_id){
+        if(c.user_id && user[0] !== undefined){
 
           // pega o tempo em que o registro atual está
           Meteor.remote.call(
