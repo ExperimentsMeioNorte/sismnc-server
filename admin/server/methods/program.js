@@ -76,7 +76,7 @@ Meteor.methods({
     data[10] = imagem avatar (obrigatorio)
     data [11] = imagem topo (obrigatorio)
     data[12] = *status (default: 1)
-    data[14] =  id do programa (obrigatorio)
+    data[13] =  id do programa (obrigatorio)
     * status:
       0 = inativo
       1 = ativo
@@ -91,7 +91,7 @@ Meteor.methods({
       msgError = Meteor.call('msgFeedback', 'error', '005') + ' categoria';
     }else if(!data[3]){
       msgError = Meteor.call('msgFeedback', 'error', '001');
-    }else if(!data[19]){
+    }else if(!data[10]){
       msgError = Meteor.call('msgFeedback', 'error', '003');
     }else if(!data[11]){
       msgError = Meteor.call('msgFeedback', 'error', '004');
@@ -101,7 +101,7 @@ Meteor.methods({
 
     if(!msgError){
       Program.update(
-        {_id:data[14]},
+        {_id:data[13]},
         {$set:
           {
             vehicle_id: data[1],
@@ -116,8 +116,8 @@ Meteor.methods({
             image_avatar:data[10],
             image_folder:data[11],
             status:data[12],
-            user_record:data[13],
-            user_change:data[13],
+            user_record:data[14],
+            user_change:data[14],
             date_record:Meteor.call('dateNow'),
             date_change:Meteor.call('dateNow')
           }
