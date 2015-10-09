@@ -14,6 +14,7 @@ Router.route('/rede-meionorte/:_id', {
     Meteor.remote.subscribe('answer');
     Meteor.remote.subscribe('poll');
     Meteor.remote.subscribe('polluser');
+    Meteor.remote.subscribe('category');
   }
 });
 
@@ -46,10 +47,23 @@ Template.program.events({
 Template.program.helpers({
   // gera os dados do programa atual
   programs: function(){
+    var categoryId = Category.find(
+      {
+        description: 'Radio'
+      }
+    ).map(
+      function(c){
+        return {
+          _id: c._id
+        }
+      }
+    );
+
     return Program.find(
       {
         _id: Router.current().params._id,
-        status: 1
+        status: 1,
+        category_id: { $not: categoryId[0]._id }
       }
     ).map(
       function(p) {

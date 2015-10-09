@@ -1,6 +1,6 @@
 Template.vehicle.helpers({
 	'vehicle': function(){
-    	return Vehicle.find({}).map(
+    	return Vehicle.find({name: { $not: 'radio' }}).map(
     		function(p) {
     			return {
     				_id:p._id,

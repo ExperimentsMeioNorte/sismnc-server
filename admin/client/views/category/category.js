@@ -1,6 +1,6 @@
 Template.category.helpers({
 	'category': function(){
-    	return Category.find({}).map(
+    	return Category.find({description: { $not: 'Radio' }}).map(
     		function(p) {
     			return {
     				_id:p._id,

@@ -39,9 +39,22 @@ Meteor.playTv = {
     // verifica se é para mostrar o botao do programa que está passando a tv ou nao
     buttonPlayTv: function(){
         Meteor.playTv.getTime();
+        var categoryId = Category.find(
+          {
+            description: 'Radio'
+          }
+        ).map(
+          function(c){
+            return {
+              _id: c._id
+            }
+          }
+        );
+
         var programs = Program.find(
             {
-                status: 1
+                status: 1,
+                category_id: { $not: categoryId[0]._id }
             },
             {
                 fields: {

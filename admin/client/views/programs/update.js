@@ -2,12 +2,18 @@
 Template.programUpdate.rendered = function () {
 	if(Router.current().params._id !== null){
 		//preeche o select option de veiculo
-		var vehicle = Vehicle.find().map(function(vehicleData) {
-			return [
-				vehicleData._id,
-				vehicleData.name
-			];
-		});
+		var vehicle = Vehicle.find(
+			{
+				status:1
+			}
+		).map(
+			function(vehicleData) {
+				return [
+					vehicleData._id,
+					vehicleData.name
+				];
+			}
+		);
 
 		for(var i in vehicle){
 			activeSelected = (this.data.collection._docs['_map'][Router.current().params._id]['vehicle_id'] === vehicle[i][0])? ['active', 'selected'] : ['',''];
@@ -37,6 +43,7 @@ Template.programUpdate.rendered = function () {
 		document.querySelector("#program_name").className = document.querySelector("#program_name").className + ' valid';
 		document.querySelector("#program_label_name").className = ' active';
 
+		// descricao
 		if(this.data.collection._docs['_map'][Router.current().params._id]['description']){
 			document.querySelector("#program_description").value = this.data.collection._docs['_map'][Router.current().params._id]['description'];
 			document.querySelector("#program_img_description").className = document.querySelector("#program_img_description").className + ' valid active';
@@ -44,14 +51,16 @@ Template.programUpdate.rendered = function () {
 			document.querySelector("#program_label_description").className = ' active';
 		}
 
+		// horas
 		if(this.data.collection._docs['_map'][Router.current().params._id]['hour_begin']){
 			document.querySelector("#program_hour_begin").value = this.data.collection._docs['_map'][Router.current().params._id]['hour_begin'];
 			document.querySelector("#program_hour_end").value = this.data.collection._docs['_map'][Router.current().params._id]['hour_end'];
-			document.querySelector("#program_img_hour_begin").className = document.querySelector("#program_img_hour").className + ' valid active';
-			document.querySelector("#program_hour_begin").className = document.querySelector("#program_hour").className + ' valid';
+			document.querySelector("#program_img_hour_begin").className = document.querySelector("#program_img_hour_begin").className + ' valid active';
+			document.querySelector("#program_hour_begin").className = document.querySelector("#program_hour_begin").className + ' valid';
 			document.querySelector("#program_label_hour_begin").className = ' active';
 		}
 
+		// dia da semana
 		if(this.data.collection._docs['_map'][Router.current().params._id]['day']){
 			document.querySelector("#program_day").value = this.data.collection._docs['_map'][Router.current().params._id]['day'];
 			document.querySelector("#program_img_day").className = document.querySelector("#program_img_day").className + ' valid active';
@@ -59,12 +68,14 @@ Template.programUpdate.rendered = function () {
 			document.querySelector("#program_label_day").className = ' active';
 		}
 
+		// facebook
 		if(this.data.collection._docs['_map'][Router.current().params._id]['facebook_url']){
 			document.querySelector("#social_facebook").value = this.data.collection._docs['_map'][Router.current().params._id]['facebook_url'];
 			document.querySelector("#social_facebook").className = document.querySelector("#social_facebook").className + ' valid';
 			document.querySelector("#social_label_facebook").className = ' active';
 		}
 
+		// google
 		if(this.data.collection._docs['_map'][Router.current().params._id]['google_url']){
 			document.querySelector("#social_google").value = this.data.collection._docs['_map'][Router.current().params._id]['google_url'];
 			document.querySelector("#social_google").className = document.querySelector("#social_google").className + ' valid';
