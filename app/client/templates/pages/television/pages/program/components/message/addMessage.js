@@ -26,7 +26,17 @@ Template.addMessageTelevision.events({
                 ],
                 function(error, result){
                     if(!error){
+                        // limpa os campos da mensagem
+                        document.querySelector('#message').value = '';
+                        Session.set("photo", '');
+                        Session.set("video", '');
+
                         //remove os dados dos campos do form para evitar a duplicidade do registro
+                        toastr.success(
+                            result,
+                            '',
+                            {"progressBar": true}
+                        );
                         document.querySelector('#message').value = '';
                         console.log('Nova Mensagem');
                     }else{
