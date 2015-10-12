@@ -36,7 +36,7 @@ Template.index.helpers({
 
 		var dateRecords = [];
 		var i = 0;
-    	return Content.find(find, { limit: Session.get('limit') }).map(
+    	return Content.find(find, { sort: {date_record:"desc"}, limit: Session.get('limit') }).map(
     		function(c) {
     			dateRecords[i] = {
     				_id:c._id,
