@@ -38,6 +38,10 @@ Meteor.startup(function () {
     );
   });
 
+  Meteor.publish('musiclist', function() {
+    return Musiclist.find({});
+  });
+
   Meteor.publish('notify', function() {
     return Notify.find(
       {},
@@ -162,7 +166,7 @@ Meteor.startup(function () {
       limit = 0;
     }
 
-    return Content.find(
+    return Category.find(
       {},
       {fields:
         {
@@ -175,12 +179,23 @@ Meteor.startup(function () {
     );
   });
 
+  Meteor.publish('musiclistPagination', function(limit) {
+    if (limit > Musiclist.find().count()) {
+      limit = 0;
+    }
+
+    return Musiclist.find(
+      {},
+      { limit: limit }
+    );
+  });
+
   Meteor.publish('vehiclePagination', function(limit) {
     if (limit > Vehicle.find().count()) {
       limit = 0;
     }
 
-    return Content.find(
+    return Vehicle.find(
       {},
       {fields:
         {

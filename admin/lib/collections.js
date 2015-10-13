@@ -9,6 +9,7 @@ PollUser = new Meteor.Collection("polluser");
 Level = new Meteor.Collection("level");
 Vehicle = new Meteor.Collection("vehicle");
 Category = new Meteor.Collection("category");
+Musiclist = new Meteor.Collection("musiclist");
 
 collectionsName = {
 	Notify: 'notify',
@@ -21,7 +22,8 @@ collectionsName = {
 	Answer: 'answer',
 	Level: 'level',
 	Vehicle: 'vehicle',
-	Category: 'category'
+	Category: 'category',
+	Musiclist: 'musiclist'
 };
 
 collections = {
@@ -35,5 +37,6 @@ collections = {
 	Answer: Answer,
 	Level: Level,
 	Vehicle: Vehicle,
-	Category: Category
+	Category: Category,
+	Musiclist: Musiclist
 };
