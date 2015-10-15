@@ -3,7 +3,8 @@ Meteor.methods({
     data[0] = 111 (obrigatorio)
     data[1] = id do programa (obrigatorio)
     data[2] = id do usuario (obrigatorio)
-    data[3] = texto do pedido (obrigatorio)
+    data[3] = musica (obrigatorio)
+    data[4] = autor
   */
   'insertMusic': function(data){
     var msgError = '';
@@ -18,11 +19,12 @@ Meteor.methods({
     }
 
     if(!msgError){
-      Program.insert(
+      Musiclist.insert(
         {
           program_id: data[1],
           user_id: data[2],
           text:data[3],
+          actor:data[4],
           user_record:data[2],
           date_record:Meteor.call('dateNow')
         }
