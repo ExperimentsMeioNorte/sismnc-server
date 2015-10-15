@@ -603,6 +603,10 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <datatype>VARCHAR(200)</datatype>
       <default>NULL</default>
     </row>
+    <row null="1" autoincrement="0" name="actor">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
     <row null="1" autoincrement="0" name="date_record">
       <datatype>TIMESTAMP(100)</datatype>
       <default>NULL</default>
