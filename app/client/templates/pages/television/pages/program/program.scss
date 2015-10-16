@@ -13,31 +13,10 @@
 
 .tab-flow  {
  margin-bottom:0!important;
-  .tab-header {
-    width:100%;
-    .tabs {
-      .indicator {
-        background-color: #62A0BD!important;
-      }
-      .tab {
-        @extend .col;
-        @extend .s3;
-        .active {
-          color:#62A0BD!important;font-weight:800;
-        }
-        a {
-          color:#ccc;letter-spacing:-0.03em;text-transform:none;font-size:16px;
-        }
-
-      }
-    }
-  }
   .tab-container {
     background:#F8F8FC!important;
     .tab-content {
-      padding:0 0 0 0;position:relative;
-      @extend .col;
-      @extend .s12;
+      padding:0!important;position:relative;
     }
   }
 }
@@ -147,9 +126,7 @@
 }
 
 
-.poll-result {
-  width:100%;display:table;
-}
+
 
 
 .message-feedback {
@@ -270,6 +247,9 @@
   padding:20px 20px 75px 20px;
 }
 
+.poll-result {
+  width:100%;display:table;
+}
 
 .polls-content {
 
