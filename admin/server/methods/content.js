@@ -16,7 +16,7 @@ Meteor.methods({
     var msgError = '';
     if(data[0] !== 111){
       msgError = Meteor.call('msgFeedback', 'error', '000');
-    }else if(!data[3] && !data[4] && !data[5]){
+    }else if(!data[3]){
       msgError = Meteor.call('msgFeedback', 'error', '006');
     }
 
@@ -58,7 +58,7 @@ Meteor.methods({
     var msgError = '';
     if(data[0] !== 222){
       msgError = Meteor.call('msgFeedback', 'error', '000');
-    }else if(!data[3] && !data[4] && !data[5]){
+    }else if(!data[3]){
       msgError = Meteor.call('msgFeedback', 'error', '006');
     }else if(!data[7]){
       msgError = Meteor.call('msgFeedback', 'error', '005') + ' mensagem.';
