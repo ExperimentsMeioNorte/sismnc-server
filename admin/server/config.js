@@ -123,16 +123,7 @@ Meteor.startup(function () {
   });
 
   Meteor.publish('content', function() {
-    return Content.find(
-      {},
-      {fields:
-        {
-          user_record:0,
-          user_change:0,
-          date_change:0
-        }
-      }
-    );
+    return Content.find({});
   });
 
   Meteor.publish('vehicle', function() {
