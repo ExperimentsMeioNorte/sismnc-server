@@ -585,4 +585,34 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
+  <table x="422" y="263" name="musiclist" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="_id">
+      <datatype>SERIAL</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="program_id">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="program" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="user_id">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="user" row="_id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="text">
+      <datatype>VARCHAR(200)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="actor">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="date_record">
+      <datatype>TIMESTAMP(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>_id</part>
+    </key>
+  </table>
 </sql>
