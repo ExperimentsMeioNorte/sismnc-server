@@ -564,3 +564,84 @@ body {
     background:#8BC34A!important;
   }
 }
+
+
+.input-field {
+  .col {
+      position:relative!important;
+      padding:0!important;
+  }
+}
+
+.field-week {
+  position:relative;
+  &:before {
+    position:absolute;left:0;top:-15px;width:100%;text-align:center;content: "DIAS DA SEMANA";font-size:14px;color:#666;
+  }
+
+  .box {
+    list-style:none;
+  }
+  p {
+    float:left;margin:30px 0 0 5px !important;min-width:80px!important;
+  }
+  label {
+    padding-left:0!important;
+    &:before {
+      top: -25px!important;
+      left: 15px!important;
+    }
+  }
+}
+.file {
+    margin-top: 30px;
+    display: inline-block;
+    width: 100%;
+    clear: both;
+}
+
+.category {
+  .actions-icons {
+        position: absolute;
+    right: 0;
+    top: 10px;
+    i {
+      font-size:30px;
+    }
+    a {
+      float:left;display:block;color:#999;
+      &:active {
+        color:#666;
+      }
+      &:hover {
+        color:#ccc;
+      }
+    }
+  }
+}
+
+
+.vehicle {
+  .card-content {
+    position:relative;
+    strong {font-size:22px;font-weight:300!important;}
+    span {
+          position: absolute;
+    right: 0px;
+    top: -34px;
+    color: #fff;
+    font-size: 12px;
+    background: rgba(0,0,0,.5);
+    padding: 5px 16px;
+
+    -webkit-border-top-left-radius: 10px;
+-moz-border-radius-topleft: 10px;
+border-top-left-radius: 10px;
+    }
+  }
+}
+
+
+.input-field input[type=text].valid, .input-field input[type=password].valid, .input-field input[type=email].valid, .input-field input[type=url].valid, .input-field input[type=date].valid, .input-field input[type=tel].valid, .input-field input[type=number].valid, .input-field input[type=search].valid, .input-field textarea.materialize-textarea.valid {
+    color:#4061A6;
+}

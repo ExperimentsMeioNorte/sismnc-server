@@ -51,19 +51,57 @@
 			      <div class="col s12">
 
 			      	<div class="input-field col s6">
-				        <i class="mdi-device-access-time prefix"></i>
-				        <input id="program_hour_begin" type="text" class="validate" data-vm-mask-hour-begin/> às <input id="program_hour_end" type="text" class="validate" data-vm-mask-hour-end/>
-				        <label for="program_hour_begin">Hora *</label>
+
+              <div class="col s6">
+                  <i class="mdi-device-access-time prefix"></i>
+				          <input id="program_hour_begin" type="text" class="validate" data-vm-mask-hour-begin/>
+                  <label for="program_hour_begin">Início *</label>
+                </div>
+                <div class="col s6">
+                  <i class="mdi-device-access-time prefix"></i>
+                  <input id="program_hour_end" type="text" class="validate" data-vm-mask-hour-end/>
+  				        <label for="program_hour_end">Término *</label>
+                </div>
+
 			        </div>
-					<div class="input-field col s6">
-						<i class="mdi-notification-event-note prefix"></i>
-						<input id="program_day" type="text" class="validate" maxlength="200" />
-						<label for="program_day">Dia *</label>
-					</div>
+
+    					<div class="input-field col s6 field-week">
+    						<i class="mdi-notification-event-note prefix"></i>
+                <div class="box">
+                  <p>
+                    <input type="checkbox" class="filled-in" id="segunda" />
+                    <label for="segunda">Segunda</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" class="filled-in" id="terca"  />
+                    <label for="terca">Terça</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" class="filled-in" id="quarta"  />
+                    <label for="quarta">Quarta</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" class="filled-in" id="quinta"  />
+                    <label for="quinta">Quinta</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" class="filled-in" id="sexta"  />
+                    <label for="sexta">Sexta</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" class="filled-in" id="sabado"  />
+                    <label for="sabado">Sábado</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" class="filled-in" id="domingo"  />
+                    <label for="domingo">Domingo</label>
+                  </p>
+                </div>
+    					</div>
 
 			      </div>
 
-			      <div class="col s12" style="margin-bottom:40px;margin-top:30px;">
+			    <!--   <div class="col s12" style="margin-bottom:40px;margin-top:30px;">
 
 			      	<small style="width:100%;display:inline-block;text-align:center;font-size:22px;">Redes Sociais</small>
 
@@ -77,45 +115,50 @@
 					</div>
 
 			      </div>
+ -->
+			      <div class="file s12">
 
-			      <div class="col s6">
+                <div class="col s6">
 
-		      		<small>Imagem ( 300x120 ) *</small>
-		      		<div class="file-field input-field">
-						<input class="file-path validate hide" type="text"/>
-						<div class="btn color-pattern btn-submit-white">
-					        <span>Topo</span>
-					        <input type="file" id="topo_upload" name="imageFile" />
-					  	</div>
-				  		<div class="img-upload">
-				      		<img src="{{imgBase64_topo}}" id="topo_imgBase64" width="100" height="45">
-				        </div>
-				  	</div>
-			      </div>
+                    <small>Dimensões ( 300x120 ) *</small>
+                    <div class="file-field input-field">
+                      <input class="file-path validate hide" type="text"/>
+                      <div class="btn color-pattern btn-submit-white">
+                            <span>Destaque</span>
+                            <input type="file" id="topo_upload" name="imageFile" />
+                        </div>
+                        <div class="img-upload">
+                            <img src="{{imgBase64_topo}}" id="topo_imgBase64" width="100" height="45">
+                          </div>
+                      </div>
 
-			       <div class="col s6">
-			       	<small>Imagem ( 300x300 ) *</small>
-		      		<div class="file-field input-field">
-						<input class="file-path validate hide" type="text"/>
-						<div class="btn color-pattern btn-submit-white">
-					        <span>Avatar</span>
-					        <input type="file" id="avatar_upload" name="imageFile" />
-					  	</div>
-				  		<div class="img-upload">
-				      		<img src="{{imgBase64_avatar}}" id="avatar_imgBase64" width="45" height="45">
-				        </div>
-				  	</div>
-			      </div>
+                  </div>
+
+                 <div class="col s6">
+                    <small>Dimensões ( 300x300 ) *</small>
+                    <div class="file-field input-field">
+                      <input class="file-path validate hide" type="text"/>
+                      <div class="btn color-pattern btn-submit-white">
+                            <span>Perfil</span>
+                            <input type="file" id="avatar_upload" name="imageFile" />
+                        </div>
+                        <div class="img-upload">
+                            <img src="{{imgBase64_avatar}}" id="avatar_imgBase64" width="45" height="45">
+                          </div>
+                      </div>
+                  </div>
+
+            </div>
 
 		      	<div class="input-field col s12">
-					<input id="program_status" type="checkbox" class="validate">
-					<label for="program_status">Ativar</label>
-				</div>
+    					<input id="program_status" type="checkbox" class="validate">
+    					<label for="program_status">Status</label>
+    				</div>
 
 			      <div class="btn-new col s12">
-			      	<button type="submit" class="waves-effect waves-light btn btn-submit pull-right" style="width:100%;">
-						Criar
-					</button>
+    			     <button type="submit" class="waves-effect waves-light btn btn-submit pull-right" style="width:100%;">
+    						Criar
+    					</button>
 			      </div>
 
 			  </form>

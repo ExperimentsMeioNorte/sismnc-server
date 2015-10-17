@@ -1,15 +1,15 @@
-Notify = new Meteor.Collection("notify");
-Program = new Meteor.Collection("program");
-Content = new Meteor.Collection("content");
-User = new Meteor.Collection("user");
-Publicity = new Meteor.Collection("publicity");
-Poll = new Meteor.Collection("poll");
-Answer = new Meteor.Collection("answer");
-PollUser = new Meteor.Collection("polluser");
-Level = new Meteor.Collection("level");
-Vehicle = new Meteor.Collection("vehicle");
-Category = new Meteor.Collection("category");
-Musiclist = new Meteor.Collection("musiclist");
+Notify = new Mongo.Collection("notify");
+Program = new Mongo.Collection("program");
+Content = new Mongo.Collection("content");
+User = new Mongo.Collection("user");
+Publicity = new Mongo.Collection("publicity");
+Poll = new Mongo.Collection("poll");
+Answer = new Mongo.Collection("answer");
+PollUser = new Mongo.Collection("polluser");
+Level = new Mongo.Collection("level");
+Vehicle = new Mongo.Collection("vehicle");
+Category = new Mongo.Collection("category");
+Musiclist = new Mongo.Collection("musiclist");
 
 collectionsName = {
 	Notify: 'notify',
