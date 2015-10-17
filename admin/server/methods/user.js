@@ -115,6 +115,41 @@ Meteor.methods({
 		}
 	},
 
+	/*
+    data[0] = 111 (obrigatorio)
+    data[1] = nome (obrigatorio)
+	data[2] = email (obrigatorio)
+	data[3] = usuario id (obrigatorio)
+  	*/
+	'updatePerfil': function(data){
+	    var msgError = '';
+	    if(data[0] !== 222){
+	      msgError = Meteor.call('msgFeedback', 'error', '000');
+	    }else if(!data[1] || !data[2]){
+	      msgError = Meteor.call('msgFeedback', 'error', '002');
+	    }else if(!data[3]){
+	      msgError = Meteor.call('msgFeedback', 'error', '005') + ' usuario.';
+	    }
+
+		if(!msgError){
+	   		User.update(
+	   			{_id:data[3]},
+	   			{$set:
+	   				{
+			    		name: data[1],
+			    		email: data[2],
+			    		user_change: data[3],
+			    		date_change:Meteor.call('dateNow')
+	   				}
+	   			}
+   			);
+
+   			return Meteor.call('msgFeedback', 'sucess', '001');
+		}else{
+		  	throw new Meteor.Error(500, msgError);
+		}
+	},
+
 	'deleteUser': function(data){
 		if(data[0] === 333){
 		  	User.update(
