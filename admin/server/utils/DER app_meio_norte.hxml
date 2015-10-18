@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sql title="" gridSize="10,10" fk_template="%f" cascadeDeleteFk="true" openEditWindowAfterAddTable="false" displayFieldType="false" defaultTableColor="#FFFFFF" defaultRelationColor="#000000" databaseType="postgresql" dataTypes="[object Object]" defaultType="VARCHAR" showGrid="false" alignToGrid="false" svgNS="http://www.w3.org/2000/svg" drawLinesOnDrag="false" defaultFkUpdate="CASCADE" defaultFkDelete="CASCADE" fkActions="CASCADE,RESTRICT,NO ACTION" autoAlignGap="10" highlightTime="500" displayFkLines="true">
-  <table x="241" y="240" name="program" color="#FFFFFF" relation-color="#000000">
+  <table x="233" y="233" name="program" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
@@ -29,8 +29,32 @@
       <datatype>VARCHAR(100)</datatype>
       <default>NULL</default>
     </row>
-    <row null="1" autoincrement="0" name="day">
-      <datatype>VARCHAR(100)</datatype>
+    <row null="1" autoincrement="0" name="day_monday">
+      <datatype>CHAR(1)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day_tuesday">
+      <datatype>CHAR(1)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day_wednesday">
+      <datatype>CHAR(1)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day_thursday">
+      <datatype>CHAR(1)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day_friday">
+      <datatype>CHAR(1)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day_saturday">
+      <datatype>CHAR(1)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="day_sunday">
+      <datatype>CHAR(1)</datatype>
       <default>NULL</default>
     </row>
     <row null="1" autoincrement="0" name="facebook_url">
@@ -352,7 +376,7 @@ ou tudo junto, ou seja, ira utilizar um editor de texto;</comment>
       <part>_id</part>
     </key>
   </table>
-  <table x="231" y="575" name="publicity" color="#FFFFFF" relation-color="#000000">
+  <table x="241" y="678" name="publicity" color="#FFFFFF" relation-color="#000000">
     <row null="0" autoincrement="1" name="_id">
       <datatype>SERIAL</datatype>
     </row>
