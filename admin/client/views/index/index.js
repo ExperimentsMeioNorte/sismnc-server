@@ -17,9 +17,9 @@ Template.index.rendered = function(){
      $('.modal-trigger').leanModal();
 }
 
-Template.notify.destroyed = function() {
-    Meteor.clearInterval();
-};
+// Template.notify.destroyed = function() {
+//     Meteor.clearInterval();
+// };
 
 Template.index.helpers({
     'qtUserCadastrado': function(){
@@ -107,3 +107,4 @@ Template.index.events({
         }
     }
 });
+

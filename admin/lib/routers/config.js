@@ -4,7 +4,7 @@ Router.configure({
     loadingTemplate: 'loading',
     onBeforeAction: function(){
         if(!Meteor.userId2){
-            Router.go('/login');
+          Router.go('/login');
         }
         this.next();
     }
