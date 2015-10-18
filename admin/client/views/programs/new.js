@@ -47,70 +47,230 @@ Template.programNew.helpers({
 Template.programNew.events({
 	'submit #programForm': function(form){
 		form.preventDefault();
-		if(form.target[0].value === '' || form.target[1].value === '' || form.target[2].value === '' || !Session.get('getupFormImgBase64Top') || !Session.get('getupFormImgBase64Avatar')){
+		if(form.target[1].value === ''
+			|| form.target[3].value === ''
+			|| form.target[4].value === ''
+			|| !Session.get('getupFormImgBase64Top')
+			|| !Session.get('getupFormImgBase64Avatar')
+			|| form.target[6].value === ''
+			|| form.target[7].value === ''
+			|| (form.target[8].checked === false
+				&& form.target[9].checked === false
+				&& form.target[10].checked === false
+				&& form.target[11].checked === false
+				&& form.target[12].checked === false
+				&& form.target[13].checked === false
+				&& form.target[14].checked === false) ){
 			toastr.warning(
 				"Preecha os campos obrigatórios.",
 				'',
 				{"progressBar": true}
 			);
-		}else if((form.target[2].value).length > 200 || (form.target[5].value).length > 200){
+		}else if((form.target[4].value).length > 200){
 			toastr.warning(
 				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
 				'',
 				{"progressBar": true}
 			);
-		}else if((form.target[3].value).length > 600){
+		}else if((form.target[5].value).length > 600){
 			toastr.warning(
 				"rum, ultrapassou o limite de caracteres, somente possivel 600.",
 				'',
 				{"progressBar": true}
 			);
 		}else{
-
-			Meteor.call(
-				'insertProgram',
-				[
-					111,
-					form.target[1].value,
-					form.target[3].value,
-					form.target[4].value,
-					form.target[5].value,
-					form.target[6].value,
-					form.target[7].value,
-					form.target[8].value,
-					form.target[9].value,
-					form.target[10].value,
-					Session.get('getupFormImgBase64Avatar'),
-					Session.get('getupFormImgBase64Top'),
-					((form.target[15].checked)? 1 : 0),
-					Meteor.userId2
-				],
-				function(error, result){
-					if(!error){
-						//remove os dados dos campos do form para evitar a duplicidade do registro
-						form.target[0].value = form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = form.target[6].value = form.target[7].value =form.target[8].value = '';
-						form.target[15].checked = false;
-						Session.set( 'getupFormImgBase64Top', null );
-						Session.set( 'getupFormImgBase64Avatar', null );
-						document.querySelector('#topo_imgBase64').src = '#';
-						document.querySelector('#avatar_imgBase64').src = '#';
-
-						Router.go('programs');
-
-						toastr.success(
-							result,
-							'',
-							{"progressBar": true}
-						);
-					}else{
-						toastr.warning(
-							error.reason,
-							'',
-							{"progressBar": true}
-						);
-					}
+			var validateDay1 = validateDay2 = validateDay3 = validateDay4 = validateDay5 = validateDay6 = validateDay7 = false;
+			var program = Program.find({  // verifica a duplicidade do nome do programa
+				name: 			form.target[4].value,
+				vehicle_id: 	form.target[1].value,
+				category_id: 	form.target[3].value,
+				status: 		1
+			}).map(
+				function(p) {
+					return {
+						name: p.name
+					};
 				}
-			);
+			)[0];
+
+			if(program === undefined || form.target[4].value !== program.name){
+
+				if(form.target[8].checked){ // verifica o dia da semana segunda
+					validateDay1 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_monday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'segunda'
+							};
+						}
+					)[0];
+				}
+
+				if(form.target[9].checked){ // verifica o dia da semana terca
+					validateDay2 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_tuesday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'terca'
+							};
+						}
+					)[0];
+				}
+
+				if(form.target[10].checked){  // verifica o dia da semana quarta
+					validateDay3 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_wednesday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'quarta'
+							};
+						}
+					)[0];
+				}
+
+				if(form.target[11].checked){  // verifica o dia da semana quinta
+					validateDay4 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_thursday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'quinta'
+							};
+						}
+					)[0];
+				}
+
+				if(form.target[12].checked){  // verifica o dia da semana sexta
+					validateDay5 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_friday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'sexta'
+							};
+						}
+					)[0];
+				}
+
+				if(form.target[13].checked){  // verifica o dia da semana sabado
+					validateDay6 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_saturday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'sabado'
+							};
+						}
+					)[0];
+				}
+
+				if(form.target[14].checked){  // verifica o dia da semana domingo
+					validateDay7 = Program.find({
+						hour_begin: 	{ $gte: form.target[6].value },
+						hour_end: 		{ $lte: form.target[7].value },
+						day_sunday: 	1,
+						status: 		1
+					}).map(
+						function(p) {
+							return {
+								name: 'domingo'
+							};
+						}
+					)[0];
+				}
+
+				if((validateDay1 === false || validateDay1 === undefined)
+					&& (validateDay2 === false || validateDay2 === undefined)
+					&& (validateDay3 === false || validateDay3 === undefined)
+					&& (validateDay4 === false || validateDay4 === undefined)
+					&& (validateDay5 === false || validateDay5 === undefined)
+					&& (validateDay6 === false || validateDay6 === undefined)
+					&& (validateDay7 === false || validateDay7 === undefined)){
+					Meteor.call(
+						'insertProgram',
+						[
+							111,
+							form.target[1].value,
+							form.target[3].value,
+							form.target[4].value,
+							form.target[5].value,
+							form.target[6].value,
+							form.target[7].value,
+							((form.target[8].checked)? 1 : 0),
+							((form.target[9].checked)? 1 : 0),
+							((form.target[10].checked)? 1 : 0),
+							((form.target[11].checked)? 1 : 0),
+							((form.target[12].checked)? 1 : 0),
+							((form.target[13].checked)? 1 : 0),
+							((form.target[14].checked)? 1 : 0),
+							null,
+							null,
+							Session.get('getupFormImgBase64Avatar'),
+							Session.get('getupFormImgBase64Top'),
+							((form.target[19].checked)? 1 : 0),
+							Meteor.userId2
+						],
+						function(error, result){
+							if(!error){
+								//remove os dados dos campos do form para evitar a duplicidade do registro
+								form.target[0].value = form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = form.target[6].value = form.target[7].value = '';
+								form.target[19].checked = form.target[8].checked = form.target[9].checked = form.target[10].checked = form.target[11].checked = form.target[12].checked = form.target[13].checked = form.target[14].checked  = false;
+								Session.set( 'getupFormImgBase64Top', null );
+								Session.set( 'getupFormImgBase64Avatar', null );
+								document.querySelector('#topo_imgBase64').src = '#';
+								document.querySelector('#avatar_imgBase64').src = '#';
+
+								Router.go('programs');
+
+								toastr.success(
+									result,
+									'',
+									{"progressBar": true}
+								);
+							}else{
+								toastr.warning(
+									error.reason,
+									'',
+									{"progressBar": true}
+								);
+							}
+						}
+					);
+				}else{
+					toastr.warning(
+						'Existe(m) programa(s) com o horario escolhido, para o(s) dia(s) da semana: ' + ((validateDay1 !== false && validateDay1 !== undefined)? validateDay1.name + ' ' : '') + ((validateDay2 !== false && validateDay2 !== undefined)? validateDay2.name + ' ' : '') + ((validateDay3 !== false && validateDay3 !== undefined)? validateDay3.name + ' ': '') + ((validateDay4 !== false && validateDay4 !== undefined)? validateDay4.name + ' ': '') + ((validateDay5 !== false && validateDay5 !== undefined)? validateDay5.name + ' ': '') + ((validateDay6 !== false && validateDay6 !== undefined)? validateDay6.name + ' ': '') + ((validateDay7 !== false && validateDay7 !== undefined)? validateDay7.name + ' ' : ''),
+						'',
+						{"progressBar": true}
+					);
+				}
+			}else{
+				toastr.warning(
+					'Existe um outro programa com este nome.',
+					'',
+					{"progressBar": true}
+				);
+			}
 		}
 	},
 
