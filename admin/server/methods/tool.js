@@ -86,7 +86,8 @@ Meteor.methods({
 	            '006': 'Necessário conter a mensagem.',
 	            '007': 'Necessário conter o status.',
 	            '008': 'Necessário conter email/senha ou rede social.',
-	            '009': 'Necessário conter um programa.'
+	            '009': 'Necessário conter um programa.',
+	            '010': 'Necessário conter pelo menos um dia da semana.'
 	        },
 
 	        'sucess': {
