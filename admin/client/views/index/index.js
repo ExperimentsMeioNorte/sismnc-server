@@ -54,16 +54,21 @@ Template.index.helpers({
 				);
 
     			return {
-                    status:c.status,
+            status:c.status,
     				_id:c._id,
     				text:c.text,
     				img:c.img,
     				timeCompared:Session.get('getupToolTimeCompare' + c._id),
     				user_name:User.find({_id:c.user_id}).map(
-    					function(u){
-    						return u.name;
-						}
-					)
+      				function(u){
+      						return u.name;
+  						}
+  					),
+            user_avatar:User.find({_id:c.user_id}).map(
+                function(u){
+                  return u.avatar;
+              }
+            )
     			};
     		}
 		);

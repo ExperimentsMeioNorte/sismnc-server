@@ -3,10 +3,14 @@ Router.configure({
     notFoundTemplate: 'notFound',
     loadingTemplate: 'loading',
     onBeforeAction: function(){
-        if(!Meteor.userId2){
-          Router.go('/login');
-        }
-        this.next();
+      this.next();
+    },
+    action: function(){
+     if(!Meteor.userId2){
+        Router.go('/login');
+      } else {
+        this.render('loading');
+      }
     }
 });
 
