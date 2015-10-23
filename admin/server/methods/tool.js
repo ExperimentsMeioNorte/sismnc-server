@@ -3,9 +3,23 @@ Meteor.methods({
 		router.go(path);
 	},
 
+	// a data no javascript/mongodb é UTC ou seja 3hs a mais e 1mes a menos de que o Brasil/Teresina
  	'dateNow': function(){
 	   	var dateObj = new Date();
-	    return dateObj.getDate() + '/' + (dateObj.getMonth()+1) + '/' + dateObj.getFullYear() + ' ' + dateObj.getHours() + ':' +  dateObj.getMinutes() + ':' + dateObj.getSeconds();
+
+	   	// define o dia atual no servidor
+	   	var day = dateObj.getDate();
+	   	if((dateObj.getHours() + 3) > 24){
+	   		day -= 1;
+	   	}
+
+	   	// define a hora atual no servidor
+	   	var hour = (dateObj.getHours() - 3);
+
+	   	// define o mes atual no servidor
+	   	var month = (dateObj.getMonth() + 1);
+
+	    return day + '/' + month + '/' + dateObj.getFullYear() + ' ' + hour + ':' +  dateObj.getMinutes() + ':' + dateObj.getSeconds();
  	},
 
  // 	'timeCompare': function(dateTime){
