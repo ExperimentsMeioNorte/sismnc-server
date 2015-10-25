@@ -71,8 +71,8 @@ Meteor.methods({
           status:           data[18],
           user_record:      data[19],
           user_change:      data[19],
-          date_record:      Meteor.call('dateNow'),
-          date_change:      Meteor.call('dateNow')
+          date_record:      Meteor.call('dateNow')['dateNow'],
+          date_change:      Meteor.call('dateNow')['dateNow']
         }
       );
 
@@ -159,8 +159,8 @@ Meteor.methods({
             status:           data[18],
             user_record:      data[20],
             user_change:      data[20],
-            date_record:      Meteor.call('dateNow'),
-            date_change:      Meteor.call('dateNow')
+            date_record:      Meteor.call('dateNow')['dateNow'],
+            date_change:      Meteor.call('dateNow')['dateNow']
           }
         }
       );
@@ -190,7 +190,7 @@ Meteor.methods({
           {
             status:0,
             user_change:data[2],
-            date_change:Meteor.call('dateNow')
+            date_change:Meteor.call('dateNow')['dateNow']
           }
         }
       );

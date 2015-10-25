@@ -4,20 +4,20 @@ Meteor.methods({
     if(data[0] === 111 && data[1] !== ''){
       var pollId = Poll.insert(
         {
-          status:1, 
-          program_id:data[1], 
-          description:data[2], 
-          img:data[4], 
-          user_record:1, 
-          user_change:1, 
-          date_record:Meteor.call('dateNow'), 
-          date_change:Meteor.call('dateNow')
+          status:1,
+          program_id:data[1],
+          description:data[2],
+          img:data[4],
+          user_record:1,
+          user_change:1,
+          date_record:Meteor.call('dateNow')['dateNow'],
+          date_change:Meteor.call('dateNow')['dateNow']
         }
       );
 
       Answer.update(
-        {_id: { $in:data[3] }}, 
-        {$set: {poll_id:pollId}}, 
+        {_id: { $in:data[3] }},
+        {$set: {poll_id:pollId}},
         {multi:true}
       );
     }else{
@@ -29,14 +29,14 @@ Meteor.methods({
     if(data[0] === 222 && data[1] !== ''){
       Poll.update(
         {_id:data[1]},
-        {$set: 
+        {$set:
           {
-            program_id:data[2], 
-            description:data[3], 
-            img:data[5], 
-            status:data[6], 
-            user_change:1, 
-            date_change:Meteor.call('dateNow')
+            program_id:data[2],
+            description:data[3],
+            img:data[5],
+            status:data[6],
+            user_change:1,
+            date_change:Meteor.call('dateNow')['dateNow']
           }
         }
       );
@@ -49,11 +49,11 @@ Meteor.methods({
     if(data[0] === 222 && data[1] !== ''){
       Poll.update(
         {_id:data[1]},
-        {$set: 
+        {$set:
           {
-            status:data[2], 
-            user_change:1, 
-            date_change:Meteor.call('dateNow')
+            status:data[2],
+            user_change:1,
+            date_change:Meteor.call('dateNow')['dateNow']
           }
         }
       );
@@ -66,7 +66,7 @@ Meteor.methods({
     if(data[0] === 333){
       answers = Answer.find({poll_id:data[1]}).map(
         function(a) {
-          return [a._id]; 
+          return [a._id];
         }
       );
 
@@ -88,8 +88,8 @@ Meteor.methods({
           answer_id:data[2],
           user_id:data[3],
           status:1,
-          date_record:Meteor.call('dateNow'),
-          date_change:Meteor.call('dateNow')
+          date_record:Meteor.call('dateNow')['dateNow'],
+          date_change:Meteor.call('dateNow')['dateNow']
         });
         return true;
       }catch(e){
@@ -103,13 +103,13 @@ Meteor.methods({
       try{
         Poll.update(
           {_id:data[1]},
-          {$set: 
+          {$set:
             {
               poll_id:data[2],
               answer_id:data[3],
               user_id:data[4],
               status:1,
-              date_change:Meteor.call('dateNow')
+              date_change:Meteor.call('dateNow')['dateNow']
             }
           }
         );
@@ -119,5 +119,5 @@ Meteor.methods({
       }
     }
   }
-  
+
 });

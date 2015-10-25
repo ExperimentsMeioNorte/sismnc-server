@@ -45,8 +45,8 @@ Meteor.methods({
 		    		status: data[9],
 		    		user_record: data[10],
 		    		user_change: data[10],
-		    		date_record:Meteor.call('dateNow'),
-		    		date_change:Meteor.call('dateNow')
+		    		date_record:Meteor.call('dateNow')['dateNow'],
+		    		date_change:Meteor.call('dateNow')['dateNow']
 		    	}
 	    	);
 	    	return Meteor.call('msgFeedback', 'sucess', '000');
@@ -104,7 +104,7 @@ Meteor.methods({
 			    		program_id: data[8],
 			    		status: data[9],
 			    		user_change: data[11],
-			    		date_change:Meteor.call('dateNow')
+			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
 	   			}
    			);
@@ -139,7 +139,7 @@ Meteor.methods({
 			    		name: data[1],
 			    		email: data[2],
 			    		user_change: data[3],
-			    		date_change:Meteor.call('dateNow')
+			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
 	   			}
    			);
@@ -158,7 +158,7 @@ Meteor.methods({
 		  			{
 		  				status:0,
 		  				user_change:Meteor.userId(),
-		  				date_change:Meteor.call('dateNow')
+		  				date_change:Meteor.call('dateNow')['dateNow']
 		  			}
 		  		}
 	  		);
@@ -172,7 +172,7 @@ Meteor.methods({
 	   			{$set:
 	   				{
 	   					password:CryptoJS.MD5(data[2] + data[3]).toString(),
-	   					date_change:Meteor.call('dateNow')
+	   					date_change:Meteor.call('dateNow')['dateNow']
 	   				}
 	   			}
    			);
@@ -201,8 +201,8 @@ Meteor.methods({
 	    		status: 1,
 	    		user_record: 1,
 	    		user_change: 1,
-	    		date_record:Meteor.call('dateNow'),
-	    		date_change:Meteor.call('dateNow')
+	    		date_record:Meteor.call('dateNow')['dateNow'],
+	    		date_change:Meteor.call('dateNow')['dateNow']
 	    	}
     	);
 		return true;

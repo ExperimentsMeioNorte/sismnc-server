@@ -23,8 +23,8 @@ Meteor.methods({
           status:data[2],
           user_record:data[3],
           user_change:data[3],
-          date_record:Meteor.call('dateNow'),
-          date_change:Meteor.call('dateNow')
+          date_record:Meteor.call('dateNow')['dateNow'],
+          date_change:Meteor.call('dateNow')['dateNow']
         }
       );
 
@@ -62,7 +62,7 @@ Meteor.methods({
               description: data[1],
               status:data[2],
               user_change:data[4],
-              date_change:Meteor.call('dateNow')
+              date_change:Meteor.call('dateNow')['dateNow']
             }
           }
         );
@@ -92,7 +92,7 @@ Meteor.methods({
           {
             status:0,
             user_change:data[2],
-            date_change:Meteor.call('dateNow')
+            date_change:Meteor.call('dateNow')['dateNow']
           }
         }
       );

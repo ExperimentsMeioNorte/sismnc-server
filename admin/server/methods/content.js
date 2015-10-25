@@ -29,8 +29,8 @@ Meteor.methods({
     			img:data[4],
           video:data[5],
           status:data[6],
-    			date_record:Meteor.call('dateNow'),
-    			date_change:Meteor.call('dateNow')
+    			date_record:Meteor.call('dateNow')['dateNow'],
+    			date_change:Meteor.call('dateNow')['dateNow']
     		}
   		);
 
@@ -75,7 +75,7 @@ Meteor.methods({
             img:data[4],
             video:data[5],
             status:data[6],
-            date_change:Meteor.call('dateNow')
+            date_change:Meteor.call('dateNow')['dateNow']
           }
         }
       );
@@ -104,7 +104,7 @@ Meteor.methods({
         {$set:
           {
             status:0,
-            date_change:Meteor.call('dateNow')
+            date_change:Meteor.call('dateNow')['dateNow']
           }
         }
       );

@@ -26,7 +26,7 @@ Meteor.methods({
           text:data[3],
           actor:data[4],
           user_record:data[2],
-          date_record:Meteor.call('dateNow')
+          date_record:Meteor.call('dateNow')['dateNow']
         }
       );
 

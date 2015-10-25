@@ -1,17 +1,17 @@
 Meteor.methods({
-	
+
 	'insertAnswer': function(data){
 	    if(data[0] === 111 && data[1] !== ''){
 	    	var pollId = (data[2])? data[2] : 'undefined';
 	      	return Answer.insert(
 	      		{
-	      			status:1, 
-	      			poll_id:pollId, 
-	      			description:data[1], 
-	      			user_record:1, 
-	      			user_change:1, 
-	      			date_record:Meteor.call('dateNow'), 
-	      			date_change:Meteor.call('dateNow')
+	      			status:1,
+	      			poll_id:pollId,
+	      			description:data[1],
+	      			user_record:1,
+	      			user_change:1,
+	      			date_record:Meteor.call('dateNow')['dateNow'],
+	      			date_change:Meteor.call('dateNow')['dateNow']
 	      		}
       		);
 	    }else{
@@ -23,11 +23,11 @@ Meteor.methods({
 		if(data[0] === 222){
 		    Answer.update(
 		    	{_id:data[1]},
-		    	{$set: 
+		    	{$set:
 		    		{
-		    			description:data[2], 
-		    			user_change:1, 
-		    			date_change:Meteor.call('dateNow')
+		    			description:data[2],
+		    			user_change:1,
+		    			date_change:Meteor.call('dateNow')['dateNow']
 		    		}
 		    	}
 	    	);
