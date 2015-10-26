@@ -3,6 +3,15 @@ Meteor.methods({
 		router.go(path);
 	},
 
+	'addId': function(collection){
+		if(collection === 'content'){
+        	var currentId = Content.find({},{sort:{_id:-1, limit:1}}).sequence_id || 1;
+        	return currentId + 1;
+    	}else{
+    		return 1;
+    	}
+	},
+
 	// a data no javascript/mongodb é UTC, iremos adaptar para Brasil/Teresina
  	'dateNow': function(){
 	   	var dateObj = new Date();

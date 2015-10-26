@@ -21,18 +21,17 @@ Meteor.methods({
     }
 
     if(!msgError){
-    	Content.insert(
-    		{
-    			program_id:data[1],
-    			user_id:data[2],
-    			text:data[3],
-    			img:data[4],
-          video:data[5],
-          status:data[6],
-    			date_record:Meteor.call('dateNow')['dateNow'],
-    			date_change:Meteor.call('dateNow')['dateNow']
-    		}
-  		);
+    	Content.insert({
+        sequence_id: Meteor.call('addId', 'content'),
+  			program_id:data[1],
+  			user_id:data[2],
+  			text:data[3],
+  			img:data[4],
+        video:data[5],
+        status:data[6],
+  			date_record:Meteor.call('dateNow')['dateNow'],
+  			date_change:Meteor.call('dateNow')['dateNow']
+    	});
 
       return Meteor.call('msgFeedback', 'sucess', '000');
     }else{
