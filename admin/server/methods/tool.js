@@ -5,10 +5,31 @@ Meteor.methods({
 
 	'addId': function(collection){
 		if(collection === 'content'){
-        	var currentId = Content.find({},{sort:{_id:-1, limit:1}}).sequence_id || 1;
+        	var currentId = 0;
+			var content = Content.find(
+		        {},
+        		{
+	    			sort:
+    				{
+    					sequence_id: -1,
+    					limit: 1
+    				}
+    			}
+		    ).map(
+		        function(c) {
+		          return {
+		            sequence_id: c.sequence_id
+		          };
+		        }
+		    );
+
+        	if(content && content[0] !== undefined){
+        		currentId = parseInt(content[0].sequence_id);
+        	}
+
         	return currentId + 1;
     	}else{
-    		return 1;
+    		return 0;
     	}
 	},
 
