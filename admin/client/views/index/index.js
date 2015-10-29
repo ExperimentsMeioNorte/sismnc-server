@@ -1,5 +1,9 @@
 Meteor.setInterval(updateDateRecord, 1000 * 60);
 
+Template.index.created = function(){
+  Meteor.getDateHour();
+}
+
 Template.index.rendered = function(){
     var userSearch = User.findOne({_id:Meteor.userId2}, {$fields: {_id:1, level:1}});
     Session.set('getupDataUser', userSearch);
@@ -27,16 +31,31 @@ Template.index.helpers({
     },
 
 	'contents': function(){
-        var find = {};
+        var find = {
+            date_record: {
+                $gte: Session.get('getupDateBegin'),
+                $lte: Session.get('getupDateEnd')
+            }
+        };
         if(Meteor.userLevel === 1){
             find = {
-                program_id: Meteor.userProgram
+                program_id: Meteor.userProgram,
+                date_record: {
+                    $gte: Session.get('getupDateBegin'),
+                    $lte: Session.get('getupDateEnd')
+                }
             };
         }
 
 		var dateRecords = [];
 		var i = 0;
-    	return Content.find(find, { sort: {date_record:"desc"}, limit: Session.get('limit') }).map(
+    	return Content.find(
+            find,
+            {
+                sort: {sequence_id: -1},
+                limit: Session.get('limit')
+            }
+        ).map(
     		function(c) {
     			dateRecords[i] = {
     				_id:c._id,
@@ -54,7 +73,7 @@ Template.index.helpers({
 				);
 
     			return {
-            status:c.status,
+                    status:c.status,
     				_id:c._id,
     				text:c.text,
     				img:c.img,
@@ -64,21 +83,30 @@ Template.index.helpers({
       						return u.name;
   						}
   					),
-            user_avatar:User.find({_id:c.user_id}).map(
-                function(u){
-                  return u.avatar;
-              }
-            )
+                    user_avatar:User.find({_id:c.user_id}).map(
+                        function(u){
+                          return u.avatar;
+                      }
+                    )
     			};
     		}
 		);
 	},
 
     'mais': function(){
-        var find = {};
+        var find = {
+            date_record: {
+                $gte: Session.get('getupDateBegin'),
+                $lte: Session.get('getupDateEnd')
+            }
+        };
         if(Meteor.userLevel === 1){
             find = {
-                program_id: Meteor.userProgram
+                program_id: Meteor.userProgram,
+                date_record: {
+                    $gte: Session.get('getupDateBegin'),
+                    $lte: Session.get('getupDateEnd')
+                }
             };
         }
 

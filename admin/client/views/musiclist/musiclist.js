@@ -23,7 +23,6 @@ Template.musiclist.rendered = function(){
 
 Template.musiclist.helpers({
 	'contents': function(){
-        console.log(Session.get('getupDateBegin'), Session.get('getupDateEnd'));
         var find = {
             date_record: {
                 $gte: Session.get('getupDateBegin'),
