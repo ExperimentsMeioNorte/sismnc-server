@@ -4,8 +4,8 @@ Meteor.methods({
 	},
 
 	'addId': function(collection){
+		var currentId = 0;
 		if(collection === 'content'){
-        	var currentId = 0;
 			var content = Content.find(
 		        {},
         		{
@@ -28,8 +28,31 @@ Meteor.methods({
         	}
 
         	return currentId + 1;
+    	}else if(collection === 'musiclist'){
+			var content = Musiclist.find(
+		        {},
+        		{
+	    			sort:
+    				{
+    					sequence_id: -1,
+    					limit: 1
+    				}
+    			}
+		    ).map(
+		        function(c) {
+		          return {
+		            sequence_id: c.sequence_id
+		          };
+		        }
+		    );
+
+        	if(content && content[0] !== undefined){
+        		currentId = parseInt(content[0].sequence_id);
+        	}
+
+        	return currentId + 1;
     	}else{
-    		return 0;
+    		return currentId;
     	}
 	},
 

@@ -1,0 +1,36 @@
+<template name="musiclist">
+
+<div class="container">
+
+	<div class="content-container row">
+
+		<div class="timeline">
+
+			<div class="col s12">
+
+				<div class="collection" data-collapsible="accordion">
+				{{#each contents}}
+
+          <div class="collection-item avatar">
+                <input type="text" id="mensageHistoryId" style="display:none" value="{{_id}}">
+
+                <strong class="title">{{user_name}}</strong> - <span class="date">Enviado há {{timeCompared}}</span>
+                <p>Autor: {{actor}} </p><p> Música: {{text}}</p>
+
+          </div>
+					{{/each }}
+
+				</div>
+					<a id="mais" class="waves-effect waves-light btn btn-more color-pattern">
+						Carregar mais
+					</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+</template>

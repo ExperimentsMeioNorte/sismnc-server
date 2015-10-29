@@ -20,6 +20,12 @@
 	  		<span>Enquetes</span>
 	  	</a>
 	  </li>
+	  <li class="{{ isActiveRoute 'musiclist' }}">
+	  	<a href="{{pathFor 'musiclist' }}">
+	  		<i class="mdi-action-question-answer"></i>
+	  		<span>Músicas</span>
+	  	</a>
+	  </li>
 	  {{#if admin}}
   	  <li class="{{ isActiveRoute 'vehicle|vehicleNew|vehicleUpdate' }}">
 	  	<a href="{{pathFor 'vehicle' }}">

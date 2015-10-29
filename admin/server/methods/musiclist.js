@@ -21,6 +21,7 @@ Meteor.methods({
     if(!msgError){
       Musiclist.insert(
         {
+          sequence_id: Meteor.call('addId', 'musiclist'),
           program_id: data[1],
           user_id: data[2],
           text:data[3],

@@ -7,9 +7,20 @@ updateDateRecord = function(){
 	}
 }
 
+// limite da hora inicial e final para mostrar as mensagens na timeline
+Meteor.getDateHour = function(){
+    Meteor.call(
+    'dateNow',
+        function(error, result){
+            Session.set('getupDateBegin', result['dateBegin']);
+            Session.set('getupDateEnd', result['dateEnd']);
+        }
+    );
+}
+
 incrementLimit = function(inc) {
   	Session.set(
-  		'limit', 
+  		'limit',
   		(Session.get('limit') + ((inc === undefined)? 5 : inc))
 	);
 }

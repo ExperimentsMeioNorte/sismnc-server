@@ -152,6 +152,17 @@ Meteor.startup(function () {
     );
   });
 
+  Meteor.publish('musiclistPagination', function(limit) {
+    if (limit > Musiclist.find().count()) {
+      limit = 0;
+    }
+
+    return Musiclist.find(
+      {},
+      { limit: limit }
+    );
+  });
+
   Meteor.publish('categoryPagination', function(limit) {
     if (limit > Category.find().count()) {
       limit = 0;
@@ -166,17 +177,6 @@ Meteor.startup(function () {
           date_change:0
         }
       },
-      { limit: limit }
-    );
-  });
-
-  Meteor.publish('musiclistPagination', function(limit) {
-    if (limit > Musiclist.find().count()) {
-      limit = 0;
-    }
-
-    return Musiclist.find(
-      {},
       { limit: limit }
     );
   });
