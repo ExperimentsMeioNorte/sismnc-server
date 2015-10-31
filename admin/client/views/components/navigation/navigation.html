@@ -17,13 +17,19 @@
 	  <li class="{{ isActiveRoute 'poll|pollNew|pollUpdate' }}">
 	  	<a href="{{pathFor 'poll' }}">
 	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Enquetes</span>
+	  		<span>Enquete</span>
 	  	</a>
 	  </li>
 	  <li class="{{ isActiveRoute 'musiclist' }}">
 	  	<a href="{{pathFor 'musiclist' }}">
 	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Músicas</span>
+	  		<span>Música</span>
+	  	</a>
+	  </li>
+	  <li class="{{ isActiveRoute 'city' }}">
+	  	<a href="{{pathFor 'city' }}">
+	  		<i class="mdi-action-question-answer"></i>
+	  		<span>Cidade</span>
 	  	</a>
 	  </li>
 	  {{#if admin}}
@@ -42,7 +48,7 @@
   	  <li class="{{ isActiveRoute 'programs|programNew|programUpdate' }}">
 	  	<a href="{{pathFor 'programs' }}">
 	  		<i class="mdi-hardware-desktop-windows"></i>
-	  		<span>Programas</span>
+	  		<span>Programa</span>
 	  	</a>
 	  </li>
   	  <li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">
@@ -69,14 +75,14 @@
 	  <li class="{{ isActiveRoute 'poll|pollNew|pollUpdate' }}">
 	  	<a href="{{pathFor 'poll' }}">
 	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Enquetes</span>
+	  		<span>Enquete</span>
 	  	</a>
 	  </li>
 	  {{#if admin}}
   	  <li class="{{ isActiveRoute 'programs|programNew|programUpdate' }}">
 	  	<a href="{{pathFor 'programs' }}">
 	  		<i class="mdi-hardware-desktop-windows"></i>
-	  		<span>Programas</span>
+	  		<span>Programa</span>
 	  	</a>
 	  </li>
 	  <li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">

@@ -1,0 +1,51 @@
+<template name="city">
+
+<div class="container">
+{{#if admin}}
+	<header class="top-container">
+		<h4>
+			Cidade
+		</h4>
+
+		<a href="{{pathFor 'cityNew' }}" class="waves-effect waves-light btn btn-add">
+			<i class="mdi-content-add left"></i>
+			NOVO
+		</a>
+
+	</header>
+
+	<div class="content-container row">
+
+		<div class="category">
+
+			<div class="col s12 no-padding">
+			    {{#each city}}
+					<div class="col s4">
+
+						<div class="program card">
+				            <div class="card-content">
+				              	<b>{{name}} - {{status}}</b>
+				            </div>
+				            <div class="secondary-content actions-icons">
+							  	<a href="{{pathFor 'cityUpdate' _id=this._id}}">
+							  		<i class="mdi-image-edit"></i>
+							  	</a>
+							  	<a href="#" class="modal-trigger" id="btnDelete">
+							  		<input type="text" value="{{_id}}" id="cityDisable" readonly="readonly" style="display:none;" />
+							  		<i class="mdi-navigation-close"></i>
+							  	</a>
+						  	</div>
+			            </div>
+			        </div>
+			    {{/each }}
+			</div>
+
+		</div>
+
+	</div>
+{{else}}
+Usuário sem permissão
+{{/if}}
+</div>
+
+</template>

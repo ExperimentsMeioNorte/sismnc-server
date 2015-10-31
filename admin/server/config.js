@@ -38,6 +38,10 @@ Meteor.startup(function () {
     );
   });
 
+  Meteor.publish('city', function() {
+    return City.find({});
+  });
+
   Meteor.publish('musiclist', function() {
     return Musiclist.find({});
   });
@@ -149,6 +153,17 @@ Meteor.startup(function () {
           date_change:0
         }
       }
+    );
+  });
+
+  Meteor.publish('cityPagination', function(limit) {
+    if (limit > City.find().count()) {
+      limit = 0;
+    }
+
+    return City.find(
+      {},
+      { limit: limit }
     );
   });
 

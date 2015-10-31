@@ -1,0 +1,52 @@
+<template name="cityUpdate">
+
+<div class="container">
+
+	<header class="top-container">
+		<h4>
+			<i class="mdi-content-add"></i>Atualizar Cidade
+		</h4>
+
+		<a href="{{pathFor 'city' }}" class="waves-effect waves-light btn btn-model">
+			<i class="mdi-hardware-keyboard-backspace left"></i>
+			Voltar
+		</a>
+
+	</header>
+
+	<div class="content-container row">
+
+		<div class="city">
+
+			<div class="row">
+
+			  <form id="cityForm" class="col s12">
+
+			      <div class="input-field col s12">
+			      	<i class="mdi-action-account-circle prefix" id="city_img_name"></i>
+			        <input id="city_name" type="text" class="validate" maxlength="200">
+			        <label for="city_name" id="city_label_name">name *</label>
+			      </div>
+
+	  		      	<div class="input-field col s12">
+						<input id="city_status" type="checkbox" class="validate">
+						<label for="city_status">Ativar</label>
+					</div>
+
+			      <div class="btn-new col s12">
+			      	<button type="submit" class="waves-effect waves-light btn btn-submit pull-right" style="width:100%;">
+						Atualizar
+					</button>
+			      </div>
+
+			  </form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+</template>
