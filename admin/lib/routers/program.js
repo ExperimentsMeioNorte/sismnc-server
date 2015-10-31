@@ -7,6 +7,7 @@ Router.map(function() {
         Meteor.subscribe('program');
         Meteor.subscribe('vehicle');
         Meteor.subscribe('category');
+        Meteor.subscribe('city');
       },
       data: function(){
           return {success: this.params.success};

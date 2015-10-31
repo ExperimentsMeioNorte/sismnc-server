@@ -31,6 +31,19 @@ Template.programNew.onRendered(function(){
 		$(".dropdown-content").append("<li class=\"\"><span>"+category[i][1]+"</span></li>");
 	}
 
+	//preeche o select option de cidade
+	var city = City.find().map(function(cityData) {
+		return [
+			cityData._id,
+			cityData.name
+		];
+	});
+
+	for(var i in city){
+		$("#program_city").append("<option value=\""+city[i][0]+"\">"+city[i][1]+"<option/>");
+		$(".dropdown-content").append("<li class=\"\"><span>"+city[i][1]+"</span></li>");
+	}
+
 	$('select').material_select();
 });
 
@@ -49,30 +62,31 @@ Template.programNew.events({
 		form.preventDefault();
 		if(form.target[1].value === ''
 			|| form.target[3].value === ''
-			|| form.target[4].value === ''
+			|| form.target[5].value === ''
+			|| form.target[6].value === ''
 			|| !Session.get('getupFormImgBase64Top')
 			|| !Session.get('getupFormImgBase64Avatar')
-			|| form.target[6].value === ''
-			|| form.target[7].value === ''
-			|| (form.target[8].checked === false
-				&& form.target[9].checked === false
-				&& form.target[10].checked === false
+			|| form.target[8].value === ''
+			|| form.target[9].value === ''
+			|| (form.target[10].checked === false
 				&& form.target[11].checked === false
 				&& form.target[12].checked === false
 				&& form.target[13].checked === false
-				&& form.target[14].checked === false) ){
+				&& form.target[14].checked === false
+				&& form.target[15].checked === false
+				&& form.target[16].checked === false) ){
 			toastr.warning(
 				"Preecha os campos obrigatórios.",
 				'',
 				{"progressBar": true}
 			);
-		}else if((form.target[4].value).length > 200){
+		}else if((form.target[6].value).length > 200){
 			toastr.warning(
 				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
 				'',
 				{"progressBar": true}
 			);
-		}else if((form.target[5].value).length > 600){
+		}else if((form.target[7].value).length > 600){
 			toastr.warning(
 				"rum, ultrapassou o limite de caracteres, somente possivel 600.",
 				'',
@@ -81,9 +95,10 @@ Template.programNew.events({
 		}else{
 			var validateDay1 = validateDay2 = validateDay3 = validateDay4 = validateDay5 = validateDay6 = validateDay7 = false;
 			var program = Program.find({  // verifica a duplicidade do nome do programa
-				name: 			form.target[4].value,
+				name: 			form.target[6].value,
 				vehicle_id: 	form.target[1].value,
 				category_id: 	form.target[3].value,
+				city_id: 		form.target[5].value,
 				status: 		1
 			}).map(
 				function(p) {
@@ -93,12 +108,12 @@ Template.programNew.events({
 				}
 			)[0];
 
-			if(program === undefined || form.target[4].value !== program.name){
+			if(program === undefined || form.target[6].value !== program.name){
 
-				if(form.target[8].checked){ // verifica o dia da semana segunda
+				if(form.target[10].checked){ // verifica o dia da semana segunda
 					validateDay1 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_monday: 	1,
 						status: 		1
 					}).map(
@@ -110,10 +125,10 @@ Template.programNew.events({
 					)[0];
 				}
 
-				if(form.target[9].checked){ // verifica o dia da semana terca
+				if(form.target[11].checked){ // verifica o dia da semana terca
 					validateDay2 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_tuesday: 	1,
 						status: 		1
 					}).map(
@@ -125,10 +140,10 @@ Template.programNew.events({
 					)[0];
 				}
 
-				if(form.target[10].checked){  // verifica o dia da semana quarta
+				if(form.target[12].checked){  // verifica o dia da semana quarta
 					validateDay3 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_wednesday: 	1,
 						status: 		1
 					}).map(
@@ -140,10 +155,10 @@ Template.programNew.events({
 					)[0];
 				}
 
-				if(form.target[11].checked){  // verifica o dia da semana quinta
+				if(form.target[13].checked){  // verifica o dia da semana quinta
 					validateDay4 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_thursday: 	1,
 						status: 		1
 					}).map(
@@ -155,10 +170,10 @@ Template.programNew.events({
 					)[0];
 				}
 
-				if(form.target[12].checked){  // verifica o dia da semana sexta
+				if(form.target[14].checked){  // verifica o dia da semana sexta
 					validateDay5 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_friday: 	1,
 						status: 		1
 					}).map(
@@ -170,10 +185,10 @@ Template.programNew.events({
 					)[0];
 				}
 
-				if(form.target[13].checked){  // verifica o dia da semana sabado
+				if(form.target[15].checked){  // verifica o dia da semana sabado
 					validateDay6 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_saturday: 	1,
 						status: 		1
 					}).map(
@@ -185,10 +200,10 @@ Template.programNew.events({
 					)[0];
 				}
 
-				if(form.target[14].checked){  // verifica o dia da semana domingo
+				if(form.target[16].checked){  // verifica o dia da semana domingo
 					validateDay7 = Program.find({
-						hour_begin: 	{ $gte: form.target[6].value },
-						hour_end: 		{ $lte: form.target[7].value },
+						hour_begin: 	{ $gte: form.target[8].value },
+						hour_end: 		{ $lte: form.target[9].value },
 						day_sunday: 	1,
 						status: 		1
 					}).map(
@@ -213,29 +228,30 @@ Template.programNew.events({
 							111,
 							form.target[1].value,
 							form.target[3].value,
-							form.target[4].value,
 							form.target[5].value,
 							form.target[6].value,
 							form.target[7].value,
-							((form.target[8].checked)? 1 : 0),
-							((form.target[9].checked)? 1 : 0),
+							form.target[8].value,
+							form.target[9].value,
 							((form.target[10].checked)? 1 : 0),
 							((form.target[11].checked)? 1 : 0),
 							((form.target[12].checked)? 1 : 0),
 							((form.target[13].checked)? 1 : 0),
 							((form.target[14].checked)? 1 : 0),
+							((form.target[15].checked)? 1 : 0),
+							((form.target[16].checked)? 1 : 0),
 							null,
 							null,
 							Session.get('getupFormImgBase64Avatar'),
 							Session.get('getupFormImgBase64Top'),
-							((form.target[19].checked)? 1 : 0),
+							((form.target[21].checked)? 1 : 0),
 							Meteor.userId2
 						],
 						function(error, result){
 							if(!error){
 								//remove os dados dos campos do form para evitar a duplicidade do registro
-								form.target[0].value = form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = form.target[6].value = form.target[7].value = '';
-								form.target[19].checked = form.target[8].checked = form.target[9].checked = form.target[10].checked = form.target[11].checked = form.target[12].checked = form.target[13].checked = form.target[14].checked  = false;
+								form.target[0].value = form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = form.target[6].value = form.target[7].value = form.target[8].value = form.target[9].value = '';
+								form.target[21].checked = form.target[10].checked = form.target[11].checked = form.target[12].checked = form.target[13].checked = form.target[14].checked = form.target[15].checked = form.target[16].checked  = false;
 								Session.set( 'getupFormImgBase64Top', null );
 								Session.set( 'getupFormImgBase64Avatar', null );
 								document.querySelector('#topo_imgBase64').src = '#';
