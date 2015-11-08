@@ -2,7 +2,8 @@ Meteor.methods({
   /*
     data[0] = 111 (obrigatorio)
     data[1] = name (obrigatorio)
-    data[2] = *status (default: 1)
+    data[2] = image (obrigatorio)
+    data[3] = *status (default: 1)
 
     * status:
       0 = inativo
@@ -14,15 +15,18 @@ Meteor.methods({
       msgError = Meteor.call('msgFeedback', 'error', '000');
     }else if(!data[1]){
       msgError = Meteor.call('msgFeedback', 'error', '001');
+    }else if(!data[2]){
+      msgError = Meteor.call('msgFeedback', 'error', '004');
     }
 
     if(!msgError){
       City.insert(
         {
           name:                     data[1],
-          status:                   data[2],
-          user_record:              data[3],
-          user_change:              data[3],
+          image:                    data[2],
+          status:                   data[3],
+          user_record:              data[4],
+          user_change:              data[4],
           date_record:              Meteor.call('dateNow')['dateNow'],
           date_change:              Meteor.call('dateNow')['dateNow']
         }
@@ -37,6 +41,7 @@ Meteor.methods({
   /*
     data[0] = 222 (obrigatorio)
     data[1] = name (obrigatorio)
+    data[2] = image (obrigatorio)
     data[2] = *status (default: 1)
     data[3] = id da cidade (obrigatorio)
 
@@ -50,19 +55,22 @@ Meteor.methods({
       msgError = Meteor.call('msgFeedback', 'error', '000');
     }else if(!data[1]){
       msgError = Meteor.call('msgFeedback', 'error', '001');
-    }else if(!data[3]){
+    }else if(!data[2]){
+      msgError = Meteor.call('msgFeedback', 'error', '004');
+    }else if(!data[4]){
       msgError = Meteor.call('msgFeedback', 'error', '005') + ' cidade.';
     }
 
     if(!msgError){
         City.update(
-          {_id:data[3]},
+          {_id:data[4]},
           {$set:
             {
-              name: data[1],
-              status:data[2],
-              user_change:data[4],
-              date_change:Meteor.call('dateNow')['dateNow']
+              name:           data[1],
+              image:          data[2],
+              status:         data[3],
+              user_change:    data[5],
+              date_change:    Meteor.call('dateNow')['dateNow']
             }
           }
         );
