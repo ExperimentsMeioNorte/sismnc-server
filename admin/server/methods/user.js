@@ -119,7 +119,8 @@ Meteor.methods({
     data[0] = 111 (obrigatorio)
     data[1] = nome (obrigatorio)
 	data[2] = email (obrigatorio)
-	data[3] = usuario id (obrigatorio)
+	data[3] = phone
+	data[4] = usuario id (obrigatorio)
   	*/
 	'updatePerfil': function(data){
 	    var msgError = '';
@@ -127,18 +128,19 @@ Meteor.methods({
 	      msgError = Meteor.call('msgFeedback', 'error', '000');
 	    }else if(!data[1] || !data[2]){
 	      msgError = Meteor.call('msgFeedback', 'error', '002');
-	    }else if(!data[3]){
+	    }else if(!data[4]){
 	      msgError = Meteor.call('msgFeedback', 'error', '005') + ' usuario.';
 	    }
 
 		if(!msgError){
 	   		User.update(
-	   			{_id:data[3]},
+	   			{_id:data[4]},
 	   			{$set:
 	   				{
 			    		name: data[1],
 			    		email: data[2],
-			    		user_change: data[3],
+			    		phone: data[3]
+			    		user_change: data[4],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
 	   			}
