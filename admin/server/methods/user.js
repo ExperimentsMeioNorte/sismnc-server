@@ -139,7 +139,7 @@ Meteor.methods({
 	   				{
 			    		name: data[1],
 			    		email: data[2],
-			    		phone: data[3],
+			    		phone: (data[3])? data[3] : null,
 			    		user_change: data[4],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
