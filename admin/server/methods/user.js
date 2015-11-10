@@ -139,7 +139,7 @@ Meteor.methods({
 	   				{
 			    		name: data[1],
 			    		email: data[2],
-			    		phone: data[3]
+			    		phone: data[3],
 			    		user_change: data[4],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
@@ -172,7 +172,7 @@ Meteor.methods({
 	   			{_id:data[2]},
 	   			{$set:
 	   				{
-			    		phone: data[1]
+			    		phone: data[1],
 			    		user_change: data[2],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
@@ -205,7 +205,7 @@ Meteor.methods({
 	   			{_id:data[2]},
 	   			{$set:
 	   				{
-			    		avatar: data[1]
+			    		avatar: data[1],
 			    		user_change: data[2],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
