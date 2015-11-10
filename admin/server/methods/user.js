@@ -152,6 +152,72 @@ Meteor.methods({
 		}
 	},
 
+	/*
+    data[0] = 111 (obrigatorio)
+    data[1] = nome (obrigatorio)
+	data[2] = usuario id (obrigatorio)
+  	*/
+	'updatePerfilPhone': function(data){
+	    var msgError = '';
+	    if(data[0] !== 222){
+	      msgError = Meteor.call('msgFeedback', 'error', '000');
+	    }else if(!data[1]){
+	      msgError = Meteor.call('msgFeedback', 'error', '002');
+	    }else if(!data[2]){
+	      msgError = Meteor.call('msgFeedback', 'error', '005') + ' usuario.';
+	    }
+
+		if(!msgError){
+	   		User.update(
+	   			{_id:data[2]},
+	   			{$set:
+	   				{
+			    		phone: data[1]
+			    		user_change: data[2],
+			    		date_change:Meteor.call('dateNow')['dateNow']
+	   				}
+	   			}
+   			);
+
+   			return Meteor.call('msgFeedback', 'sucess', '001');
+		}else{
+		  	throw new Meteor.Error(500, msgError);
+		}
+	},
+
+	/*
+    data[0] = 111 (obrigatorio)
+    data[1] = avatar (obrigatorio)
+	data[2] = usuario id (obrigatorio)
+  	*/
+	'updatePerfilAvatar': function(data){
+	    var msgError = '';
+	    if(data[0] !== 222){
+	      msgError = Meteor.call('msgFeedback', 'error', '000');
+	    }else if(!data[1]){
+	      msgError = Meteor.call('msgFeedback', 'error', '002');
+	    }else if(!data[2]){
+	      msgError = Meteor.call('msgFeedback', 'error', '005') + ' usuario.';
+	    }
+
+		if(!msgError){
+	   		User.update(
+	   			{_id:data[2]},
+	   			{$set:
+	   				{
+			    		avatar: data[1]
+			    		user_change: data[2],
+			    		date_change:Meteor.call('dateNow')['dateNow']
+	   				}
+	   			}
+   			);
+
+   			return Meteor.call('msgFeedback', 'sucess', '001');
+		}else{
+		  	throw new Meteor.Error(500, msgError);
+		}
+	},
+
 	'deleteUser': function(data){
 		if(data[0] === 333){
 		  	User.update(
