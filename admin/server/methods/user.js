@@ -45,6 +45,7 @@ Meteor.methods({
 		    		status: data[9],
 		    		user_record: data[10],
 		    		user_change: data[10],
+		    		phone: null,
 		    		date_record:Meteor.call('dateNow')['dateNow'],
 		    		date_change:Meteor.call('dateNow')['dateNow']
 		    	}
