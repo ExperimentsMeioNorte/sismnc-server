@@ -46,6 +46,7 @@ Meteor.methods({
 		    		user_record: data[10],
 		    		user_change: data[10],
 		    		phone: null,
+		    		confirmphone: false,
 		    		date_record:Meteor.call('dateNow')['dateNow'],
 		    		date_change:Meteor.call('dateNow')['dateNow']
 		    	}
@@ -141,6 +142,7 @@ Meteor.methods({
 			    		name: data[1],
 			    		email: data[2],
 			    		phone: (data[3])? data[3] : null,
+			    		confirmphone: (data[3])? true : false,
 			    		user_change: data[4],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
@@ -164,6 +166,40 @@ Meteor.methods({
 	      msgError = Meteor.call('msgFeedback', 'error', '000');
 	    }else if(!data[1]){
 	      msgError = Meteor.call('msgFeedback', 'error', '002');
+	    }else if(!data[3]){
+	      msgError = Meteor.call('msgFeedback', 'error', '005') + ' usuario.';
+	    }
+
+		if(!msgError){
+	   		User.update(
+	   			{_id:data[3]},
+	   			{$set:
+	   				{
+			    		phone: data[1],
+			    		confirmphone: (data[2])? data[2] : false,
+			    		user_change: data[3],
+			    		date_change:Meteor.call('dateNow')['dateNow']
+	   				}
+	   			}
+   			);
+
+   			return Meteor.call('msgFeedback', 'sucess', '001');
+		}else{
+		  	throw new Meteor.Error(500, msgError);
+		}
+	},
+
+	/*
+    data[0] = 111 (obrigatorio)
+    data[1] = confirm phone (obrigatorio)
+	data[2] = usuario id (obrigatorio)
+  	*/
+	'updatePerfilConfirmPhone': function(data){
+	    var msgError = '';
+	    if(data[0] !== 222){
+	      msgError = Meteor.call('msgFeedback', 'error', '000');
+	    }else if(!data[1]){
+	      msgError = Meteor.call('msgFeedback', 'error', '002');
 	    }else if(!data[2]){
 	      msgError = Meteor.call('msgFeedback', 'error', '005') + ' usuario.';
 	    }
@@ -173,7 +209,7 @@ Meteor.methods({
 	   			{_id:data[2]},
 	   			{$set:
 	   				{
-			    		phone: data[1],
+			    		confirmphone: (data[1])? data[1] : false,
 			    		user_change: data[2],
 			    		date_change:Meteor.call('dateNow')['dateNow']
 	   				}
