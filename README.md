@@ -1,1 +1,1 @@
-![](http://s16.postimg.org/ld55oyfyt/gerencia.png)
+![](http://s14.postimg.org/x84xge8ld/gerencuia.png)
