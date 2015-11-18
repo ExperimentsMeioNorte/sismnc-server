@@ -669,6 +669,11 @@ border-top-left-radius: 10px;
 .input-field input[type=text].valid, .input-field input[type=password].valid, .input-field input[type=email].valid, .input-field input[type=url].valid, .input-field input[type=date].valid, .input-field input[type=tel].valid, .input-field input[type=number].valid, .input-field input[type=search].valid, .input-field textarea.materialize-textarea.valid {
     color:#4061A6;
 }
+
+.pg-loading-screen .pg-loading-html {
+  margin-top:20px;
+}
+
 .loading-message {
   color:#999;font-size:16px;
 }
@@ -679,6 +684,10 @@ border-top-left-radius: 10px;
 
   width:40px;height:40px;
   display:table;margin:0 auto;
+}
+
+.pg-loading-screen .pg-loading-logo-header {
+  margin-top:0!important;
 }
 
 .pg-loading-screen .pg-loading-logo-header img {
