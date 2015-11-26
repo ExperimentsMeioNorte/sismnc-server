@@ -1,12 +1,16 @@
 Meteor.startup(function () {
   smtpServer = {
     username: 'alissonplus2@gmail.com',
-    password: '$12345678',
+    password: '$amor0512',
     server:   'smtp.gmail.com',
     port: 465
   }
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtpServer.username) + ':' + encodeURIComponent(smtpServer.password) + '@' + encodeURIComponent(smtpServer.server) + ':' + smtpServer.port;
+
+  //process.env.DDP_DEFAULT_CONNECTION_URL='http://admin.sistemameionorte.com.br';
+
+  //process.env.DISABLE_WEBSOCKETS = 1;
 
   // PERMISSIONS
   for(var i in collections){
