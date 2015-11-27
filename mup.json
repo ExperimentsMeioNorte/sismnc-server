@@ -31,8 +31,8 @@
 
   // Location of app (DIRETORIO LOCAL)
   // obs.: Obrigatorio o caminho absolutos
-  // "app": "/Users/juis/Projetos/Mobile/sismnc/admin", // localizacao local do Alisson
-  "app": "/Users/alexandesigner/Documents/Projects/OpenSource/sismnc-server", // localizacao local do Allan
+   "app": "/Users/juis/Projetos/Mobile/sismnc-server", // localizacao local do Alisson
+  //"app": "/Users/alexandesigner/Documents/Projects/OpenSource/sismnc-server", // localizacao local do Allan
 
   // Configure environment
   "env": {
