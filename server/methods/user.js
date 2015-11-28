@@ -298,7 +298,7 @@ Meteor.methods({
 	    	{
     			level: '2',
 	    		name: 'root',
-	    		avatar: null,
+	    		avatar: '/images/avatar.jpg',
 	    		email:'r@gmail.com',
 	    		password:CryptoJS.MD5('r@gmail.com' + '123').toString(),
 	    		facebook_id: null,
