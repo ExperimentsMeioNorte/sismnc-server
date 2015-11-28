@@ -32,7 +32,7 @@ Meteor.methods({
 	    }
 
 		if(!msgError){
-		    return User.insert(
+		    User.insert(
 		    	{
 	    			level: data[1],
 		    		name: data[2],
