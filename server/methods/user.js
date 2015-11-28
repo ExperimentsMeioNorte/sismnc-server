@@ -271,7 +271,16 @@ Meteor.methods({
 	},
 
 	'updateUserPassword': function(data){
-		if(data[0] === 222){
+		var msgError = '';
+	    if(data[0] !== 222){
+	      msgError = Meteor.call('msgFeedback', 'error', '000');
+	    }else if(!data[1]){
+	      msgError = Meteor.call('msgFeedback', 'error', '005');
+    	}else if(!data[2] && !data[3]){
+	      msgError = Meteor.call('msgFeedback', 'error', '002');
+	    }
+
+		if(!msgError){
 	   		User.update(
 	   			{_id:data[1]},
 	   			{$set:
@@ -281,8 +290,9 @@ Meteor.methods({
 	   				}
 	   			}
    			);
+   			return Meteor.call('msgFeedback', 'sucess', '001');
 		}else{
-		  //erro aqui
+		  throw new Meteor.Error(500, msgError);
 		}
 	},
 
