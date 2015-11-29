@@ -32,7 +32,7 @@ Meteor.methods({
 	    }
 
 		if(!msgError){
-		    User.insert(
+		    var userId = User.insert(
 		    	{
 	    			level: data[1],
 		    		name: data[2],
@@ -51,7 +51,7 @@ Meteor.methods({
 		    		date_change:Meteor.call('dateNow')['dateNow']
 		    	}
 	    	);
-	    	return Meteor.call('msgFeedback', 'sucess', '000');
+	    	return [Meteor.call('msgFeedback', 'sucess', '000'), userId];
 		}else{
 			throw new Meteor.Error(500, msgError);
 		}
