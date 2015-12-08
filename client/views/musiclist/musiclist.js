@@ -23,20 +23,15 @@ Template.musiclist.rendered = function(){
 
 Template.musiclist.helpers({
 	'contents': function(){
-        var find = {
-            date_record: {
-                $gte: Session.get('getupDateBegin'),
-                $lte: Session.get('getupDateEnd')
-            }
-        };
+        var find = {};
 
         if(Meteor.userLevel === 1){
             find = {
-                program_id: Meteor.userProgram,
-                date_record: {
-                    $gte: Session.get('getupDateBegin'),
-                    $lte: Session.get('getupDateEnd')
-                }
+                program_id: Meteor.userProgram
+                // date_record: {
+                //     $gte: Session.get('getupDateBegin'),
+                //     $lte: Session.get('getupDateEnd')
+                // }
             };
         }
 
@@ -67,7 +62,7 @@ Template.musiclist.helpers({
 
     			return {
     				_id:                    m._id,
-                    program_id:             m.program_id,
+            program_id:             m.program_id,
     				text:                   m.text,
     				actor:                  m.actor,
     				timeCompared:           Session.get('getupToolTimeCompare' + m._id),
@@ -82,20 +77,15 @@ Template.musiclist.helpers({
 	},
 
     'mais': function(){
-        var find = {
-            date_record: {
-                $gte: Session.get('getupDateBegin'),
-                $lte: Session.get('getupDateEnd')
-            }
-        };
+        var find = {};
 
         if(Meteor.userLevel === 1){
             find = {
-                program_id: Meteor.userProgram,
-                date_record: {
-                    $gte: Session.get('getupDateBegin'),
-                    $lte: Session.get('getupDateEnd')
-                }
+                program_id: Meteor.userProgram
+                // date_record: {
+                //     $gte: Session.get('getupDateBegin'),
+                //     $lte: Session.get('getupDateEnd')
+                // }
             };
         }
 

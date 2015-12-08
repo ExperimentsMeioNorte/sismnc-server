@@ -6,7 +6,7 @@ Template.programs.helpers({
     				_id:p._id,
     				name:p.name,
     				image_avatar:p.image_avatar,
-                    status: ((p.status === 1)? 'Ativado' : 'Desativado')
+            status: ((p.status === 1)? 'Ativado' : 'Desativado')
     			};
     		}
 		);

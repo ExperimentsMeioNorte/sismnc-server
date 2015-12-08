@@ -31,19 +31,10 @@ Template.index.helpers({
     },
 
 	'contents': function(){
-        var find = {
-            date_record: {
-                $gte: Session.get('getupDateBegin'),
-                $lte: Session.get('getupDateEnd')
-            }
-        };
+        var find = {};
         if(Meteor.userLevel === 1){
             find = {
-                program_id: Meteor.userProgram,
-                date_record: {
-                    $gte: Session.get('getupDateBegin'),
-                    $lte: Session.get('getupDateEnd')
-                }
+                program_id: Meteor.userProgram
             };
         }
 
@@ -94,19 +85,10 @@ Template.index.helpers({
 	},
 
     'mais': function(){
-        var find = {
-            date_record: {
-                $gte: Session.get('getupDateBegin'),
-                $lte: Session.get('getupDateEnd')
-            }
-        };
+        var find = {};
         if(Meteor.userLevel === 1){
             find = {
-                program_id: Meteor.userProgram,
-                date_record: {
-                    $gte: Session.get('getupDateBegin'),
-                    $lte: Session.get('getupDateEnd')
-                }
+                program_id: Meteor.userProgram
             };
         }
 
