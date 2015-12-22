@@ -8,17 +8,11 @@
 	  		<span>Timeline</span>
 	  	</a>
 	  </li>
-	 <!--  <li class="{{ isActiveRoute 'city' }}">
-	  	<a href="{{pathFor 'city' }}">
-	  		<i class="mdi-maps-place"></i>
-	  		<span>Localidades</span>
-	  	</a>
-	  </li> -->
 	  {{#if admin}}
   	  <li class="{{ isActiveRoute 'vehicle|vehicleNew|vehicleUpdate' }}">
   	  	<a href="{{pathFor 'vehicle' }}">
   	  		<i class="mdi-action-bookmark"></i>
-  	  		<span>Veiculos</span>
+  	  		<span>Veículos</span>
   	  	</a>
   	  </li>
   	  <li class="{{ isActiveRoute 'category|categoryNew|categoryUpdate' }}">
@@ -43,6 +37,12 @@
       <a href="{{pathFor 'musiclist' }}">
         <i class="mdi-av-my-library-music"></i>
         <span>Músicas</span>
+      </a>
+    </li>
+    <li class="{{ isActiveRoute 'city' }}">
+      <a href="{{pathFor 'city' }}">
+        <i class="mdi-maps-place"></i>
+        <span>Localidades</span>
       </a>
     </li>
   	<li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">
