@@ -4,57 +4,51 @@
 	<ul class="right hide-on-med-and-down">
 	  <li class="{{ isActiveRoute 'index' }}">
 	  	<a href="{{pathFor 'index' }}">
-	  		<i class="mdi-editor-insert-comment"></i>
+	  		<i class="mdi-action-question-answer"></i>
 	  		<span>Timeline</span>
 	  	</a>
 	  </li>
-	  <!-- <li class="{{ isActiveRoute 'notify|notifyNew|notifyUpdate' }}">
-	  	<a href="{{pathFor 'notify' }}">
-	  		<i class="mdi-notify-sim-card-alert"></i>
-	  		<span>Notificações</span>
+	 <!--  <li class="{{ isActiveRoute 'city' }}">
+	  	<a href="{{pathFor 'city' }}">
+	  		<i class="mdi-maps-place"></i>
+	  		<span>Localidades</span>
 	  	</a>
 	  </li> -->
-	  <li class="{{ isActiveRoute 'poll|pollNew|pollUpdate' }}">
-	  	<a href="{{pathFor 'poll' }}">
-	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Enquete</span>
-	  	</a>
-	  </li>
-	  <li class="{{ isActiveRoute 'musiclist' }}">
-	  	<a href="{{pathFor 'musiclist' }}">
-	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Música</span>
-	  	</a>
-	  </li>
-	  <li class="{{ isActiveRoute 'city' }}">
-	  	<a href="{{pathFor 'city' }}">
-	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Cidade</span>
-	  	</a>
-	  </li>
 	  {{#if admin}}
   	  <li class="{{ isActiveRoute 'vehicle|vehicleNew|vehicleUpdate' }}">
-	  	<a href="{{pathFor 'vehicle' }}">
-	  		<i class="mdi-notify-sim-card-alert"></i>
-	  		<span>Veiculo</span>
-	  	</a>
-	  </li>
-	  <li class="{{ isActiveRoute 'category|categoryNew|categoryUpdate' }}">
-	  	<a href="{{pathFor 'category' }}">
-	  		<i class="mdi-notify-sim-card-alert"></i>
-	  		<span>Categoria</span>
-	  	</a>
-	  </li>
-  	  <li class="{{ isActiveRoute 'programs|programNew|programUpdate' }}">
-	  	<a href="{{pathFor 'programs' }}">
-	  		<i class="mdi-hardware-desktop-windows"></i>
-	  		<span>Programa</span>
-	  	</a>
-	  </li>
-  	  <li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">
+  	  	<a href="{{pathFor 'vehicle' }}">
+  	  		<i class="mdi-action-bookmark"></i>
+  	  		<span>Veiculos</span>
+  	  	</a>
+  	  </li>
+  	  <li class="{{ isActiveRoute 'category|categoryNew|categoryUpdate' }}">
+  	  	<a href="{{pathFor 'category' }}">
+  	  		<i class="mdi-action-label"></i>
+  	  		<span>Categorias</span>
+  	  	</a>
+  	  </li>
+    	  <li class="{{ isActiveRoute 'programs|programNew|programUpdate' }}">
+  	  	<a href="{{pathFor 'programs' }}">
+  	  		<i class="mdi-hardware-desktop-windows"></i>
+  	  		<span>Programas</span>
+  	  	</a>
+  	  </li>
+    <li class="{{ isActiveRoute 'poll|pollNew|pollUpdate' }}">
+      <a href="{{pathFor 'poll' }}">
+        <i class="mdi-editor-insert-comment"></i>
+        <span>Enquetes</span>
+      </a>
+    </li>
+    <li class="{{ isActiveRoute 'musiclist' }}">
+      <a href="{{pathFor 'musiclist' }}">
+        <i class="mdi-av-my-library-music"></i>
+        <span>Músicas</span>
+      </a>
+    </li>
+  	<li class="{{ isActiveRoute 'user|userNew|userUpdate' }}">
 	  	<a href="{{pathFor 'user' }}">
-	  		<i class="mdi-action-question-answer"></i>
-	  		<span>Usuário</span>
+	  		<i class="mdi-social-people"></i>
+	  		<span>Usuários</span>
 	  	</a>
 	  </li>
 	  {{/if}}
