@@ -10,6 +10,8 @@ Meteor.methods({
 	data[7] = google ID
 	data[8] = programa ID (obrigatorio se tiver marcado o nivel como administrador do programa)
     data[9] = *status (default: 1)
+	data[10] = id do usuario que cadastrou
+	data[11] = telefone
 
     *
 	level:
@@ -38,15 +40,15 @@ Meteor.methods({
 		    		name: data[2],
 		    		avatar: data[3],
 		    		email: data[4],
-		    		password:CryptoJS.MD5(data[4] + data[5]).toString(),
+		    		password:CryptoJS.MD5(data[11] + data[5]).toString(),
 		    		facebook_id: data[6],
 		    		google_id: data[7],
 		    		program_id: data[8],
 		    		status: data[9],
 		    		user_record: data[10],
 		    		user_change: data[10],
-		    		phone: null,
-		    		confirmphone: false,
+		    		phone: data[11],
+		    		confirmphone: true,
 		    		date_record:Meteor.call('dateNow')['dateNow'],
 		    		date_change:Meteor.call('dateNow')['dateNow']
 		    	}
