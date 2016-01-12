@@ -1,4 +1,6 @@
 Template.userNew.rendered = function () {
+	VMasker(this.find("[data-vm-mask-phone]")).maskPattern("(99)999999999");
+
 	//testa se existe dados na collection local, se nao, envia pra pagina inicial de enquete
 	if(Level.find().count() === 0){
 		Router.go('user');
@@ -56,19 +58,20 @@ Template.userNew.events({
 		if(form.target[1].value === ''
 			|| form.target[2].value === ''
 			|| form.target[3].value === ''
-			|| form.target[5].value === ''){
+			|| form.target[4].value === ''
+			|| form.target[6].value === ''){
 			toastr.warning(
 				"Preecha os campos obrigatorios.",
 				'',
 				{"progressBar": true}
 			);
-		}else if((form.target[1].value).length > 200 || (form.target[2].value).length > 200 || (form.target[3].value).length > 200){
+		}else if((form.target[1].value).length > 200 || (form.target[2].value).length > 13 || (form.target[3].value).length > 200 || (form.target[4].value).length > 200){
 			toastr.warning(
 				"rum, ultrapassou o limite de caracteres, somente possivel 200.",
 				'',
 				{"progressBar": true}
 			);
-		}else if(form.target[5].value === 1 && !form.target[7].value){
+		}else if(form.target[6].value === 1 && !form.target[8].value){
 			toastr.warning(
 				"rum, Necessario escolher um programa.",
 				'',
@@ -82,19 +85,20 @@ Template.userNew.events({
 					form.target[5].value,
 					form.target[1].value,
 					Session.get('getupFormImgBase64Avatar'),
-					form.target[2].value,
 					form.target[3].value,
+					form.target[4].value,
 					null,
 		    		null,
 		    		form.target[7].value,
 		    		((form.target[10].value)? 1 : 0),
-		    		Meteor.userId2
+		    		Meteor.userId2,
+		    		form.target[2].value
 				]
 			);
 
 			//remove os dados dos campos do form para evitar a duplicidade do registro
-			form.target[1].value = form.target[2].value = form.target[3].value = form.target[5].value = '';
-			form.target[6].src = '';
+			form.target[1].value = form.target[2].value = form.target[3].value = form.target[4].value = form.target[5].value = '';
+			form.target[7].src = '';
 
 			//mostra a mensagem de sucesso, com botao OK para confirmar e ir para a lista
 			toastr.success(
